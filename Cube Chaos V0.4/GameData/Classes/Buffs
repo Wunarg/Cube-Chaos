@@ -1,0 +1,761 @@
+
+BUFF: Priest
+BelongsTo: CLASS
+Description: Healing and Smiting End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Area_Heal
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Healing_Container
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Altar_Of_Reverance
+End
+
+BUFF: Warrior
+BelongsTo: CLASS
+Description: Your Core can Meele and charges towards the enemy, but you can teleport the core back End
+Ability: EveryXMeeleY TimeKonstant 70 DoubleKonstant 3
+Ability: ChargeEveryX TimeKonstant 120
+Ability: AfterThisIsCreated SummonCubeOnPosition CubeKonstant Warriors_Heart PositionInDirectionFromPosition ReverseDirection EnemyDirection PositionOfCube Caster
+Ability: EverySecond AddCubeToHandOfThis CubeKonstant Core_Return
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Strength_Potion
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Tiny_Castle
+End
+
+BUFF: Wizard
+BelongsTo: CLASS
+Description: All spells or other decaying cubes refund 1/3 of their mana End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell Both GenerateXMana Division ManaCostOfCube Victim DoubleKonstant 3
+TargetCube Victim ChangeManaCost Division ManaCostOfCube Victim DoubleKonstant -3
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Mana_Battery
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Shock_Wave
+End
+
+BUFF: Engineer
+BelongsTo: CLASS
+Description: Tinker with cubes to give them extra hp, 2 tinkered cubes will fiuse, if there is space between them End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Tinkering
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Basic_Gun
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Lightning_Transport_Belt
+End
+
+BUFF: Pyromaniac
+BelongsTo: CLASS
+Description: Every Cube you or your Cubes create explodes for 1 damage after it dies End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility ExplodesX DoubleKonstant 1
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Tiny_Bomb
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Explosion_Time
+End
+
+BUFF: Rogue
+BelongsTo: CLASS
+Description: Entering Into Enemy Lands End
+Ability: EveryXSeconds TimeKonstant 40 AddCubeToHandOfThis CubeKonstant Incursion
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Time_Bomb
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Posionours_Kit
+End
+
+BUFF: NoClass
+BelongsTo: CLASS
+Description: Get A Stronger Race Bonus End
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Mana_Cube
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Mindcontrol
+End
+
+BUFF: Dwarf
+BelongsTo: RACE
+Description: Strong and sturdy Stone and its strong and sturdy warriors End
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Stone
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Dwarven_Warrior
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Excavate
+End
+
+BUFF: Shadow
+BelongsTo: RACE
+Ability: Shadow
+Description: Your Core has shadow, all touching enemys take damage, and sold shadows only deal half damage to the core End
+Ability: BeforeThisTakesDamage If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow EveryXTimes DoubleKonstant 2 NegateX DoubleKonstant 10
+Ability: EverySecond EveryCubeWhich IsTouchingTarget If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Decay_Bolt
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Turn_To_Shadow
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Obsidian
+End
+
+BUFF: Elemental
+BelongsTo: RACE
+Description: Your Core has a random Elemental Power, which gives you free cubes End
+Ability: RandomElementalPower
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Evaporate
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Lava
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Sand_Portal
+End
+
+BUFF: Plant
+BelongsTo: RACE
+Description: Your Core grows and Regenerates, any friendly cube which gets killed by an enemy gives all touching friendly cubes extra hp End
+Ability: RegenerationX DoubleKonstant 4
+Ability: GrowthX DoubleKonstant 4
+Ability: AfterACubeDies TargetCube Victim If IsFriendToCaster Victim If IsEnemyToCaster Culprit EveryCubeWhich AND IsFriendToCaster Test IsTouchingTarget 
+Both ChangeMaxHp DoubleKonstant 2
+HealXDamage DoubleKonstant 2
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Plant_Warrior
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Thorn_Hedge
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Blue_Moss
+End
+
+BUFF: Crystal
+BelongsTo: RACE
+Description: After you place a Cube it gets 1 extra hp for every friend touching it End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
+Both ChangeMaxHp DoubleKonstant 1
+HealXDamage DoubleKonstant 1
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Crystal_Wall
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Pain_Mirror
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Crystal_Crush
+End
+
+BUFF: Chaos
+BelongsTo: RACE
+Description: Make do with the most random of cubes End
+Ability: EverySecond GenerateXMana DoubleKonstant 1
+Ability: AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfThis TRUE ChangeManaCost ManaCostOfCube Target
+Ability: AfterThisIsCreated GenerateXMana DoubleKonstant 50
+Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 100 FactionOfThis
+Ability: EveryXMinutes DoubleKonstant 2 AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Chaotic_Chest
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Transform
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Chaotic_Essence
+End
+
+BUFF: NoRace
+BelongsTo: RACE
+Description: Get A Stronger Class Bonus End
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Spiker_Wall
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Replicator
+ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Call_Warrior
+End
+
+BUFF: Priest-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone you place regenerates Hp over Time End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility RegenerationX DoubleKonstant 10
+End
+
+BUFF: Warrior-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone you place has a meele Attack End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 3
+End
+
+BUFF: Wizard-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone you place store mana for you End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis GainAbility AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -10 FactionOfThis
+End
+
+BUFF: Engineer-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone starts tinkered, but only has 10 hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both GainAbility Tinkered Silent Both TakeXDamage DoubleKonstant 20 ChangeMaxHp DoubleKonstant -20
+End
+
+BUFF: Pyromaniac-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone Explodes for 4 additional damage after it dies End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis GainAbility ExplodesX DoubleKonstant 4
+End
+
+BUFF: Rogue-Dwarf
+BelongsTo: CLASSRACE
+Description: All stone slowly deals damage to enemys below it End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim 
+GainAbility Every3Seconds TargetCube CubeInDirectionFromCube South Caster If IsEnemyToCaster Target TakeXDamage DoubleKonstant 1
+End
+
+BUFF: NoClass-Dwarf
+BelongsTo: CLASSRACE
+Description: All Stone has 20 more hp End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both Silent ChangeMaxHp DoubleKonstant 20 HealXDamage DoubleKonstant 20
+End
+
+BUFF: Priest-Shadow
+BelongsTo: CLASSRACE
+Description: Solid Shadows regenerate Hp rapidly End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim GainAbility RegenerationX DoubleKonstant 60
+End
+
+BUFF: Warrior-Shadow
+BelongsTo: CLASSRACE
+Description: Solid Shadows have a Meele Attack End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 70 DoubleKonstant 1
+End
+
+BUFF: Wizard-Shadow
+BelongsTo: CLASSRACE
+Description: Spells and decaying things you place have Shadow End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell TargetCube Victim GainAbility Shadow
+End
+
+BUFF: Engineer-Shadow
+BelongsTo: CLASSRACE
+Description: Cubes you tinker with have shadow End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim GainAbility Shadow
+End
+
+BUFF: Pyromaniac-Shadow
+BelongsTo: CLASSRACE
+Description: Solid Shadows die after 30 Seconds and Explode for 5 damage on death End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim 
+Both GainAbility AfterThisDies EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 5
+GainAbility DieAfterX TimeKonstant 1800
+End
+
+BUFF: Rogue-Shadow
+BelongsTo: CLASSRACE
+Description: Solid Shadows start with +1 Strength(+1 damage) End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim 
+GainAbility StrengthX DoubleKonstant 1
+End
+
+BUFF: NoClass-Shadow
+BelongsTo: CLASSRACE
+Description: All Solid_Shadows have 7 extra hp, can fly, and move around randomly End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim 
+Both Both Silent ChangeMaxHp DoubleKonstant 7 HealXDamage DoubleKonstant 7
+Both GainAbility RandomMovementX TimeKonstant 60
+GainAbility Flying
+End
+
+BUFF: Priest-Elemental
+BelongsTo: CLASSRACE
+Description: Get free healing Holy Water every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Holy_Water
+End
+
+BUFF: Warrior-Elemental
+BelongsTo: CLASSRACE
+Description: Get free Attack rocks balls every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Attack_Rock
+End
+
+BUFF: Wizard-Elemental
+BelongsTo: CLASSRACE
+Description: Get free small fire balls every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Small_Fire_Ball
+End
+
+BUFF: Engineer-Elemental
+BelongsTo: CLASSRACE
+Description: Get free floating cloud every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Air_Cloud
+End
+
+BUFF: Pyromaniac-Elemental
+BelongsTo: CLASSRACE
+Description: Get free Chaining Fire every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Chain_Fire
+End
+
+BUFF: Rogue-Elemental
+BelongsTo: CLASSRACE
+Description: Get free Liquid Poison every 20 Seconds End
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Liquid_Poison
+End
+
+BUFF: NoClass-Elemental
+BelongsTo: CLASSRACE
+Description: 3 Random Elemental Powers instead of one End
+Ability: RandomElementalPower
+Ability: RandomElementalPower
+End
+
+BUFF: Priest-Plant
+BelongsTo: CLASSRACE
+Description: All your Cubes slowly gain max hp End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility Every30Seconds ChangeMaxHp DoubleKonstant 1
+End
+
+BUFF: Warrior-Plant
+BelongsTo: CLASSRACE
+Description: After a friendly Cube dies all other touching cubes gain a meele attack End
+Ability: AfterACubeDies TargetCube Victim If AND IsFriendToCaster Victim NOT IsFriendToCaster Culprit EveryCubeWhich AND IsFriendToCaster Test IsTouchingTarget 
+GainAbility EveryXMeeleY TimeKonstant 200 DoubleKonstant 2
+End
+
+BUFF: Wizard-Plant
+BelongsTo: CLASSRACE
+Description: EveryMinute you gain a thorny Mana Hedge onto your hand End
+Ability: EveryMinute AddCubeToHandOfThis CubeKonstant Mana_Hedge
+End
+
+BUFF: Engineer-Plant
+BelongsTo: CLASSRACE
+Description: Tinkered Cubes also gain some regeneration End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim GainAbility RegenerationX DoubleKonstant 4
+End
+
+BUFF: Pyromaniac-Plant
+BelongsTo: CLASSRACE
+Description: A Murder of a friendly Cube heals all touching Cubes for 2 more and also makes them explode for 2 more End
+Ability: AfterACubeDies TargetCube Victim If IsFriendToCaster Victim If IsEnemyToCaster Culprit EveryCubeWhich AND IsFriendToCaster Test IsTouchingTarget 
+Both GainAbility ExplodesX DoubleKonstant 2
+HealXDamage DoubleKonstant 2
+End
+
+BUFF: Rogue-Plant
+BelongsTo: CLASSRACE
+Description: Cubes above enemys grow to more hp quickly End
+Ability: Every10Seconds EveryCubeWhich AND IsFriendToCaster Test IsEnemyToCaster CubeInDirectionFromCube South Test
+Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End
+
+BUFF: NoClass-Plant
+BelongsTo: CLASSRACE
+Description: Every 2 Minutes Your Core deals 1 additional damage to cubes damaging it End
+Ability: EveryXMinutes DoubleKonstant 2 GainAbility RetaliateX DoubleKonstant 1
+End
+
+BUFF: Priest-Crystal
+BelongsTo: CLASSRACE
+Description: Creating an Area_Heal surrounded by friends will cause all friendly cubes to be healed by 1 End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Area_Heal TargetCube Victim If TargetIsSurroundedByFriends
+EveryCubeWhich IsFriendToCaster Test HealXDamage DoubleKonstant 1
+End
+
+BUFF: Warrior-Crystal
+BelongsTo: CLASSRACE
+Description: Cubes which are created surrounded by friends get a good meele attack End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If TargetIsSurroundedByFriends
+GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 5
+End
+
+BUFF: Wizard-Crystal
+BelongsTo: CLASSRACE
+Description: Spells and decying things you place refund 1/3  of their mana cost if they are surrounded by friends End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell 
+If TargetIsSurroundedByFriends Both GenerateXMana Division ManaCostOfCube Victim DoubleKonstant 3
+TargetCube Victim ChangeManaCost Division ManaCostOfCube Victim DoubleKonstant -3
+End
+
+BUFF: Engineer-Crystal
+BelongsTo: CLASSRACE
+Description: Friendly Cubes created by other Cubes also gain the extra hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If NOT IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
+Both ChangeMaxHp DoubleKonstant 1
+HealXDamage DoubleKonstant 1
+End
+
+BUFF: Pyromaniac-Crystal
+BelongsTo: CLASSRACE
+Description: Friendy Cubes created by another cube gain 1 Explosive for each touching friend End
+Ability: AfterAnotherFriendlyCubeIsCreated If NOT IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
+GainAbility ExplodesX DoubleKonstant 1
+End
+
+BUFF: Rogue-Crystal
+BelongsTo: CLASSRACE
+Description: Placed Cubes also gain 2 hp for every touching enemy End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsEnemyToCaster Test TargetCube Victim
+Both ChangeMaxHp DoubleKonstant 2
+HealXDamage DoubleKonstant 1
+End
+
+BUFF: NoClass-Crystal
+BelongsTo: CLASSRACE
+Description: Cubes you place surrounded by friendly cubes gain 16 extra hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim If TargetIsSurroundedByFriends
+Both ChangeMaxHp DoubleKonstant 16
+HealXDamage DoubleKonstant 16
+End
+
+BUFF: Priest-Chaos
+BelongsTo: CLASSRACE
+Description: Creating an Area_Heal also heals 2 COMPLETLY RANDOM damaged Cubes for 2 End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Area_Heal TargetCube Victim
+TargetCube ARandomCubeWhich IsDamaged HealXDamage DoubleKonstant 2
+End
+
+BUFF: Warrior-Chaos
+BelongsTo: CLASSRACE
+Description: Every freindly Warrior created gains a random buffs End
+Ability: AfterAnotherFriendlyCubeIsCreated If AND 
+CubeHasTriggerWithName Victim EveryXMeeleY CubeHasTriggerWithName Victim ChargeEveryX
+TargetCube Victim GainAbility RandomBuff
+End
+
+BUFF: Wizard-Chaos
+BelongsTo: CLASSRACE
+Description: Every30Seconds gain a spell which casts a random spell End
+Ability: Every30Seconds AddCubeToHandOfThis CubeKonstant Chaos_Cast
+End
+
+BUFF: Engineer-Chaos
+BelongsTo: CLASSRACE
+Description: Cubes you tinker with gain a random buff, but tinkering costs twice as much too End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering 
+Both TargetCube CubeInDirectionFromCube South Victim GainAbility RandomBuff
+GenerateXMana DoubleKonstant -40
+End
+
+BUFF: Pyromaniac-Chaos
+BelongsTo: CLASSRACE
+Description: When a Cube Explodes a random Cube takes 2 Damage End
+Ability: BeforeACubeDies If CubeHasTriggerWithName Victim ExplodesX TargetCube ARandomCubeWhich TRUE TakeXDamage DoubleKonstant 2
+End
+
+BUFF: Rogue-Chaos
+BelongsTo: CLASSRACE
+Description: Every minute gain a copy of a random enemy cube in your hand End
+Ability: EveryMinute TargetCube ARandomCubeWhich IsEnemyToCaster Test AddCubeToHandOfFaction Target FactionOfThis
+End
+
+BUFF: NoClass-Chaos
+BelongsTo: CLASSRACE
+Description: Every 30 Seconds gain a random Combination of 2 random non Tokens End
+Ability: Every30Seconds AddCubeToHandOfThis CombinationOf2Cubes 
+ARandomCubeFromLibraryWhich NOT IsToken Test
+ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+BUFF: Priest-NoRace
+BelongsTo: CLASSRACE
+Description: Area_Heal heals for 2 more End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Area_Heal TargetCube Victim
+EveryCubeWhich IsInAoEAroundTarget HealXDamage DoubleKonstant 2
+End
+
+BUFF: Warrior-NoRace
+BelongsTo: CLASSRACE
+Description: Your Core has an additional quicker weaker meele attack End
+Ability: EveryXMeeleY TimeKonstant 30 DoubleKonstant 1
+End
+
+BUFF: Wizard-NoRace
+BelongsTo: CLASSRACE
+Description: When you create a Spell or decaying thing it gains +1 Damage End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell 
+TargetCube Victim GainAbility StrengthX DoubleKonstant 1
+End
+
+BUFF: Engineer-NoRace
+BelongsTo: CLASSRACE
+Description: Cubes you tinker with deal 1 damage to a random Enemy after they die End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim 
+GainAbility AfterThisDies TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Pyromaniac-NoRace
+BelongsTo: CLASSRACE
+Description: Cubes created by Enemys also Explode for 1 End
+Ability: AfterACubeIsCreated If IsEnemyToCaster Culprit TargetCube Victim GainAbility ExplodesX DoubleKonstant 1
+End
+
+BUFF: Rogue-NoRace
+BelongsTo: CLASSRACE
+Description: When your cubes deal damage to an enemy the square of that enemy becomes placabel End
+Ability: AfterACubeTakesDamage If IsEnemyToCaster Victim If IsFriendToCaster Culprit SetPositionPlacability PositionOfCube Victim  TRUE
+End
+
+BUFF: NoClass-NoRace
+BelongsTo: CLASSRACE
+Description: Regenerate Mana slightly faster End
+Ability: Every3Seconds GenerateXMana DoubleKonstant 1
+End
+
+BUFF: Damaged_Veterans
+BelongsTo: Priest
+Description: Deal 1 damage to every friendly Cube created, but they also gain 1 max hp End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim Both TakeXDamage DoubleKonstant 1 ChangeMaxHp DoubleKonstant 1
+End
+
+BUFF: Strengthened_Robe
+BelongsTo: Priest
+Description: 20 more max hp End
+Ability: AfterThisIsCreated ChangeMaxHp DoubleKonstant 20
+End
+
+BUFF: Tiny_Healing_Container
+BelongsTo: Priest
+Description: Heal a damaged friend for 1 every 30 seconds End
+Ability: Every30Seconds TargetCube ARandomCubeWhich AND IsDamaged IsFriendToCaster Test HealXDamage DoubleKonstant 1
+End
+
+BUFF: Quicker_Healing
+BelongsTo: Priest
+Description: More Area Healing Spells End
+Ability: EveryMinute AddCubeToHandOfThis CubeKonstant Area_Heal
+End
+
+BUFF: Holy_Dragon_Egg
+BelongsTo: Priest
+Description: you start with a holy dragon egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Holy_Dragon_Egg
+End
+
+BUFF: Healer_Training
+BelongsTo: Priest
+Description: Heal the Cube infront of the core End
+Ability: Every2Seconds TargetCube CubeInDirectionFromCube EnemyDirection Caster If IsFriendToCaster Target HealXDamage DoubleKonstant 1
+End
+
+BUFF: Residue_Healing
+BelongsTo: Priest
+Description: Cubes you Area Heal gain a littel regeneration End
+Ability: BeforeACubeHeals If CubeHasNameOfCube Culprit CubeKonstant Area_Heal TargetCube Victim If IsFriendToCaster Target GainAbility RegenerationX DoubleKonstant 1
+End
+
+BUFF: Worthy_Sacrifice
+BelongsTo: Priest
+Description: Heal for 2 and gain 1 Mana after a friendy Cube kills a friendly Cube End
+Ability: AfterACubeDies If NOT IsSameCube Victim Culprit If IsFriendToCaster Victim If IsFriendToCaster Culprit Both HealXDamage DoubleKonstant 2 GenerateXMana DoubleKonstant 1
+End
+
+BUFF: Carrying
+BelongsTo: Warrior
+Description: Move the Cube above your Core when it moves End
+Ability: AfterThisMoves TargetCube CubeOfPosition PositionInDirectionFromPosition North PositionInDirectionFromPosition ReverseDirection EventDirection PositionOfCube Caster MoveInDirection EventDirection
+End
+
+BUFF: Spare_Swords
+BelongsTo: Warrior
+Description: The first 2 Cubes you place gains a huge meele attack End
+Ability: AfterAnotherFriendlyCubeIsCreated XShots DoubleKonstant 2 TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 60 DoubleKonstant 5
+End
+
+BUFF: Anger_Dragon_Egg
+BelongsTo: Warrior
+Description: You start with an Anger_Dragon_Egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Anger_Dragon_Egg
+End
+
+BUFF: Healing_Return
+BelongsTo: Warrior
+Description: After you place core return the core also heals for 5 End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Core_Return TargetCube CubeInDirectionFromCube South Victim HealXDamage DoubleKonstant 5
+End
+
+BUFF: Combat_Experience
+BelongsTo: Warrior
+Description: Before your Core deals damage in meele gain 2 max hp End
+Ability: BeforeThisDealsDamage EveryCubeWhich AND IsTouchingTarget IsEnemyToCaster Test TargetCube Caster ChangeMaxHp DoubleKonstant 2
+End
+
+BUFF: Hardy_Heart
+BelongsTo: Warrior
+Description: Your Heart has 20 more hp End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Heart TargetCube Victim Both ChangeMaxHp DoubleKonstant 20 HealXDamage DoubleKonstant 20 
+End
+
+
+BUFF: Magic_Dragon_Egg
+BelongsTo: Wizard
+Description: You start with an Magic_Dragon_Egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Magic_Dragon_Egg
+End
+
+BUFF: Aprentice
+BelongsTo: Wizard
+Description: You start with an apprentice behind your core, he sometimes copys your spells End
+Ability: AfterThisIsCreated SummonCubeOnPosition CubeKonstant Wizard_Aprentice PositionInDirectionFromPosition Backwards PositionOfCube Caster
+End
+
+BUFF: Magic_Overload
+BelongsTo: Wizard
+Description: +1 Damage for all cubes you place which decay or are spells but your Core takes damage over time End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell 
+TargetCube Victim GainAbility StrengthX DoubleKonstant 1
+Ability: PoisonX DoubleKonstant 15
+End
+
+BUFF: Mana_Shielding
+BelongsTo: Wizard
+Description: When you have more than 90 Mana your Mana takes 1 damage instead of your Core End
+Ability: BeforeThisTakesDamage If IsLarger ManaOfFaction FactionOfThis DoubleKonstant 90 Both 
+GenerateXMana DoubleKonstant -1
+NegateX DoubleKonstant 1
+End
+
+BUFF: Mana_Flower
+BelongsTo: Wizard
+Description: EveryMinute add a cheap mana generating Flower to your hand End
+Ability: EveryMinute AddCubeToHandOfThis CubeKonstant Mana_Flower
+End
+
+BUFF: Magical_Flight
+BelongsTo: Wizard
+Description: If you have more than 55 Mana more your Core can fly End
+Ability: AfterThisMoves If HaveMoreThanXMana DoubleKonstant 55 If AND NOT IsSameCube Culprit Caster IsSameDirection EventDirection South Silent TeleportToPosition OriginalPosition
+End
+
+BUFF: Mana_Storing_Experience
+BelongsTo: Wizard
+Description: When you have more than 40 Mana gain Max Mana slowly End
+Ability: Every10Seconds If HaveMoreThanXMana DoubleKonstant 40 ChangeMaxManaOfFaction DoubleKonstant 1 FactionOfThis
+End
+
+
+BUFF: Iron_Dragon_Egg
+BelongsTo: Engineer
+Description: You start with an Iron_Dragon_Egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Iron_Dragon_Egg
+End
+
+BUFF: Hand_Gun
+BelongsTo: Engineer
+Description: Your core shoots normal bullets every 10 seconds End
+Ability: Every10Seconds SummonCubeOnPosition CubeKonstant Bullet PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+BUFF: Phasing_Hand_Gun
+BelongsTo: Engineer
+Description: Your core shoots phasing bullets every 17 seconds End
+Ability: EveryXSeconds DoubleKonstant 17 SummonCubeOnPosition CubeKonstant Phasing_Bullet PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End 
+
+BUFF: Tinker_Armor_Plates
+BelongsTo: Engineer
+Description: Tinkering adds 1 extra hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End
+
+BUFF: Miniturized_Fire_Shield
+BelongsTo: Engineer
+Description: Your core deals damage to cube in a shield area infront of it End
+Ability: Every2Seconds EveryCubeWhich IsInShieldArea If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
+End
+
+BUFF: LAZOR
+BelongsTo: Engineer
+Description: Tinkered Cubes also shoot LAZORS slowly, be aware of friendly fire End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim GainAbility
+Every5Seconds SummonCubeOnPosition CubeKonstant Basic_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+BUFF: Repairing 
+BelongsTo: Engineer
+Description: Tinkering heals the Cube for 5 Hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering TargetCube CubeInDirectionFromCube South Victim HealXDamage DoubleKonstant 5
+End
+
+BUFF: Explosive_Dragon
+BelongsTo: Pyromaniac
+Description: You start with an Explosive_Dragon_Egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Explosive_Dragon_Egg
+End
+
+BUFF: Home-made_Bomb_Bots
+BelongsTo: Pyromaniac
+Description: EveryMinute add a free Kamikazi_Robot to your hand End
+Ability: EveryMinute AddCubeToHandOfThis CubeKonstant Kamikazi_Robot
+End
+
+BUFF: Safety_Procedures
+BelongsTo: Pyromaniac
+Description: You take 1 less damage from friendly Cubes End
+Ability: BeforeThisTakesDamage If IsFriendToCaster Culprit NegateX DoubleKonstant 1
+End
+
+BUFF: Explosive_Dirt
+BelongsTo: Pyromaniac
+Description: Dirt Explodes for 5 End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility ExplodesX DoubleKonstant 5
+End
+
+BUFF: Sabotage
+BelongsTo: Pyromaniac
+Description: Every10Seconds A Random Enemy 
+ains: Explode for 2 on death End
+Ability: Every10Seconds TargetCube ARandomEnemy GainAbility ExplodesX DoubleKonstant 2
+End
+
+BUFF: Chain_Reaction
+BelongsTo: Pyromaniac
+Description: After a friendly Cube dies, if it costs more than 5 mana a random enemy takes 1 damage End
+Ability: AfterACubeDies If IsFriendToCaster Victim If IsLarger ManaCostOfCube Victim DoubleKonstant 2 TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Last_Betrayl
+BelongsTo: Pyromaniac
+Description: After an enemy gets killed by another enemy the victim explodes for 5 damage End
+Ability: AfterACubeDies If IsEnemyToCaster Victim If NOT IsSameCube Victim Culprit
+TargetCube Victim EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 5
+End
+
+BUFF: Invasive_Dragon
+BelongsTo: Rogue
+Description: You start with an Invasive_Dragon_Egg in your hand End
+Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Invasive_Dragon_Egg
+End
+
+BUFF: Scouted_Lands
+BelongsTo: Rogue
+Description: Entering Into Enemy Lands End
+Ability: AfterThisIsCreated Both AddCubeToHandOfThis CubeKonstant Incursion AddCubeToHandOfThis CubeKonstant Incursion
+End
+
+BUFF: Spare_Poison_Bottle
+BelongsTo: Rogue
+Description: The first cube you place gains Poisonous 10 End
+Ability: AfterAnotherFriendlyCubeIsCreated 1Shot TargetCube Victim GainAbility PoisonousX DoubleKonstant 10
+End
+
+BUFF: Telescope
+BelongsTo: Rogue
+Description: Incursions refund half their mana cost End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If CubeHasNameOfCube Victim CubeKonstant Incursion 
+Both GenerateXMana Division ManaCostOfCube Victim DoubleKonstant 2
+TargetCube Victim ChangeManaCost Division ManaCostOfCube Victim DoubleKonstant -2
+End
+
+BUFF: Rapid_Incursions
+BelongsTo: Rogue
+Description: Obtain an Incursion every 5 incursions you place End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If CubeHasNameOfCube Victim CubeKonstant Incursion 
+EveryXTimes DoubleKonstant 5 AddCubeToHandOfThis CubeKonstant Incursion
+End
+
+BUFF: Aggressive_Incursion
+BelongsTo: Rogue
+Description: When you place an incursion you deal 5 damage to any cube infront of it End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If CubeHasNameOfCube Victim CubeKonstant Incursion 
+TargetCube CubeInDirectionFromCube EnemyDirection Victim TakeXDamage DoubleKonstant 5
+End
+
+BUFF: Poisonous_Air
+BelongsTo: Rogue
+Description: Whenever Any yes any cube is created it gets poisonous 1 End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility PoisonousX DoubleKonstant 1
+End
+
+BUFF: Stone_Fortifications
+BelongsTo: Dwarf
+Description: Cubes below Stone are healed for 1 per 10 Seconds End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility
+Every10Seconds TargetCube CubeInDirectionFromCube South Caster HealXDamage DoubleKonstant 1
+End
+
+BUFF: Hardening_Shadow
+BelongsTo: Shadow
+Description: Solid_Shadows grow to more hp End
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim GainAbility GrowthX DoubleKonstant 3
+End
+
+BUFF: Fluid_Cubes
+BelongsTo: Elemental
+Description: All Cubes you Place are considered to be a liquid (random back and forth Movement, letting other blocks fall in) End
+Ability: AfterACubeIsCreated If IsSameCube Culprit Caster TargetCube Victim GainAbility LiquidX TimeKonstant 30
+End
+
+BUFF: Faster_Growing
+BelongsTo: Plant
+Description: Grow for 3 extra hp every Minute End
+Ability: GrowthX DoubleKonstant 3
+End
+
+BUFF: Growing_Together
+BelongsTo: Crystal
+Description: Cube created surrounded by friends gain a moderate health regeneration End
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If TargetIsSurroundedByFriends GainAbility RegenerationX DoubleKonstant 10
+End
+
+BUFF: Chaotic_Boosts
+BelongsTo: Chaos
+Description: All yes ALL cubes get a random buff upon creation End
+Ability: AfterACubeIsCreated TargetCube Victim GainAbility RandomBuff
+End

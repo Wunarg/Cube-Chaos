@@ -1,0 +1,254 @@
+BUFF: Spare_Armor_Plate
+BelongsTo: Everyone
+Description: The first cube you place gains 10 hp End
+Ability: AfterAnotherFriendlyCubeIsCreated 1Shot TargetCube Victim Both ChangeMaxHp DoubleKonstant 5 HealXDamage DoubleKonstant 5
+End
+
+BUFF: Spare_Strength_Potion
+BelongsTo: Everyone
+Description: The first cube you place gains 1 Strength End
+Ability: AfterAnotherFriendlyCubeIsCreated 1Shot TargetCube Victim GainAbility StrengthX DoubleKonstant 1
+End
+
+BUFF: Strength_Training
+BelongsTo: Everyone
+Description: Your Core starts with 1 Strength End
+Ability: StrengthX DoubleKonstant 1
+End
+
+BUFF: Blessing_Of_Caos
+BelongsTo: Everyone
+Description: Your Core gets a random Buff every 5 Minutes End
+Ability: EveryXMinutes DoubleKonstant 5 GainAbility RandomBuff
+End
+
+BUFF: Tiny_Mana_Battery
+BelongsTo: Everyone
+Description: +5 starting Mana, +10 Max Mana End
+Ability: AfterThisIsCreated Both GenerateXMana DoubleKonstant 5 ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis
+End
+
+BUFF: Karate_Training
+BelongsTo: Everyone
+Description: your core has a light meele attack End
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 1
+End
+
+BUFF: Regeneration_Blessing
+BelongsTo: Everyone
+Description: your core regenerates hp slowly End 
+Ability: RegenerationX DoubleKonstant 4
+End
+
+BUFF: Orb_of_Fire
+BelongsTo: Everyone
+Description: add a fire ping to your hand every 10 seconds End
+Ability: Every10Seconds AddCubeToHandOfThis CubeKonstant Fire_Ping
+End
+
+BUFF: Poisonous
+BelongsTo: Everyone
+Description: Before you deal damage the target becomes poisoned End
+Ability: PoisonousX DoubleKonstant 5
+End
+
+BUFF: Corrupted_Spike_Shield
+BelongsTo: Everyone
+Description: Before you take damage deal 1 back, you loose 1 hp every minute End
+Ability: RetaliateX DoubleKonstant 1
+Ability: PoisonX DoubleKonstant 1
+End
+
+BUFF: Eye_of_Cutharn
+BelongsTo: Everyone
+Description: Every 20 Seconds deal 1 damage to a random enemy End
+Ability: Every20Seconds TargetCube ARandomCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Mana_Crystal_Armor
+BelongsTo: Everyone
+Description: Before you take more than 2 Damage gain 1 Mana End
+Ability: BeforeThisTakesDamage If IsLarger EventAmount DoubleKonstant 2 GenerateXMana DoubleKonstant 1
+End
+
+BUFF: Battle_Hardened
+BelongsTo: Everyone
+Description: Start with 15 more hp End
+Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 15 HealXDamage DoubleKonstant 15
+End
+
+BUFF: Slime_Farm
+BelongsTo: Everyone
+Description: Summon a Medium_Slime_Warrior above you every minute End
+Ability: EveryMinute SummonCubeOnPosition CubeKonstant Medium_Warrior_Slime PositionInDirectionFromPosition North PositionOfCube Caster
+End
+
+BUFF: Vampires_Sacrifice
+BelongsTo: Everyone
+Description: You have lifesteal, but you loose 1 hp every second End
+Ability: LifeSteal
+Ability: EverySecond Silent TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Uranium_Crystal
+BelongsTo: Everyone
+Description: EverySecond, deal 1 damage to anything touching you End
+Ability: EverySecond EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Creations_Reward
+BelongsTo: Everyone
+Description: After you place a cube you gain 1 extra hp End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End
+
+BUFF: Tiny_Mana_Storage_Dimension
+BelongsTo: Everyone
+Description: Gain 3 Max Mana every minute End
+Ability: EveryMinute ChangeMaxManaOfFaction DoubleKonstant 3 FactionOfThis
+End
+
+BUFF: Clock_Of_Innevitabel_Decay
+BelongsTo: Everyone
+Description: Every 10 Minute all enemys get a bit poisoned End
+Ability: Every10Minutes EveryCubeWhich IsEnemyToCaster Test GainAbility PoisonX DoubleKonstant 2
+End
+
+BUFF: Band_Of_Elemental_Power
+BelongsTo: Everyone
+Description: You have a random Elemental Power End
+Ability: RandomElementalPower
+End
+
+BUFF: Bucket_Of_Infinite_Water
+BelongsTo: Everyone
+Description: Every 3 seconds summon water above you End
+Ability: Every3Seconds SummonCubeOnPosition CubeKonstant Water PositionInDirectionFromPosition North PositionOfCube Caster
+End
+
+BUFF: Regenerating_Dirt
+BelongsTo: Everyone
+Description: All Dirt regenerates hp slow ish and has more hp End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt Both GainAbility RegenerationX DoubleKonstant 12
+Both ChangeMaxHp DoubleKonstant 5
+Silent HealXDamage DoubleKonstant 5
+End
+
+BUFF: Salted_Dirt
+BelongsTo: Everyone
+Description: Every 10 Seconds Dirt does 1 damage to any cube above it End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Dirt TakeXDamage DoubleKonstant 1 
+End
+
+BUFF: Healing_Dirt
+BelongsTo: Everyone
+Description: Every 10 Seconds Dirt heals 1 hp to any non dirt above it End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Dirt HealXDamage DoubleKonstant 1 
+End
+
+BUFF: Death_Touch
+BelongsTo: Everyone 
+Description: Every 20 Seconds you deal 10 Damage in Melee End
+Ability: EveryXMeeleY TimeKonstant 1200 DoubleKonstant 10
+End
+
+BUFF: Charm_Of_The_Pacifist
+BelongsTo: Everyone
+Description: Negate All Damage Your Core deals but instead gain that much Mana End
+Ability: BeforeThisDealsDamage Both GenerateXMana EventAmount NegateX EventAmount
+End
+
+BUFF: Altruism_Medal
+BelongsTo: Everyone
+Description: Every 20 Seconds If your Core is at full hp it will heal all other friendly Cubes for 1 hp End
+Ability: Every20Seconds If NOT IsLarger MaxHpOfCube Caster HpOfCube Caster 
+EveryCubeWhich IsFriendToCaster Test HealXDamage DoubleKonstant 1
+End
+
+BUFF: Call_Of_The_Apocalypse
+BelongsTo: Everyone
+Description: After 10 Minutes every Cube takes 10 Damage End
+Ability: Every10Minutes EveryCubeWhich IsSameCube Caster Caster TakeXDamage DoubleKonstant 10
+End
+
+BUFF: Emergency_Healing
+BelongsTo: Everyone 
+Description: The first time Your Core goes to 10 or less hp it instantly heals for 100 End
+Ability: EveryTick If IsLarger DoubleKonstant 11 HpOfCube Caster 1Shot HealXDamage DoubleKonstant 100
+End
+
+BUFF: Chest_Of_Caos
+BelongsTo: Everyone
+Description: Every 10 minutes add a random Cube to your hand End
+Ability: Every10Minutes AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+BUFF: Buried_Scrap
+BelongsTo: Everyone
+Description: After dirt gets destroyed it spawns a random Cube, the Cube is neutral End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility 
+OnDeathSummonCube ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+BUFF: Poisoned_Cores
+BelongsTo: Everyone
+Description: Every enemy core takes 1 Damage every minute End
+Ability: EveryMinute EveryCubeWhich AND IsSameCube Test CoreOfFaction FactionOfCube Test IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Traitor
+BelongsTo: Everyone
+Description:  Every 10 Minutes convert a random enemy cube (not the core) to your faction End
+Ability: Every10Minutes TargetCube ARandomCubeWhich AND IsEnemyToCaster Test NOT IsSameCube Test CoreOfFaction FactionOfCube Test
+SetFaction FactionOfThis
+End
+
+BUFF: Mana_Overflow_Dampener
+BelongsTo: Everyone
+Description: Ignore Every 2nd Damage your Core is dealt while Overflowing End
+Ability: BeforeThisTakesDamage If IsOverflowing NegateX EventAmount
+End
+
+BUFF: Mana_Overflow_Healing
+BelongsTo: Everyone
+Description: While Overflowing Your Core Heals 1 Damage To Another Random Damaged Friendly Cubes every Second End
+Ability: EverySecond If IsOverflowing TargetCube ARandomCubeWhich AND IsDamaged AND IsFriendToCaster Test NOT IsSameCube Caster Test HealXDamage DoubleKonstant 1
+End
+
+BUFF: Adapting_Armor
+BelongsTo: Everyone
+Description: Every 3 Times you take Damage also gain 1 MaxHp End
+Ability: BeforeThisTakesDamage EveryXTimes DoubleKonstant 3 ChangeMaxHp DoubleKonstant 1
+End
+
+BUFF: Eventual_Rescue
+BelongsTo: Everyone
+Description: Every 10 Minutes your core heals to full Hp End
+Ability: Every10Minutes HealXDamage MaxHpOfCube Caster
+End
+
+BUFF: Help_of_Kublath
+BelongsTo: Everyone
+Description: A random cube in your hand costs 1 less each time you play it down to 10 End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis AND NOT CubeHasLimitedUses Test IsLarger ManaCostOfCube Test DoubleKonstant 10
+GainAbility UpToXEffiecencyY DoubleKonstant 10 DoubleKonstant 1
+End
+
+BUFF: Tiny_Oblivion_Shard
+BelongsTo: Everyone
+Description: Every 2 Minutes your core deals 1 damage to every cube End
+Ability: EveryXMinutes TimeKonstant 2 EveryCubeWhich TRUE TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Flower_Of_Hope
+BelongsTo: Everyone
+Description: Whenevery your core heals you heal 1 more, also heals 1 every minute End
+Ability: HealabelX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 1
+End
+
+BUFF: Hardening_Scales
+BelongsTo: Everyone
+Description: your core gains max hp over time based on his max hp End 
+Ability: GrowthX Division HpOfCube Caster DoubleKonstant 25
+End

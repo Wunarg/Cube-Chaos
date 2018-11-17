@@ -1,0 +1,286 @@
+ALL TOKENS for other Cubes are saved here
+
+CUBE: Area_Heal 0 0 0
+TOKEN
+Ability: Spell
+Ability: AfterThisIsCreated EveryCubeWhich IsInAoEAroundTarget If IsFriendToCaster Target HealXDamage DoubleKonstant 2
+Ability: WorthXMore DoubleKonstant 5
+End
+
+CUBE: Core_Return 5 0 0
+TOKEN
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis TeleportToPosition PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 20
+End
+
+CUBE: Tinkering 40 0 0
+TOKEN
+Ability: Enchantment Tinkered
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster Both ChangeMaxHp DoubleKonstant 5 HealXDamage DoubleKonstant 5
+End
+
+CUBE: Warriors_Heart 5 50 50
+TOKEN
+Ability: AfterThisDies Both SetFaction DoubleKonstant 1
+TargetCube CoreOfThis Die
+End
+
+CUBE: Wizard_Aprentice 20 4 4
+TOKEN
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfThis If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell
+Both EveryXTimes MaxHpOfCube Caster Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+EveryXTimes DoubleKonstant 100 GainAbility 
+AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfThis If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell
+EveryXTimes DoubleKonstant 10 SummonCubeOnPosition Victim PositionInDirectionFromPosition North PositionOfCube Caster
+End
+
+CUBE: Mana_Flower 1 1 1
+TOKEN
+Ability: WorthXMore DoubleKonstant 9
+Ability: Every30Seconds GenerateXMana DoubleKonstant 1
+Ability: EverySecond If NOT IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Caster TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Mana_Hedge 2 3 3
+TOKEN
+Ability: WorthXMore DoubleKonstant 10
+Ability: RegenerationX DoubleKonstant 6
+Ability: Every5Seconds If HaveMoreThanXMana DoubleKonstant 75 ChangeMaxHp DoubleKonstant 1
+Ability: RetaliateX DoubleKonstant 1
+End
+
+CUBE: Chaos_Cast 0 0 0
+TOKEN
+Ability: Spell
+Ability: WorthXMore DoubleKonstant 10
+Ability: AfterThisIsCreated SummonCubeOnPosition ARandomCubeFromLibraryWhich AND OR CubeHasTriggerWithName Test DieAfterX CubeHasTriggerWithName Test Spell
+NOT IsToken Test
+PositionInDirectionFromPosition North PositionOfThis
+End
+
+CUBE: Holy_Water 0 2 2
+TOKEN
+Ability: LiquidX TimeKonstant 20
+Ability: Neutral
+Ability: WorthXMore DoubleKonstant 6
+Ability: RetaliateX DoubleKonstant 1
+Ability: Every10Ticks EveryCubeWhich AND IsTouchingTarget IsDamaged Both HealXDamage DoubleKonstant 1
+Silent TargetCube Caster TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Attack_Rock 0 6 6
+TOKEN
+Ability: WorthXMore DoubleKonstant 6
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+Ability: ChargeEveryX TimeKonstant 60
+End
+
+CUBE: Small_Fire_Ball 0 1 1
+TOKEN
+Ability: WorthXMore DoubleKonstant 6
+Ability: ChargeEveryX TimeKonstant 20
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 1
+Ability: ExplodesX DoubleKonstant 1
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 600
+End
+
+CUBE: Air_Cloud 0 1 1
+TOKEN
+Ability: Flying
+Ability: Neutral
+End
+
+CUBE: Chain_Fire 0 2 2
+TOKEN
+Ability: WorthXMore DoubleKonstant 6
+Ability: EveryXAcidicY DoubleKonstant 60 DoubleKonstant 1
+Ability: AlwaysNeutral
+Ability: PoisonX DoubleKonstant 12
+Ability: AfterACubeDies If IsSameCube Caster Culprit If NOT CubeHasNameOfCube Victim Caster Randomly
+SummonCubeOnPosition CubeKonstant Chain_Fire PositionInDirectionFromPosition East PositionOfThis
+SummonCubeOnPosition CubeKonstant Chain_Fire PositionInDirectionFromPosition West PositionOfThis
+End
+
+CUBE: Holy_Dragon_Egg 0 3 3
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Holy_Dragon
+Ability: WorthXMore DoubleKonstant 10
+End
+
+CUBE: Baby_Holy_Dragon 5 1 1
+TOKEN
+Ability: GrowthX DoubleKonstant 2
+Ability: RegenerationX DoubleKonstant 1
+Ability: EveryXMeeleY TimeKonstant 300 DoubleKonstant 1
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 25 Both Die SummonCubeOnPosition CubeKonstant Holy_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 25
+End
+
+CUBE: Holy_Dragon 200 25 25
+TOKEN
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 2
+Ability: GrowthX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 40
+Ability: EverySecond TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
+End
+
+CUBE: Anger_Dragon_Egg 0 3 3
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Anger_Dragon
+Ability: WorthXMore DoubleKonstant 10
+End
+
+CUBE: Baby_Anger_Dragon 5 3 3
+TOKEN
+Ability: GrowthX DoubleKonstant 2
+Ability: RegenerationX DoubleKonstant 1
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 1
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 50 Both Die SummonCubeOnPosition CubeKonstant Anger_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 25
+End
+
+CUBE: Anger_Dragon 200 50 50
+TOKEN
+Ability: EveryXMeeleY TimeKonstant 30 DoubleKonstant 10
+Ability: GrowthX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 10
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 10 DoubleKonstant 1
+End
+
+CUBE: Magic_Dragon_Egg 0 2 2
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Magic_Dragon
+Ability: WorthXMore DoubleKonstant 10
+End
+
+CUBE: Baby_Magic_Dragon 5 2 2
+TOKEN
+Ability: GrowthX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 3
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 25 Both Die SummonCubeOnPosition CubeKonstant Magic_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 25
+End
+
+CUBE: Magic_Dragon 200 25 25
+TOKEN
+Ability: EveryXMeeleY TimeKonstant 300 DoubleKonstant 10
+Ability: GrowthX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 6
+Ability: BeforeACubeTakesDamage If IsFriendToCaster Culprit If NOT IsFriendToCaster Victim If OR CubeHasTriggerWithName Culprit DieAfterX CubeHasTriggerWithName Culprit Spell
+TargetCube Victim TakeXDamage DoubleKonstant 2
+Ability: EveryMinute SummonCubeOnPosition CubeKonstant Shock_Wave PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Iron_Dragon_Egg 0 4 4
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Iron_Dragon
+Ability: WorthXMore DoubleKonstant 10
+End
+
+CUBE: Baby_Iron_Dragon 5 2 2
+TOKEN
+Ability: GrowthX DoubleKonstant 2
+Ability: RegenerationX DoubleKonstant 1
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 25 Both Die SummonCubeOnPosition CubeKonstant Iron_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 50
+End
+
+CUBE: Iron_Dragon 200 25 25
+TOKEN
+Ability: ArmorX DoubleKonstant 1
+Ability: EveryXMeeleY TimeKonstant 180 DoubleKonstant 5
+Ability: GrowthX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 3
+Ability: Every30Seconds EveryCubeWhich IsFriendToCaster Test Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+Ability: EveryMinute AddCubeToHandOfThis CubeKonstant Iron
+End
+
+CUBE: Explosive_Dragon_Egg 0 2 2
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Explosive_Dragon
+Ability: WorthXMore DoubleKonstant 10
+Ability: ExplodesX DoubleKonstant 3
+End
+
+CUBE: Baby_Explosive_Dragon 5 3 3
+TOKEN
+Ability: GrowthX DoubleKonstant 1
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 25 Both Die SummonCubeOnPosition CubeKonstant Explosive_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 50
+Ability: ExplodesX HpOfCube Caster
+End
+
+CUBE: Explosive_Dragon 200 35 35
+TOKEN
+Ability: ExplodesX Multiplikation DoubleKonstant 10 HpOfCube Caster
+Ability: RetaliateX DoubleKonstant 1
+Ability: GrowthX DoubleKonstant 1
+Ability: AfterACubeDies If CubeHasTriggerWithName Victim ExplodesX Both 
+TargetCube ARandomCubeWhich IsEnemyToCaster Test GainAbility ExplodesX DoubleKonstant 1
+TargetCube ARandomCubeWhich IsEnemyToCaster Test GainAbility ExplodesX DoubleKonstant 1
+Ability: EveryXSummonCubeAbove TimeKonstant 1 CubeKonstant TnT
+End
+
+CUBE: Thorn_Leaves 2 5 5
+TOKEN
+Ability: RegenerationX DoubleKonstant 15
+Ability: RetaliateX DoubleKonstant 1
+End
+
+CUBE: Castle_Knight 15 6 6
+TOKEN
+Ability: ChargeEveryX TimeKonstant 60
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 3
+Ability: RetaliateX DoubleKonstant 1
+End
+
+CUBE: Incursion 5 0 0
+TOKEN
+Ability: Spell
+Ability: AfterThisIsCreated SetPositionPlacability PositionInDirectionFromPosition EnemyDirection PositionOfThis TRUE
+Ability: WorthXMore DoubleKonstant 10
+End
+
+CUBE: Liquid_Poison 0 2 2
+TOKEN
+Ability: Neutral
+Ability: LiquidX TimeKonstant 30
+Ability: EveryXAcidicY TimeKonstant 600 DoubleKonstant 1
+Ability: PoisonousX DoubleKonstant 2
+End
+
+CUBE: Invasive_Dragon_Egg 0 2 2
+TOKEN
+Ability: Dragon_Egg CubeKonstant Baby_Invasive_Dragon
+Ability: WorthXMore DoubleKonstant 10
+Ability: ArmorX DoubleKonstant 1
+End
+
+CUBE: Baby_Invasive_Dragon 5 3 3
+TOKEN
+Ability: EveryTick If IsLarger MaxHpOfCube Caster DoubleKonstant 25 Both Die SummonCubeOnPosition CubeKonstant Invasive_Dragon PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: WorthXMore DoubleKonstant 50
+Ability: ArmorX DoubleKonstant 1
+Ability: Flying
+Ability: EveryMinute Both 
+TeleportToPosition PositionInDirectionFromPosition North PositionOfCube ARandomCubeWhich AND IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Test IsFriendToCaster Test
+TargetCube Caster Both ChangeMaxHp DoubleKonstant 1
+HealXDamage DoubleKonstant 2
+End
+
+CUBE: Invasive_Dragon 200 25 25
+TOKEN
+Ability: ArmorX DoubleKonstant 1
+Ability: RetaliateX DoubleKonstant 1
+Ability: Flying
+Ability: Every30Seconds Both 
+TargetCube ARandomCubeWhich AND IsEnemyToCaster Test IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Test Both
+TeleportToPosition PositionInDirectionFromPosition North PositionOfCube Target
+SetPositionPlacability PositionOfThis TRUE
+TargetCube Caster Both
+ChangeMaxHp DoubleKonstant 2
+HealXDamage DoubleKonstant 3
+End

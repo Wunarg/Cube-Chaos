@@ -1,0 +1,41 @@
+MAP: 62 42
+
+CUBE: 1 PROFILECORE
+CUBE: 2 Difficulty_Core 
+CUBE: 3 Dirt
+
+DATARECT: 3 0  1 38  61 4
+
+DATA: 1 2 37 1
+DATA: 2 60 37 2
+
+CORE: 1 2 37
+CORE: 2 60 37
+
+STARTINGMANA: 1 50
+
+RANDOMBLUEPRINTS: 
+Division DoubleKonstant 40 Difficulty 
+2
+Difficulty
+
+HALFPLACEMENT: True
+
+AI: True
+
+WORLDABILITY: EveryTick If NOT CubeExists CoreOfFaction DoubleKonstant 1 Loose
+WORLDABILITY: EveryTick If NOT CubeExists CoreOfFaction DoubleKonstant 2 Win
+
+End
+OPTIONS:
+
+VICTORY_SZENARIO: Szenarios/Base_Szenarios/ENDLESSBATTLE
+LOSS_SZENARIO: Szenarios/Base_Szenarios/ENDLESSBATTLE
+
+CUBE_SELECTION: True
+CLASS_SELECTION: True
+
+BUFF_REWARD: True
+RANDOM_CUBE_REWARD: 1
+
+End

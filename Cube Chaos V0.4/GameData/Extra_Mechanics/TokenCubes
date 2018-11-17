@@ -1,0 +1,95 @@
+CUBE: Water 0 1 1
+TOKEN
+Ability: LiquidX TimeKonstant 10
+Ability: Neutral
+Ability: WorthXMore DoubleKonstant 3
+Ability: RetaliateX DoubleKonstant 1
+End
+
+CUBE: Steam 2 1 1
+TOKEN
+Ability: Neutral
+Ability: Flying
+Ability: EveryXTicks TimeKonstant 20 MoveInDirection North
+Ability: RandomMovementX TimeKonstant 30
+Ability: EveryTick If NOT IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Caster EveryXTimes DoubleKonstant 120 Die
+Ability: OnDeathSummonCube CubeKonstant Water
+End
+
+CUBE: Lava 10 3 3
+TOKEN
+Ability: Neutral
+Ability: LiquidX TimeKonstant 60
+Ability: EveryXAcidicY TimeKonstant 10 DoubleKonstant 1
+End
+
+CUBE: Ice 4 2 2
+TOKEN
+Ability: AfterACubeMoves TargetCube  CubeInDirectionFromCube North Caster 
+If IsSameCube Target Victim
+MoveInDirection EventDirection
+End
+
+CUBE: Sand 3 1 1
+TOKEN
+TYPE Neutral
+Ability: Neutral
+Ability: DiagonalFalling
+End
+
+CUBE: Iron 0 10 10
+TOKEN
+Ability: ArmorX DoubleKonstant 1
+Ability: WorthXMore DoubleKonstant 20
+End
+
+CUBE: Solid_Shadow 10 3 3
+TOKEN
+Ability: Neutral
+Ability: Shadow
+Ability: EveryXAcidicY TimeKonstant 300 DoubleKonstant 1
+End
+
+CUBE: Air_Push 0 0 0
+TOKEN
+Ability: Spell
+Ability: WorthXMore DoubleKonstant 3
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube EnemyDirection Caster Both MoveInDirection EnemyDirection MoveInDirection EnemyDirection
+End
+
+CUBE: Fire_Ping 0 1 1
+TOKEN
+Ability: WorthXMore DoubleKonstant 3
+Ability: ChargeEveryX TimeKonstant 3
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 1
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 300
+End
+
+CUBE: Small_Rock 0 5 5
+TOKEN
+Ability: WorthXMore DoubleKonstant 3
+End
+
+CUBE: Stone 10 20 20
+TYPE Wall
+TOKEN
+RARITY 1
+End
+
+CUBE: Congealed_Shield 0 1 1
+TOKEN
+Ability: Flying
+Ability: WorthXMore DoubleKonstant 4
+Ability: RetaliateX DoubleKonstant 1
+End
+
+CUBE: Bullet 3 2 2
+TOKEN
+Ability: ChargeEveryX TimeKonstant 10
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 300
+End

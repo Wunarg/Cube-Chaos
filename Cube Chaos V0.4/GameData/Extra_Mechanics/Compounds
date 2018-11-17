@@ -1,0 +1,64 @@
+
+COMPOUND: TRIGGER
+DarkReturn
+OnDeathSummonCube CubeKonstant Solid_Shadow
+Dark Return: When this dies a Solid Shadow will appear in its place End
+
+COMPOUND: TRIGGER
+Shadow
+BeforeThisDealsDamage If AND NOT CubeHasTriggerWithName Victim DarkReturn NOT CubeHasTriggerWithName Victim Shadow TargetCube Victim GainAbility DarkReturn
+Shadow: Any Cube this Cube deals damage to turns into solid shadows as soon as they die End
+
+COMPOUND: TRIGGER
+RandomElementalPower
+AfterThisIsCreated 1Shot Randomly
+Randomly
+GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Small_Rock
+GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Fire_Ping
+Randomly
+GainAbility Every5Seconds AddCubeToHandOfThis CubeKonstant Water
+GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Air_Push
+You have a Random Elemental Power End
+
+COMPOUND: TRIGGER 
+Tinkered
+EveryTick TargetCube CubeOfPosition PositionInDirectionFromPosition East PositionInDirectionFromPosition East PositionOfCube Caster If CubeHasTriggerWithName Target Tinkered
+If IsPositionEmpty PositionInDirectionFromPosition East PositionOfCube Caster
+Both SummonCubeOnPosition CombinationOf2Cubes Caster Target PositionInDirectionFromPosition East PositionOfCube Caster
+Both Die
+TargetCube Caster Die
+Tinkered: When there is another tinkered cube infront with an empty space in between, both die and a combination is summoned in the middle End
+
+COMPOUND: TRIGGER
+Phasing
+Every5Ticks If IsFriendToCaster CubeInDirectionFromCube EnemyDirection Caster TeleportToPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Phasing: If there is a single friendly cube infront of this teleport behind it End
+
+COMPOUND: TRIGGER
+RandomBuff
+EverySecond 1Shot Both
+RemoveTriggerWithName RandomBuff
+Randomly
+ Randomly
+  Randomly
+   GainAbility RegenerationX DoubleKonstant 10
+   GainAbility GrowthX DoubleKonstant 5
+  Randomly
+   GainAbility EveryXMeeleY TimeKonstant 180 DoubleKonstant 1
+   GainAbility Shadow
+ Randomly
+  Randomly
+   GainAbility LifeSteal
+   GainAbility PoisonousX DoubleKonstant 5
+  Randomly
+   GainAbility RetaliateX DoubleKonstant 1
+   GainAbility Crippling
+After the first Second this exist this gains a random Positive Ability End
+
+COMPOUND: TRIGGER
+EldrichX
+AfterThisIsCreated Both GainAbility Crippling 
+Both GainAbility LifeSteal
+Both GainAbility DebilitatingRegret
+GainAbility PoisonousX GenericDouble
+Eldrich: When this is created it gains: Poisonous CODE 1 , Lifesteal, Debilitating Regret and Weakening End

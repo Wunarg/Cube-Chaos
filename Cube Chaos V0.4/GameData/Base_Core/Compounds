@@ -1,0 +1,504 @@
+Compounds
+
+COMPOUND: DOUBLE
+1/2
+Division DoubleKonstant 1 DoubleKonstant 2
+1/2 End
+
+COMPOUND: DOUBLE
+FactionOfThis
+FactionOfCube Caster
+The Faction of this End
+
+COMPOUND: DOUBLE
+AddTicks
+GenericDouble
+CODE 1 Ticks End
+
+COMPOUND: ACTION
+1Shot
+XShots DoubleKonstant 1 GenericAction
+1Shot CODE 1 End
+
+COMPOUND: ACTION
+GenerateXMana
+FactionXGainsYMana FactionOfCube Caster GenericDouble
+Generate CODE 1 Mana End
+
+COMPOUND: ACTION
+AddCubeToHandOfThis
+AddCubeToHandOfFaction GenericCube FactionOfCube Caster
+Add CODE 1 To Your Hand End
+
+COMPOUND: POSITION
+PositionOfThis
+PositionOfCube Caster
+Position Of This End
+
+COMPOUND: DIRECTION 
+North
+DirectionKonstant 1
+North End
+
+COMPOUND: DIRECTION 
+East
+DirectionKonstant 2
+East End
+
+COMPOUND: DIRECTION
+South
+DirectionKonstant 3
+South End
+
+COMPOUND: DIRECTION
+West
+DirectionKonstant 4
+West End
+
+COMPOUND: DIRECTION
+Backwards
+ReverseDirection EnemyDirection
+Back End
+
+COMPOUND: TRIGGER
+EveryXTicks
+EveryTick EveryXTimes GenericDouble GenericAction
+Every CODE 1 CODE 2 End
+
+COMPOUND: TRIGGER
+Every5Ticks
+EveryTick EveryXTimes DoubleKonstant 5 GenericAction
+Every 5 Ticks CODE 1 End
+
+COMPOUND: TRIGGER
+Every10Ticks
+EveryTick EveryXTimes DoubleKonstant 10 GenericAction
+Every 10 Ticks CODE 1 End
+
+COMPOUND: TRIGGER
+Every30Ticks
+EveryTick EveryXTimes DoubleKonstant 30 GenericAction
+Every 30 Ticks CODE 1 End
+
+COMPOUND: TRIGGER
+EveryXSeconds
+EverySecond EveryXTimes GenericDouble GenericAction
+Every CODE 1 full Seconds CODE 2 End
+
+COMPOUND: TRIGGER
+Every2Seconds
+EverySecond EveryXTimes DoubleKonstant 2 GenericAction
+Every 2 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+Every3Seconds
+EverySecond EveryXTimes DoubleKonstant 3 GenericAction
+Every 3 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+Every5Seconds
+EverySecond EveryXTimes DoubleKonstant 5 GenericAction
+Every 5 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+Every10Seconds
+EverySecond EveryXTimes DoubleKonstant 10 GenericAction
+Every 10 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+Every20Seconds
+EverySecond EveryXTimes DoubleKonstant 20 GenericAction
+Every 20 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+Every30Seconds
+EverySecond EveryXTimes DoubleKonstant 30 GenericAction
+Every 30 full Seconds CODE 1 End
+
+COMPOUND: TRIGGER
+EveryMinute
+EverySecond EveryXTimes DoubleKonstant 60 GenericAction
+Every Minute CODE 1 End
+
+COMPOUND: TRIGGER
+EveryXMinutes
+EveryMinute EveryXTimes GenericDouble GenericAction
+Every CODE 1 Minutes CODE 2 End
+
+COMPOUND: TRIGGER
+Every10Minutes
+EverySecond EveryXTimes DoubleKonstant 600 GenericAction
+Every 10 Minutes CODE 1 End
+
+COMPOUND: TRIGGER
+AfterThisMoves
+AfterACubeMoves If IsSameCube Caster Victim GenericAction
+After this moves CODE 1 End
+
+COMPOUND: TRIGGER
+BeforeThisHeals
+BeforeACubeHeals If IsSameCube Caster Victim GenericAction
+Before This takes Damage CODE 1 End
+
+COMPOUND: TRIGGER
+BeforeThisTakesDamage
+BeforeACubeTakesDamage If IsSameCube Caster Victim GenericAction
+Before This takes Damage CODE 1 End
+
+COMPOUND: TRIGGER
+AfterThisTakesDamage
+AfterACubeTakesDamage If IsSameCube Caster Victim GenericAction
+After This takes Damage CODE 1 End
+
+COMPOUND: TRIGGER
+BeforeThisDealsDamage
+BeforeACubeTakesDamage If IsSameCube Caster Culprit GenericAction
+Before This Deals Damage CODE 1 End
+
+COMPOUND: TRIGGER
+AfterThisDealsDamage
+AfterACubeTakesDamage If IsSameCube Caster Culprit GenericAction
+After This Deals Damage CODE 1 End
+
+COMPOUND: TRIGGER
+AfterThisDies
+AfterACubeDies If IsSameCube Caster Victim GenericAction
+After this dies CODE 1 End
+
+COMPOUND: TRIGGER
+BeforeThisDies
+BeforeACubeDies If IsSameCube Caster Victim GenericAction
+Before this dies CODE 1 End
+
+COMPOUND: TRIGGER
+AfterThisIsCreated
+AfterACubeIsCreated If IsSameCube Caster Victim GenericAction
+After this is created CODE 1 End
+
+COMPOUND: TRIGGER
+AfterAnotherFriendlyCubeIsCreated
+AfterACubeIsCreated If AND NOT IsSameCube Caster Victim IsFriendToCaster Victim GenericAction
+After Another friendly Cube is Created CODE 1 End
+
+COMPOUND: BOOLEAN
+FALSE
+NOT TRUE
+FALSE End
+
+COMPOUND: BOOLEAN
+IsCubePlacedbyItsCore
+IsSameCube Culprit CoreOfFaction FactionOfCube Victim
+Cube Is Placed by its Core End
+
+COMPOUND: BOOLEAN
+IsCubeInfront
+NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+There is no Cube infront of this End
+
+COMPOUND: BOOLEAN
+IsEmptyAbove
+IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Caster
+The Position Above Is Empty End
+
+COMPOUND: BOOLEAN
+IsNotFriendInfront
+AND
+NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+NOT IsFriendToCaster CubeInDirectionFromCube EnemyDirection Caster
+There is a non friend infront End
+
+COMPOUND: BOOLEAN
+HaveMoreThanXMana
+IsLarger ManaOfFaction FactionOfCube Caster GenericDouble
+You have more than CODE 1 Mana End
+
+COMPOUND: BOOLEAN
+IsOverflowing
+NOT IsLarger MaxManaOfFaction FactionOfCube Caster ManaOfFaction FactionOfCube Caster
+You are overflowing with Mana End
+
+COMPOUND: BOOLEAN
+IsTouchingTarget
+OR
+IsSameCube Test CubeInDirectionFromCube North Target
+OR
+IsSameCube Test CubeInDirectionFromCube East Target
+OR
+IsSameCube Test CubeInDirectionFromCube South Target
+IsSameCube Test CubeInDirectionFromCube West Target
+Is Touching the Target End
+
+
+COMPOUND: BOOLEAN
+IsInShieldArea
+OR
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Target
+OR
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition North PositionOfCube Target
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition South PositionOfCube Target
+Is in A shield Area from the Target End
+
+COMPOUND: BOOLEAN
+IsInAoEAroundTarget
+OR
+IsSameCube Test CubeInDirectionFromCube North Target
+OR
+IsSameCube Test CubeInDirectionFromCube East Target
+OR
+IsSameCube Test CubeInDirectionFromCube South Target
+OR
+IsSameCube Test CubeInDirectionFromCube West Target
+OR
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition North PositionInDirectionFromPosition East PositionOfCube Target
+OR
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition North PositionInDirectionFromPosition West PositionOfCube Target
+OR
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition South PositionInDirectionFromPosition East PositionOfCube Target
+IsSameCube Test CubeOfPosition PositionInDirectionFromPosition South PositionInDirectionFromPosition West PositionOfCube Target
+Is one of the 8 cubes around the target End
+
+COMPOUND: BOOLEAN
+TargetIsSurroundedByFriends
+AND
+AND
+IsFriendToCaster CubeInDirectionFromCube North Target
+IsFriendToCaster CubeInDirectionFromCube South Target
+AND
+IsFriendToCaster CubeInDirectionFromCube West Target
+IsFriendToCaster CubeInDirectionFromCube East Target
+Is surrounded by friendly cubes End
+
+COMPOUND: BOOLEAN
+IsDamaged
+IsLarger MaxHpOfCube Test HpOfCube Test
+Is Damaged End
+
+COMPOUND: CUBE
+CoreOfThis
+CoreOfFaction FactionOfCube Caster
+The Core Of This End
+
+COMPOUND: CUBE
+ARandomEnemy
+ARandomCubeWhich IsEnemyToCaster Test
+A Random Enemy End
+
+COMPOUND: CUBE
+ARandomFriend
+ARandomCubeWhich IsFriendToCaster Test
+A Random Friend End
+
+COMPOUND: CUBE
+ARandomDamagedFriend
+ARandomCubeWhich AND IsFriendToCaster Test IsDamaged
+A Random damaged Friend End 
+
+COMPOUND: CUBE
+ARandomNotCoreEnemy
+ARandomCubeWhich AND IsEnemyToCaster Test NOT IsSameCube Test CoreOfFaction FactionOfCube Test
+A Random Enemy except the Core End
+
+COMPOUND: CUBE
+ARandomCube
+ARandomCubeWhich TRUE
+A Random Cube End
+
+COMPOUND: TRIGGER
+OnDeathSummonCube
+AfterThisDies SummonCubeOnPosition GenericCube PositionOfCube Caster
+After This Dies Summon CODE 1 End
+
+COMPOUND: TRIGGER
+EveryXSummonCubeAbove
+EveryTick EveryXTimes GenericDouble SummonCubeOnPosition GenericCube PositionInDirectionFromPosition North PositionOfCube Caster
+Every CODE 1 Summon CODE 2 above End
+
+COMPOUND: TRIGGER
+EveryXSummonCubeInfront
+EveryTick EveryXTimes GenericDouble SummonCubeOnPosition GenericCube PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Every CODE 1 Summon CODE 2 infront End
+
+COMPOUND: TRIGGER
+DieAfterX
+EveryTick EveryXTimes GenericDouble Die
+This Dies after CODE 1 End
+
+COMPOUND: TRIGGER
+EveryXMeeleY
+EveryTick EveryXTimes GenericDouble If IsNotFriendInfront TargetCube CubeInDirectionFromCube EnemyDirection Caster TakeXDamage GenericDouble
+Meele: Every CODE 1 Deal CODE 2 Damage to a non friend infront of this End
+
+COMPOUND: TRIGGER
+Projectile
+EveryTick If IsNotFriendInfront Die
+Projectile: When there is a non friendly Cube infront this dies End
+
+COMPOUND: TRIGGER
+ProjectileDamageX
+EveryTick TargetCube CubeInDirectionFromCube EnemyDirection Caster If IsNotFriendInfront TakeXDamage GenericDouble
+This Deals CODE 1 Damage to NonFrinedly Cubes Infront End
+
+COMPOUND: TRIGGER
+Flying
+AfterThisMoves If AND NOT IsSameCube Culprit Caster IsSameDirection EventDirection South Silent TeleportToPosition OriginalPosition
+Flying End
+
+COMPOUND: TRIGGER
+Unmovabel
+AfterThisMoves TeleportToPosition OriginalPosition
+Unmovabel End
+
+COMPOUND: TRIGGER
+ArmorX
+BeforeThisTakesDamage NegateX GenericDouble
+Armor: Before This Takes Damage Negate CODE 1 of that Damage End
+
+COMPOUND: TRIGGER
+RetaliateX
+BeforeThisTakesDamage If NOT IsSameCube Culprit Caster TargetCube Culprit TakeXDamage GenericDouble
+Retaliate: Before This Takes Damage it deals CODE 1 Damage back End
+
+COMPOUND: TRIGGER
+AlwaysNeutral
+EveryTick SetFaction DoubleKonstant 0
+AlwaysNeutral: Every Tick This Turns Neutral End
+
+COMPOUND: TRIGGER
+Neutral
+AfterThisIsCreated SetFaction DoubleKonstant 0
+After This Is Created it turns neutral End
+
+COMPOUND: TRIGGER
+ChargeEveryX
+EveryTick EveryXTimes GenericDouble MoveInDirection EnemyDirection
+Charging: This Moves Forward every CODE 1 End
+
+COMPOUND: TRIGGER
+RegenerationX
+EveryTick EveryXTimes Division DoubleKonstant 3600 GenericDouble HealXDamage DoubleKonstant 1
+Regeneration: This Heals CODE 1 Damage per Minute End
+
+COMPOUND: TRIGGER
+GrowthX
+EveryTick EveryXTimes Division DoubleKonstant 3600 GenericDouble Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+Growth: This gains CODE 1 extra health per minute End
+
+COMPOUND: TRIGGER
+PoisonX
+EveryTick EveryXTimes Division DoubleKonstant 3600 GenericDouble Silent TakeXDamage DoubleKonstant 1
+Poison: This looses CODE 1 Health per minute End
+
+COMPOUND: TRIGGER
+WeakX
+BeforeThisDealsDamage NegateX GenericDouble
+Weak: This deals CODE 1 less damage End
+
+COMPOUND: TRIGGER
+HealabelX
+BeforeThisHeals NegateX Multiplikation DoubleKonstant -1 GenericDouble
+Healabel: This heals for CODE 1 more when it heals End
+
+COMPOUND: TRIGGER
+StrengthX
+BeforeThisDealsDamage NegateX Multiplikation DoubleKonstant -1 GenericDouble
+Strength: This deals CODE 1 more damage End
+
+COMPOUND: TRIGGER
+LifeSteal
+BeforeACubeTakesDamage If IsSameCube Culprit Caster HealXDamage Division EventAmount DoubleKonstant 2
+LifeSteal: This heals for half the Damage it deals End
+
+COMPOUND: TRIGGER
+PoisonousX
+BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target GainAbility PoisonX GenericDouble
+Poisonous: Before this deals Damage it applys a Poison to the Victim, which deals CODE 1 Damage per minute End
+
+COMPOUND: TRIGGER
+WeakeningX
+BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target GainAbility WeakX GenericDouble
+Poisonous: Before this deals Damage it applys Weak to the Victim, which reduces its damage by CODE 1 End 
+
+COMPOUND: TRIGGER
+Deadly
+AfterACubeTakesDamage If IsSameCube Culprit Caster If NOT IsSameCube Victim CoreOfFaction FactionOfCube Victim TargetCube Victim Die
+Deadly: Any Cube this deals damage to which isnt a core dies End
+
+COMPOUND: TRIGGER
+Crippling
+BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target ChangeMaxHp Division EventAmount DoubleKonstant -1
+Crippling: Before this deals Damage the Victim also looses that much Maximum health End
+
+COMPOUND: TRIGGER
+ExplodesX
+BeforeThisDies EveryCubeWhich IsTouchingTarget TakeXDamage GenericDouble
+Explodes: Before This dies touching cubes take CODE 1 Damage End
+
+COMPOUND: TRIGGER
+EveryXAcidicY
+EveryTick EveryXTimes GenericDouble EveryCubeWhich IsTouchingTarget If NOT CubeHasNameOfCube Target Caster TakeXDamage GenericDouble
+Acidic: Every CODE 1 This deals CODE 2 Damage to all touching Cubes of different name End
+
+COMPOUND: TRIGGER
+VengeanceX
+BeforeThisDies TargetCube Culprit TakeXDamage GenericDouble
+Vengeance: Before This Dies the Cube which last dealt damage to this takes CODE 1 Damage End
+
+COMPOUND: TRIGGER
+UpToXEffiecencyY
+AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfCube Caster CubeHasNameOfCube Test Caster 
+If IsLarger ManaCostOfCube Target GenericDouble ChangeManaCost Division GenericDouble DoubleKonstant -1
+Effiecency: Every Time you place this cube, cubes of the same name in your hand cost CODE 2 less down to CODE 1 End
+
+COMPOUND: TRIGGER
+Excavates
+AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster If NOT IsEnemyToCaster Target TakeXDamage DoubleKonstant 10
+When this is created it deals 10 damage to any non enemy below it End
+
+COMPOUND: TRIGGER
+LifeDebt
+DoubleTrigger
+AfterThisIsCreated TargetCube CoreOfFaction FactionOfCube Caster TakeXDamage GenericDouble
+BeforeThisDealsDamage 1Shot TargetCube Victim ChangeMaxHp Division EventAmount DoubleKonstant -1
+LifeDebt: When this is created its core permanently looses CODE 1 hp End
+
+COMPOUND: TRIGGER
+LiquidX
+DoubleTrigger
+EveryTick EveryXTimes GenericDouble Randomly MoveInDirection West MoveInDirection East
+EveryTick If AND NOT IsPositionEmpty PositionInDirectionFromPosition North PositionOfCube Caster AND NOT CubeHasTriggerWithName CubeInDirectionFromCube North Caster Flying NOT CubeHasTriggerWithName CubeInDirectionFromCube North Caster LiquidX SwapWithPosition PositionInDirectionFromPosition North PositionOfCube Caster
+Liquid: Moves Sideways Randomly every CODE 1 and lets other non Liquids fall though this block End
+
+COMPOUND: TRIGGER
+WorthXMore
+AfterThisIsCreated ChangeManaCost GenericDouble
+After This is Created its mana cost increases by CODE 1 End
+
+COMPOUND: TRIGGER
+DiagonalFalling
+Every5Ticks If NOT IsPositionEmpty PositionInDirectionFromPosition South PositionOfCube Caster Randomly
+TeleportToPosition PositionInDirectionFromPosition South PositionInDirectionFromPosition West PositionOfCube Caster
+TeleportToPosition PositionInDirectionFromPosition South PositionInDirectionFromPosition East PositionOfCube Caster
+Trys to fall diagonaly every 5 ticks End
+
+COMPOUND: TRIGGER
+RandomMovementX
+EveryTick EveryXTimes GenericDouble Randomly Randomly MoveInDirection North MoveInDirection South Randomly MoveInDirection East MoveInDirection West
+Moves in a random direction every CODE 1 End
+COMPOUND: TRIGGER
+Spell
+Flying
+Spell: Doesnt fall down End
+
+COMPOUND: TRIGGER
+Enchantment
+DoubleTrigger
+Spell
+AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster GainAbility GenericTrigger
+Enchantment: This adds the following ability to the Cube below: CODE 1 End
+
+COMPOUND: TRIGGER
+DebilitatingRegret
+AfterThisDies TargetCube CoreOfFaction FactionOfCube Caster 
+Both ChangeMaxHp Division MaxHpOfCube Caster DoubleKonstant -1
+TakeXDamage MaxHpOfCube Caster
+Debilitating Regret: After this dies its owners core gets as much Health permanently removed as this has maximum health End

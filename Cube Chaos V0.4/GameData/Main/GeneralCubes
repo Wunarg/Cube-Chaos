@@ -1,0 +1,1443 @@
+General Cubes
+
+CUBE: Giant_Fly 10 3 3
+RARITY 1
+TYPE Movement
+Ability: Flying
+End
+
+CUBE: Scafholding 5 3 3
+RARITY 1
+TYPE Movement
+Ability: AfterThisMoves If OR NOT IsPositionEmpty PositionInDirectionFromPosition Backwards PositionOfCube Caster
+NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+If AND NOT IsSameCube Culprit Caster IsSameDirection EventDirection South Silent TeleportToPosition OriginalPosition
+End
+
+CUBE: Brick_Wall 15 30 30
+RARITY 1
+TYPE Wall
+End
+
+CUBE: Blood_To_Mana 10 0 0
+RARITY 1
+TYPE Mana
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis Both 
+If IsLarger HpOfCube Target DoubleKonstant 48 Both TakeXDamage DoubleKonstant 49 GenerateXMana DoubleKonstant 25
+If IsLarger DoubleKonstant 48 HpOfCube Target GainAbility RegenerationX DoubleKonstant 1
+Ability: FlavourText The Mage tasked with researching turning your opponents blood to mana, went missing and was found later with all his memorys lost End
+End
+
+CUBE: Easy_Wall 25 30 30
+RARITY 1
+TYPE Wall
+Ability: UpToXEffiecencyY DoubleKonstant 7 DoubleKonstant 1
+End
+
+CUBE: Mana_Trader 20 3 3
+RARITY 1
+TYPE Mana
+Ability: Every20Seconds Randomly GenerateXMana DoubleKonstant 20
+GenerateXMana DoubleKonstant -15
+Ability: FlavourText YOUR SUPPOSED TO SELL THEM FOR MORE THAN YOU PAID FOR IT -Dwarven taskmaster End
+End
+
+CUBE: Armored_Giant_Fly 20 5 5
+RARITY 1
+TYPE Wall
+TYPE Movement
+Ability: Flying
+Ability: ArmorX DoubleKonstant 1
+End
+
+CUBE: Giant_Eagle 40 8 8
+RARITY 1
+TYPE Wall
+TYPE Movement
+Ability: Flying
+Ability: RegenerationX DoubleKonstant 20
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+End
+
+CUBE: Mana_Thorned_Wall 40 40 40
+RARITY 1
+TYPE Wall
+Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 20 FactionOfThis
+Ability: AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -20 FactionOfThis
+Ability: EveryXTicks TimeKonstant 60 If HaveMoreThanXMana DoubleKonstant 60 HealXDamage DoubleKonstant 1
+Ability: BeforeThisTakesDamage If HaveMoreThanXMana DoubleKonstant 60 If NOT IsSameCube Culprit Caster TargetCube Culprit TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Haunted_Graveyard 50 5 5
+RARITY 1
+TYPE Factory
+Ability: Excavates
+Ability: VengeanceX DoubleKonstant 3
+Ability: EveryXSummonCubeAbove TimeKonstant 1200 CubeKonstant Vengeful_Spirit
+End
+
+CUBE: Slime_Geyser 40 5 5
+RARITY 1
+TYPE Factory
+Ability: RegenerationX DoubleKonstant 3
+Ability: OnDeathSummonCube CubeKonstant Medium_Warrior_Slime
+Ability: EveryXSummonCubeAbove TimeKonstant 600 CubeKonstant Liquid_Slime
+End
+
+CUBE: Common_Ant_Hill 30 4 4
+RARITY 1
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 420 CubeKonstant Brown_Ant 
+Ability: FlavourText The guards laught as they saw an ant with a note asking for "more land" they didnt laugh long End
+End
+
+CUBE: Speed_Ant_Hill 30 4 4
+RARITY 1
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 600 CubeKonstant Yellow_Ant
+Ability: FlavourText The Ants fell into the gate befor it was even closed killing those seeking to close it before it was too late End
+End
+
+CUBE: Explosive_Ant_Hill 30 4 4
+RARITY 1
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 840 CubeKonstant Red_Ant
+Ability: ExplodesX DoubleKonstant 1
+Ability: FlavourText The Ants ran in the hundreds against the dwarven walls in an endless unseacing wave, to the dwarves surprise their walls lost End
+End
+
+CUBE: Fiusion-anator 200 20 20
+RARITY 4
+TYPE Special
+Ability: EverySecond If AND 
+AND NOT IsPositionEmpty PositionInDirectionFromPosition East PositionOfThis
+IsFriendToCaster CubeInDirectionFromCube East Caster
+AND NOT IsPositionEmpty PositionInDirectionFromPosition West PositionOfThis
+IsFriendToCaster CubeInDirectionFromCube West Caster
+Both Both SummonCubeOnPosition CombinationOf2Cubes CubeInDirectionFromCube East Caster CubeInDirectionFromCube West Caster PositionInDirectionFromPosition North PositionOfCube Caster
+TargetCube CubeInDirectionFromCube East Caster Die
+TargetCube CubeInDirectionFromCube West Caster Die
+Ability: FlavourText This thing always breaks before someone conquers the world with it End
+End
+
+CUBE: Flame_Thrower 25 7 7
+RARITY 1
+TYPE Wall
+Ability: EveryXTicks TimeKonstant 45 If OR
+AND NOT IsFriendToCaster CubeInDirectionFromCube EnemyDirection Caster NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+AND NOT IsFriendToCaster CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Both TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster TakeXDamage DoubleKonstant 2
+TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster TakeXDamage DoubleKonstant 2
+End
+
+CUBE: Bush 5 5 9
+RARITY 1
+TYPE Wall
+Ability: RegenerationX DoubleKonstant 17
+End
+
+CUBE: Eldrich_Flesh 30 11 11
+RARITY 2
+TYPE Wall
+Ability: ArmorX DoubleKonstant 2
+Ability: BeforeThisTakesDamage GainAbility PoisonX DoubleKonstant 5
+Ability: RetaliateX DoubleKonstant 1
+Ability: EldrichX DoubleKonstant 3
+End
+
+CUBE: Liquid_Slime 4 3 3
+RARITY 1
+TYPE Neutral
+Ability: Neutral
+Ability: VengeanceX DoubleKonstant 2
+Ability: RegenerationX DoubleKonstant 10
+Ability: LiquidX TimeKonstant 40
+End
+
+CUBE: Tree_Of_Life 70 3 3
+RARITY 1
+TYPE AbilityAdder
+TYPE Healer
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim ChangeMaxHp DoubleKonstant 1
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility RegenerationX DoubleKonstant 3
+End
+
+CUBE: Generalised_Stabaliser 85 1 1
+RARITY 2
+TYPE AbilityAdder
+Ability: ArmorX DoubleKonstant 1
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End
+
+CUBE: Knight 15 5 5
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 60
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 3
+End
+
+CUBE: Ananoran 53 0 0
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 60
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 4
+Ability: AfterThisIsCreated EveryCubeWhich IsEnemyToCaster Test TargetCube Caster Silent Both ChangeMaxHp 1/2 HealXDamage 1/2
+End
+
+CUBE: TNT_Maker 20 3 3
+RARITY 4
+TYPE Factory
+Ability: ExplodesX DoubleKonstant 2
+Ability: EveryXSummonCubeInfront TimeKonstant 300 CubeKonstant TNT
+Ability: FlavourText What an interesting find - Shadow Mages Apprentice End
+End
+
+CUBE: Small_Warrior_Slime 5 1 1
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 1
+End
+
+CUBE: Medium_Warrior_Slime 13 4 4
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 60
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 2
+Ability: OnDeathSummonCube CubeKonstant Small_Warrior_Slime
+End
+
+CUBE: Large_Warrior_Slime 25 9 9
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 90
+Ability: EveryXMeeleY TimeKonstant 80 DoubleKonstant 5
+Ability: OnDeathSummonCube CubeKonstant Medium_Warrior_Slime
+End
+
+CUBE: Slime_Transport_Belt 4 2 2
+RARITY 1
+TYPE Movement
+Ability: Every3Seconds Both TargetCube CubeInDirectionFromCube North Caster MoveInDirection EnemyDirection
+TargetCube CubeOfPosition PositionInDirectionFromPosition North PositionInDirectionFromPosition Backwards PositionOfCube Caster MoveInDirection EnemyDirection
+End
+
+CUBE: Living_Bomb 30 0 0
+RARITY 4
+TYPE Attacker
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube ARandomNotCoreEnemy Both GainAbility ExplodesX DoubleKonstant 10 GainAbility PoisonX DoubleKonstant 20
+End
+
+CUBE: Stone_Mine 20 5 5
+RARITY 1
+TYPE Movement
+TYPE Factory
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If IsFriendToCaster Target MoveInDirection EnemyDirection
+Ability: Every20Seconds SummonCubeOnPosition CubeKonstant Stone PositionInDirectionFromPosition North PositionOfThis
+End
+
+CUBE: Slime_Droppod_Launcher 80 5 5
+RARITY 1
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 1200 CubeKonstant Slime_Droppod
+End
+
+CUBE: Magic_Missile 4 1 1
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 5
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 200
+End
+
+CUBE: Effiecent_Missile 10 1 1
+RARITY 1
+TYPE Attacker
+Ability: UpToXEffiecencyY DoubleKonstant 3 DoubleKonstant 1
+Ability: ChargeEveryX TimeKonstant 10
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 600
+End
+
+CUBE: Missile 10 4 4
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 10
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 7
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 300
+End
+
+CUBE: Small_Laser_Bolt 50 5 5
+RARITY 2
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 40
+Ability: Flying
+Ability: Every10Ticks Randomly SummonCubeOnPosition CubeKonstant Basic_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Randomly SummonCubeOnPosition CubeKonstant Diagonal_Up_Laser PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+SummonCubeOnPosition CubeKonstant Diagonal_Down_Laser PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Ability: ProjectileDamageX DoubleKonstant 5
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 1800
+End
+
+CUBE: Fireball 13 3 3
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 10
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 4
+Ability: Projectile
+Ability: AfterThisDies EveryCubeWhich IsInAoEAroundTarget TakeXDamage DoubleKonstant 2
+Ability: ExplodesX DoubleKonstant 1
+Ability: DieAfterX TimeKonstant 300
+End
+
+CUBE: Ghostly_Blast 7 5 5
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 20
+Ability: Flying
+Ability: EveryTick If IsNotFriendInfront TargetCube CubeInDirectionFromCube EnemyDirection Caster Silent
+TakeXDamage DoubleKonstant 4
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 1200
+End
+
+CUBE: Death_Ball 30 3 3
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 30
+Ability: Flying
+Ability: Projectile
+Ability: EveryTick If IsNotFriendInfront TargetCube CubeInDirectionFromCube EnemyDirection Caster Die
+Ability: DieAfterX TimeKonstant 6000
+End
+
+CUBE: Core_Regeneration 20 0 0
+RARITY 1
+TYPE AbilityAdder
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis GainAbility RegenerationX DoubleKonstant 3
+End
+
+CUBE: Core_Reinforcement 20 0 0
+RARITY 1
+TYPE AbilityAdder
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis ChangeMaxHp DoubleKonstant 10
+Ability: AfterThisIsCreated TargetCube CoreOfThis HealXDamage DoubleKonstant 10
+End
+
+CUBE: Core_Healer 20 3 3
+RARITY 1
+TYPE Healer
+Ability: EveryXSeconds TimeKonstant 4 TargetCube CoreOfThis HealXDamage DoubleKonstant 1
+End
+
+CUBE: Nuke 50 5 5
+RARITY 4
+TYPE Attacker
+Ability: ExplodesX DoubleKonstant 10
+Ability: BeforeThisDies EveryCubeWhich IsInAoEAroundTarget Both TakeXDamage DoubleKonstant 3 EveryCubeWhich IsInAoEAroundTarget Both TakeXDamage DoubleKonstant 2 EveryCubeWhich IsInAoEAroundTarget TakeXDamage DoubleKonstant 1
+Ability: OnDeathSummonCube CubeKonstant Fallout
+Ability: DieAfterX TimeKonstant 3000
+End
+
+CUBE: Shadow_Seedling 100 10 10
+RARITY 4
+TYPE AbilityAdder
+Ability: ArmorX DoubleKonstant 1
+Ability: Shadow
+Ability: EverySecond TargetCube ARandomCubeWhich AND NOT CubeHasTriggerWithName Test DarkReturn NOT CubeHasTriggerWithName Test Shadow
+GainAbility DarkReturn
+Ability: AfterACubeIsCreated TargetCube Victim If CubeHasNameOfCube Target CubeKonstant Solid_Shadow GainAbility 
+EveryMinute GainAbility EveryXAcidicY TimeKonstant 120 DoubleKonstant 1
+Ability: FlavourText A last gift from the gods End
+End
+
+CUBE: Magic_Missile_Mage 20 4 4
+RARITY 1
+TYPE Shooter
+Ability: EveryXSummonCubeAbove TimeKonstant 300 CubeKonstant Magic_Missile
+End
+
+CUBE: Grinding_Gun 40 2 2
+RARITY 1
+TYPE Shooter
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If IsFriendToCaster Target Both TakeXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Scrap_Bullet PositionInDirectionFromPosition EnemyDirection PositionOfThis
+End
+
+CUBE: Basic_Laser 10 2 2
+RARITY 1
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 180 CubeKonstant Basic_Laser_Projectile
+End
+
+CUBE: Duality_Laser 23 4 4
+RARITY 1
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 120 CubeKonstant Duality_Laser_Projectile
+End
+
+CUBE: Healing_Laser 35 5 5
+RARITY 1
+TYPE Shooter
+TYPE Healer
+Ability: EveryXSummonCubeInfront TimeKonstant 60 CubeKonstant Healing_Laser_Projectile
+End
+
+CUBE: Phase_Gun 50 4 4
+RARITY 1
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 180 CubeKonstant Phasing_Bullet
+End
+
+CUBE: Triple_Gun 55 2 2
+RARITY 1
+TYPE Shooter
+Ability: EveryXSeconds DoubleKonstant 4 Both SummonCubeOnPosition CubeKonstant Bullet PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Both SummonCubeOnPosition CubeKonstant Bullet PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition North PositionOfCube Caster
+SummonCubeOnPosition CubeKonstant Bullet PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition South PositionOfCube Caster
+End
+
+CUBE: Fire_Generator 21 3 3
+RARITY 1
+TYPE Factory
+Ability: Every5Seconds AddCubeToHandOfThis CubeKonstant Fire_Ping
+End
+
+CUBE: Bonfire 10 10 10
+RARITY 1
+TYPE Factory
+Ability: EverySecond GainAbility PoisonX DoubleKonstant 10
+Ability: EverySecond AddCubeToHandOfThis CubeKonstant Fire_Ping
+End
+
+CUBE: Shield_Congealer 7 3 3
+RARITY 1
+TYPE Wall
+Ability: EveryXSummonCubeInfront TimeKonstant 120 CubeKonstant Congealed_Shield
+End
+
+CUBE: Sky_Shield_Congealer 60 5 5
+RARITY 1
+TYPE Wall
+Ability: EveryXSummonCubeAbove TimeKonstant 120 CubeKonstant Congealed_Shield
+Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Congealed_Shield If IsSameCube CubeInDirectionFromCube North Caster Victim TargetCube Victim GainAbility Every5Seconds MoveInDirection North
+End
+
+CUBE: Mercenary_Caller 100 10 10
+RARITY 2
+Ability: EveryXSummonCubeAbove TimeKonstant 3600 ARandomCubeFromLibraryWhich AND AND NOT IsToken Test CubeHasTriggerWithName Test EveryXMeeleY CubeHasTriggerWithName Test ChargeEveryX
+TYPE Factory
+End
+
+CUBE: Down_Laser 20 3 3
+RARITY 1
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 120 CubeKonstant Diagonal_Down_Laser 
+End
+
+CUBE: Long_Range_Shield_Congealer 20 2 2
+RARITY 1
+TYPE Wall
+Ability: Every2Seconds SummonCubeOnPosition CubeKonstant Congealed_Shield PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection
+PositionOfCube Caster
+End
+
+CUBE: Pushing_Shield 20 3 3
+RARITY 1
+TYPE Movement
+Ability: EverySecond EveryCubeWhich IsInShieldArea MoveInDirection EnemyDirection
+End
+
+CUBE: Drill 10 5 5
+RARITY 1
+TYPE Wall
+Ability: EveryXMeeleY TimeKonstant 45 DoubleKonstant 4
+End
+
+CUBE: Healer 15 5 5
+RARITY 1
+TYPE Healer
+Ability: EverySecond TargetCube CubeInDirectionFromCube EnemyDirection Caster If IsFriendToCaster Target HealXDamage DoubleKonstant 1
+End
+
+CUBE: Healing_Pillar 20 6 6
+RARITY 1
+TYPE Healer
+Ability: Every30Ticks TargetCube CubeInDirectionFromCube North Caster If IsFriendToCaster Target HealXDamage DoubleKonstant 1
+End
+
+CUBE: Golemize 20 0 0
+RARITY 1
+TYPE AbilityAdder
+Ability: Enchantment DoubleTrigger ChargeEveryX TimeKonstant 120 EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+End
+
+CUBE: Regeneration 10 0 0
+RARITY 1
+TYPE AbilityAdder
+Ability: Enchantment RegenerationX DoubleKonstant 5
+End
+
+CUBE: Chaos_Buff 30 0 0
+RARITY 2
+TYPE AbilityAdder
+Ability: Enchantment RandomBuff
+End
+
+CUBE: Natures_Rise 25 0 0
+RARITY 1
+TYPE AbilityAdder
+Ability: Enchantment GrowthX DoubleKonstant 4
+End
+
+CUBE: Patchup 3 0 0
+RARITY 1
+TYPE Healer
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster HealXDamage DoubleKonstant 2
+End
+
+CUBE: Vengeful_Spirit 10 4 4
+RARITY 2
+TYPE Wall
+Ability: VengeanceX DoubleKonstant 10
+Ability: Flying
+Ability: AfterThisDies GainAbility EveryXMeeleY TimeKonstant 20 DoubleKonstant 4
+End
+
+CUBE: Poison_Ant_Hill 30 4 4
+RARITY 2
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 840 CubeKonstant Green_Ant 
+Ability: FlavourText The ants fell back in a victorious moment, but soon the defenders saw their true fate End
+End
+
+CUBE: The_Any_Cannon 30 4 4
+RARITY 2
+TYPE AbilityAdder
+TYPE Shooter
+Ability: Every2Seconds TargetCube CubeInDirectionFromCube Backwards Caster If IsFriendToCaster Target Both
+TeleportToPosition PositionInDirectionFromPosition EnemyDirection PositionOfThis
+If IsSameCube CubeInDirectionFromCube EnemyDirection Caster Target
+Both GainAbility Projectile
+Both GainAbility ProjectileDamageX DoubleKonstant 3
+Both GainAbility ChargeEveryX TimeKonstant 20
+     GainAbility Flying
+End
+
+CUBE: Chaos_Ant_Hill 30 4 4
+RARITY 2
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 900 CubeKonstant Rainbow_Ant
+Ability: FlavourText Ants infected by chaos held their allegiance to the ant hive, atleast for long enough to die End
+End
+
+CUBE: Eldrich_Wanderer 47 10 10
+RARITY 2
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 150
+Ability: EverySecond Randomly MoveInDirection EnemyDirection MoveInDirection Backwards
+Ability: EveryXMeeleY TimeKonstant 300 DoubleKonstant 1
+Ability: EldrichX DoubleKonstant 100
+Ability: FlavourText One of the last creatures stepping through the portals, they appear to be wearing a pink cloth like material and some claim to have seen them revealing obsidian tools hidden in the cloth End
+End
+
+CUBE: The_Vortex 100 1 1
+RARITY 4
+TYPE Special
+Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+Ability: AfterThisIsCreated If IsLarger DoubleKonstant 10 MaxHpOfCube Caster
+AddCubeToHandOfThis Caster
+Ability: EveryTick  Both
+If IsLarger DoubleKonstant 10 MaxHpOfCube Caster TakeXDamage DoubleKonstant 1
+If NOT IsLarger DoubleKonstant 10 MaxHpOfCube Caster TargetCube ARandomCubeWhich NOT IsFriendToCaster Test TakeXDamage DoubleKonstant 1
+Ability: FlavourText The libary guardians may loose but the library can never be conquered End
+End
+
+CUBE: Water_Portal 40 5 5
+RARITY 2
+TYPE Neutral
+Ability: Flying
+Ability: RegenerationX DoubleKonstant 1
+Ability: Every3Seconds SummonCubeOnPosition CubeKonstant Water PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: FlavourText It is unknown where the portal leads, it is only know that theres a lot of crystal clear water End
+End
+
+CUBE: Nuclear_Power_Plant 30 5 5
+RARITY 4
+TYPE Mana
+Ability: EveryXSummonCubeAbove TimeKonstant 360 CubeKonstant Fallout 
+Ability: Every2Seconds If IsEmptyAbove GenerateXMana DoubleKonstant 1
+Ability: FlavourText The dwarven lands turned into a wasteland but the defensive advantage was undeniabel End
+End
+
+CUBE: Summoning_Pedestal 50 5 5
+RARITY 2
+TYPE Mana
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfFaction FactionOfThis TargetCube CubeInDirectionFromCube North Caster
+Both GenerateXMana Division ManaCostOfCube Target DoubleKonstant 5
+ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -5
+End
+
+CUBE: Ingenuity_Brain 10 4 4
+RARITY 2
+TYPE Factory
+TYPE Special
+Ability: Every10Seconds AddCubeToHandOfThis CombinationOf2Cubes 
+ARandomCubeFromLibraryWhich NOT IsToken Test
+ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+CUBE: Architects_Office 100 5 5
+RARITY 2
+TYPE AbilityAdder
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis TRUE Silent Both ChangeMaxHp DoubleKonstant 2 HealXDamage DoubleKonstant 2
+End
+
+CUBE: Rapid_Gun 80 3 3
+RARITY 2
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 30 CubeKonstant Rapid_Bullet 
+End
+
+CUBE: Eldrich_Arms 45 4 4
+RARITY 2
+TYPE Attacker
+Ability: GrowthX DoubleKonstant 2
+Ability: EldrichX DoubleKonstant 10
+Ability: Excavates
+Ability: Every2Seconds TargetCube CubeInDirectionFromCube North Caster If NOT IsFriendToCaster Target TakeXDamage DoubleKonstant 5
+End
+
+CUBE: Healing_Hat 17 4 4
+RARITY 2
+TYPE Healer
+Ability: RegenerationX DoubleKonstant 3
+Ability: EverySecond TargetCube CubeInDirectionFromCube South Caster HealXDamage DoubleKonstant 1
+End
+
+CUBE: Pufferfish 20 6 6
+RARITY 2
+TYPE Wall
+Ability: RegenerationX DoubleKonstant 10
+Ability: RetaliateX DoubleKonstant 1
+Ability: PoisonousX DoubleKonstant 20
+End
+
+CUBE: Obsidian_Knight 80 10 10
+RARITY 2
+TYPE Attacker
+Ability: ArmorX DoubleKonstant 1
+Ability: ChargeEveryX TimeKonstant 120
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 10
+End
+
+CUBE: Spikes 15 2 2
+RARITY 2
+TYPE Attacker
+Ability: Excavates
+Ability: Every2Seconds TargetCube CubeInDirectionFromCube North Caster If NOT IsFriendToCaster Target TakeXDamage DoubleKonstant 5
+End
+
+CUBE: Swallowing_Sands 30 3 3
+RARITY 2
+TYPE Neutral
+Ability: Every10Seconds EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Sand TargetCube CubeInDirectionFromCube South Target If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
+Ability: EveryXSummonCubeAbove TimeKonstant 600 CubeKonstant Sand_Storm 
+End
+
+CUBE: Fire_Shield 15 4 4
+RARITY 2
+TYPE Attacker
+Ability: EverySecond EveryCubeWhich IsInShieldArea If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
+End
+
+CUBE: Spear_Slicer 20 4 4
+RARITY 2
+TYPE Attacker
+Ability: Every2Seconds TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster 
+If NOT IsFriendToCaster Target TakeXDamage DoubleKonstant 5
+End
+
+CUBE: Chain_Laser 100 4 4
+RARITY 2
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 30 CubeKonstant Basic_Laser_Projectile 
+End
+
+CUBE: Death_Laser 100 10 10
+RARITY 2
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 900 CubeKonstant Death_Laser_Projectile 
+End
+
+CUBE: Gravity_Puller 10 3 3
+RARITY 2
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 120 CubeKonstant Pulling_Projectile
+End
+
+CUBE: Fire_Wave 40 1 1
+RARITY 2
+TYPE Attacker
+Ability: EveryTick If IsCubeInfront Die
+Ability: Flying
+Ability: ChargeEveryX TimeKonstant 30
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: DieAfterX TimeKonstant 3600
+Ability: EverySecond Both SummonCubeOnPosition CubeKonstant Fire_Wave PositionInDirectionFromPosition North PositionOfCube Caster
+SummonCubeOnPosition CubeKonstant Fire_Wave PositionInDirectionFromPosition South PositionOfCube Caster
+End
+
+CUBE: Poison_Wave 60 1 1
+RARITY 2
+TYPE Attacker
+Ability: EveryTick If IsCubeInfront TargetCube CubeInDirectionFromCube EnemyDirection Caster GainAbility PoisonX DoubleKonstant 3
+Ability: EveryTick If IsCubeInfront Die
+Ability: Flying
+Ability: ChargeEveryX TimeKonstant 60
+Ability: DieAfterX TimeKonstant 7200
+Ability: Every2Seconds Both SummonCubeOnPosition CubeKonstant Poison_Wave PositionInDirectionFromPosition North PositionOfCube Caster
+SummonCubeOnPosition CubeKonstant Poison_Wave PositionInDirectionFromPosition South PositionOfCube Caster
+End
+
+CUBE: Isanra-Doom_of_a_Kingdom 70 1 1
+RARITY 4
+TYPE AbilityAdder
+Ability: AfterACubeIsCreated If NOT IsSameCube Victim Caster TargetCube Victim GainAbility DieAfterX TimeKonstant 36000
+Ability: FlavourText No more enemys will be created near the dwarven kingdom-Isanra End
+End
+
+CUBE: Healing_Shield 20 3 3
+RARITY 2
+TYPE Healer
+Ability: Every3Seconds EveryCubeWhich IsInShieldArea If IsFriendToCaster Target HealXDamage DoubleKonstant 1
+End
+
+CUBE: Portalize 7 0 0
+RARITY 2
+TYPE AbilityAdder
+Ability: Enchantment Every10Ticks TargetCube CubeInDirectionFromCube Backwards Caster TeleportToPosition PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Poisonous 50 0 0
+RARITY 2
+TYPE AbilityAdder
+Ability: Enchantment PoisonousX DoubleKonstant 10
+End
+
+CUBE: Poison_Container 50 4 4
+RARITY 4
+TYPE Attacker
+Ability: Every10Seconds TargetCube ARandomEnemy GainAbility PoisonX DoubleKonstant 1
+Ability: OnDeathSummonCube CubeKonstant Fallout
+End
+
+CUBE: Aging_Replication 100 0 0
+RARITY 2
+TYPE AbilityAdder
+Ability: Enchantment Every20Seconds Randomly 
+GainAbility PoisonX DoubleKonstant 6
+GainAbility WeakX DoubleKonstant 1
+Ability: Enchantment EverySecond EveryXTimes AddTicks ManaCostOfCube Target SummonCubeOnPosition Caster PositionInDirectionFromPosition North PositionOfThis
+End
+
+CUBE: Healing_Aura 30 0 0
+RARITY 2
+TYPE AbilityAdder
+TYPE Healer
+Ability: Enchantment EveryXSeconds DoubleKonstant 4 EveryCubeWhich AND IsFriendToCaster Test IsInAoEAroundTarget HealXDamage DoubleKonstant 1
+End
+
+CUBE: Lava_Gargoyl 30 5 5
+RARITY 2
+TYPE Factory
+Ability: EveryXSummonCubeInfront TimeKonstant 1800 CubeKonstant Lava End
+
+CUBE: Mana_Storage_Dimension 50 10 10
+RARITY 2
+TYPE Mana
+Ability: Every5Seconds ChangeMaxManaOfFaction DoubleKonstant 1 FactionOfThis
+End
+
+CUBE: Giant_Leach 15 4 7
+RARITY 2
+TYPE Attacker
+Ability: LifeSteal
+Ability: ChargeEveryX TimeKonstant 40
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 2
+End
+
+CUBE: Mana_Leach 20 5 5
+RARITY 2
+TYPE Mana
+TYPE Attacker
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 3
+Ability: ChargeEveryX TimeKonstant 60
+Ability: AfterThisDealsDamage GenerateXMana DoubleKonstant 1
+End
+
+CUBE: Kidnaper 40 6 6
+RARITY 2
+TYPE Movement
+Ability: EverySecond If NOT IsEnemyToCaster CubeInDirectionFromCube Backwards Caster MoveInDirection EnemyDirection
+Ability: EverySecond If IsEnemyToCaster CubeInDirectionFromCube Backwards Caster 
+Both TargetCube CubeInDirectionFromCube Backwards Caster MoveInDirection Backwards
+TargetCube Caster MoveInDirection Backwards
+Ability: Every10Ticks TargetCube CubeInDirectionFromCube EnemyDirection Caster If IsEnemyToCaster Target 
+TeleportToPosition PositionInDirectionFromPosition Backwards PositionOfThis
+End
+
+CUBE: The_Maw 75 3 10
+RARITY 2
+TYPE Attacker
+Ability: LifeSteal
+Ability: ChargeEveryX TimeKonstant 120
+Ability: EveryXMeeleY TimeKonstant 30 DoubleKonstant 2
+End
+
+CUBE: Mana_Shielded_Warrior 50 10 10
+RARITY 2
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 70
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 4
+Ability: RegenerationX ManaOfFaction FactionOfThis
+End
+
+CUBE: Mother_Leach 55 10 25
+RARITY 2
+TYPE Wall
+TYPE Factory
+Ability: LifeSteal
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 4
+Ability: EverySecond If IsLarger HpOfCube Caster DoubleKonstant 20 Both Silent TakeXDamage DoubleKonstant 15 SummonCubeOnPosition CubeKonstant Giant_Leach PositionInDirectionFromPosition North PositionOfCube Caster
+End
+
+CUBE: Force_Power_Plant 5 5 6
+RARITY 2
+TYPE Mana
+Ability: BeforeThisTakesDamage GenerateXMana DoubleKonstant 2
+Ability: RegenerationX DoubleKonstant 5
+End
+
+CUBE: Liquid_Damage 25 10 10
+RARITY 2
+TYPE Special
+Ability: BeforeACubeTakesDamage If IsEnemyToCaster Victim  Silent Both TakeXDamage DoubleKonstant 1 NegateX DoubleKonstant -1
+End
+
+CUBE: Liquid_Healing 30 10 10
+RARITY 2
+TYPE Healer
+TYPE Special
+Ability: BeforeACubeTakesDamage If IsFriendToCaster Victim If NOT IsFriendToCaster Culprit Both TakeXDamage DoubleKonstant 1 TargetCube Victim HealXDamage DoubleKonstant 1
+End
+
+CUBE: Robot_Factory 24 3 3
+RARITY 2
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 240 CubeKonstant Kamikazi_Robot
+End
+
+CUBE: Teleporter_Pad 7 4 4
+RARITY 2
+TYPE Movement
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster TeleportToPosition
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Target
+End
+
+CUBE: Teleporter_Tunnel 13 3 3
+RARITY 2
+TYPE Movement
+Ability: EverySecond TargetCube CubeInDirectionFromCube Backwards Caster TeleportToPosition 
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Target
+End
+
+CUBE: Thorny_Shield_Ampliefier 60 2 2
+RARITY 2
+TYPE AbilityAdder
+TYPE Factory
+Ability: EveryXSummonCubeAbove TimeKonstant 300 CubeKonstant Congealed_Shield 
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Congealed_Shield TargetCube Victim GainAbility RetaliateX DoubleKonstant 1
+End
+
+CUBE: Explodyfier 20 3 3
+RARITY 2
+TYPE AbilityAdder
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target ExplodesX GainAbility ExplodesX DoubleKonstant 4
+End
+
+CUBE: Thornyfier 20 3 3
+RARITY 2
+TYPE AbilityAdder
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target RetaliateX GainAbility RetaliateX DoubleKonstant 1
+End
+
+CUBE: Shadow_Witch 20 3 3
+RARITY 2
+TYPE AbilityAdder
+Ability: Every10Ticks TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target Shadow GainAbility Shadow
+End
+
+CUBE: Altar_of_Destruction 20 5 5
+RARITY 2
+TYPE Attacker
+Ability: Every2Seconds  TargetCube CubeInDirectionFromCube North Caster If IsFriendToCaster Target Both 
+TargetCube ARandomEnemy TakeXDamage Division HpOfCube CubeInDirectionFromCube North Caster DoubleKonstant 2
+TargetCube CubeInDirectionFromCube North Caster Die
+End
+
+CUBE: Eldrich_Eye 65 10 10
+RARITY 4
+TYPE Attacker
+Ability: EldrichX DoubleKonstant 2
+Ability: Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+Ability: FlavourText It looking at you will doom you, you looking at it will doom your friends End
+End
+
+CUBE: Mana_Berry_Bush 10 4 4
+RARITY 2
+TYPE Mana
+TYPE Factory
+Ability: EverySecond If HaveMoreThanXMana DoubleKonstant 90 If IsPositionEmpty PositionInDirectionFromPosition North PositionOfThis Both
+SummonCubeOnPosition CubeKonstant Mana_Berry PositionInDirectionFromPosition North PositionOfThis
+GenerateXMana DoubleKonstant -10
+Ability: RegenerationX DoubleKonstant 10
+End
+
+CUBE: Eldrich_Ant_Hill 30 4 4
+RARITY 4
+TYPE Factory
+Ability: EldrichX DoubleKonstant 5
+Ability: EveryXSummonCubeAbove TimeKonstant 720 CubeKonstant Pink_Ant 
+Ability: FlavourText the combination of the eldrich and the ant turned out worse than expected End
+End
+
+CUBE: Regenerator 20 3 3
+RARITY 2
+TYPE Healer
+Ability: Every30Seconds EveryCubeWhich IsFriendToCaster Test HealXDamage DoubleKonstant 1
+End
+
+CUBE: Solar_Panel 50 4 4
+RARITY 2
+TYPE Mana
+Ability: Every5Seconds If IsEmptyAbove GenerateXMana DoubleKonstant 1
+End
+
+CUBE: Red_Gold 50 3 3
+RARITY 4
+TYPE AbilityAdder
+Ability: Every10Seconds TargetCube ARandomCubeWhich AND IsEnemyToCaster Test NOT CubeHasTriggerWithName Target ChargeEveryX Both
+If NOT CubeHasTriggerWithName Target EveryXMeeleY GainAbility EveryXMeeleY TimeKonstant 240 DoubleKonstant 2
+If NOT CubeHasTriggerWithName Target ChargeEveryX GainAbility ChargeEveryX TimeKonstant 120
+Ability: FlavourText Did metal create greed or did greed create metal End
+End
+
+CUBE: Anger_Infiuser 15 3 3
+RARITY 2
+TYPE AbilityAdder
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target EveryXMeeleY GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+End
+
+CUBE: Universal_Damage_Amplifier 100 10 10
+RARITY 2
+TYPE Special
+Ability: BeforeACubeTakesDamage NegateX DoubleKonstant -1
+Ability: EveryMinute TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Doubled_Placement_Amplifier 100 5 5
+RARITY 2
+TYPE Special
+Ability: AfterACubeIsCreated If IsSameCube Culprit CoreOfFaction FactionOfCube Victim SummonCubeOnPosition Victim PositionInDirectionFromPosition North PositionOfCube Victim
+End
+
+CUBE: Kublath-Master_Of_Effiecency 100 7 6
+RARITY 2
+TYPE Mana
+TYPE AbilityAdder
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 2
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis AND NOT CubeHasLimitedUses Test IsLarger ManaCostOfCube Test DoubleKonstant 5
+GainAbility UpToXEffiecencyY DoubleKonstant 5 DoubleKonstant 1
+End
+
+CUBE: Solid_Air 3 1 1
+RARITY 3
+TYPE Special
+Ability: Flying
+Ability: DieAfterX TimeKonstant 600
+End
+
+CUBE: Pain_Goo 20 4 4
+RARITY 3
+TYPE Neutral
+Ability: Neutral
+Ability: LiquidX TimeKonstant 40
+Ability: AfterThisTakesDamage ChangeMaxHp DoubleKonstant -1
+Ability: AfterThisTakesDamage SummonCubeOnPosition CubeKonstant Pain_Goo PositionInDirectionFromPosition North PositionOfThis
+Ability: AfterACubeIsCreated If IsSameCube Culprit Caster TargetCube Victim Both 
+Both Silent TakeXDamage MaxHpOfCube Target
+ChangeMaxHp Multiplikation DoubleKonstant -1 MaxHpOfCube Target
+Both ChangeMaxHp MaxHpOfCube Caster
+Silent HealXDamage MaxHpOfCube Caster
+Ability: RetaliateX DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 1
+End
+
+CUBE: Cursed_Hermit 100 10 10
+RARITY 3
+TYPE Wall
+Ability: AfterACubeDies If IsSameCube Culprit Caster EveryXTimes DoubleKonstant 10 Die
+Ability: EveryXAcidicY TimeKonstant 60 DoubleKonstant 2
+Ability: Deadly
+End
+
+CUBE: Gravity_Canceler 100 5 5
+RARITY 3
+TYPE Special
+Ability: Flying
+Ability: AfterACubeMoves TargetCube Victim If IsFriendToCaster Target If AND NOT IsSameCube Culprit Victim IsSameDirection EventDirection South Silent TeleportToPosition OriginalPosition
+End
+
+CUBE: Chaos_Gun 75 4 4
+RARITY 3
+TYPE Shooter
+Ability: EveryXSummonCubeInfront TimeKonstant 300 ARandomCubeFromLibraryWhich CubeHasTriggerWithName Test Projectile
+End
+
+CUBE: Ikt-Fleshsmith 100 7 7
+RARITY 3
+TYPE AbilityAdder
+TYPE Factory
+Ability: RegenerationX DoubleKonstant 10
+Ability: BeforeThisDealsDamage Both If IsEmptyAbove SummonCubeOnPosition CubeKonstant Flesh_Ball PositionInDirectionFromPosition North PositionOfThis
+If NOT IsEmptyAbove TargetCube  CubeInDirectionFromCube North Caster If CubeHasNameOfCube Target CubeKonstant Flesh_Ball
+Both Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+Both EveryXTimes DoubleKonstant 5 GainAbility RegenerationX DoubleKonstant 2
+Both EveryXTimes DoubleKonstant 10 GainAbility EveryXMeeleY TimeKonstant 240 DoubleKonstant 2
+Both EveryXTimes DoubleKonstant 20 GainAbility RandomBuff
+Both EveryXTimes DoubleKonstant 50 GainAbility Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+EveryXTimes DoubleKonstant 25 TargetCube Caster GainAbility EverySecond TargetCube ARandomFriend TakeXDamage DoubleKonstant 1
+Ability: EverySecond TargetCube ARandomFriend TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Lava_Storm 90 10 10
+RARITY 4
+TYPE Neutral
+Ability: Flying
+Ability: RandomMovementX TimeKonstant 30
+Ability: EverySecond Both TakeXDamage DoubleKonstant 1 SummonCubeOnPosition CubeKonstant Lava PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: ChargeEveryX TimeKonstant 120
+Ability: FlavourText Use with care, or dont End
+End
+
+CUBE: Claim 35 0 0
+RARITY 3
+TYPE Special
+Ability: Spell
+Ability: UpToXEffiecencyY DoubleKonstant 5 DoubleKonstant 1
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster 
+If OR NOT IsEnemyToCaster Target IsLarger DoubleKonstant 10 ManaCostOfCube Caster
+SetFaction FactionOfThis
+End
+
+CUBE: Everyone_CHARGE! 100 0 0
+RARITY 3
+TYPE AbilityAdder
+Ability: Spell
+Ability: AfterThisIsCreated EveryCubeWhich IsFriendToCaster Test Both
+If NOT CubeHasTriggerWithName Target EveryXMeeleY GainAbility EveryXMeeleY TimeKonstant 240 DoubleKonstant 2
+If NOT CubeHasTriggerWithName Target ChargeEveryX GainAbility ChargeEveryX TimeKonstant 120
+End
+
+CUBE: Grab 5 0 0
+RARITY 3
+TYPE Special
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster 
+Both If IsFriendToCaster Target Both AddCubeToHandOfThis Target Die
+If NOT IsFriendToCaster Target Both AddCubeToHandOfThis Target
+Both Die GenerateXMana DoubleKonstant -45
+End
+
+CUBE: Reinforcements_of_Awaka 60 0 0
+RARITY 3
+TYPE Attacker
+Ability: Spell
+Ability: UpToXEffiecencyY DoubleKonstant 3 DoubleKonstant 1
+Ability: AfterThisIsCreated If IsLarger DoubleKonstant 40 ManaCostOfCube Caster SummonCubeOnPosition CubeKonstant Ananoran PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: AfterThisIsCreated Both SummonCubeOnPosition CubeKonstant Knight PositionInDirectionFromPosition South PositionOfCube Caster
+Both SummonCubeOnPosition CubeKonstant Knight PositionInDirectionFromPosition East PositionOfThis
+SummonCubeOnPosition CubeKonstant Knight PositionInDirectionFromPosition West PositionOfThis
+End
+
+CUBE: Bullet_Engineers 45 5 5
+RARITY 3
+TYPE Shooter
+Ability: EveryXSeconds ManaCostOfCube CubeInDirectionFromCube Backwards Caster TargetCube CubeInDirectionFromCube Backwards Caster If IsFriendToCaster Target Both
+SummonCubeOnPosition Target PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+TargetCube CubeInDirectionFromCube EnemyDirection Caster
+Both GainAbility Projectile
+Both GainAbility ProjectileDamageX DoubleKonstant 1
+Both GainAbility ChargeEveryX TimeKonstant 20
+Both GainAbility Flying
+GainAbility DieAfterX TimeKonstant 3000
+End
+
+CUBE: Mana_Drained_Golem 50 10 10
+RARITY 3
+TYPE Attacker
+Ability: EveryTick If HaveMoreThanXMana DoubleKonstant 95 1Shot
+Both GainAbility EveryXMeeleY TimeKonstant 50 DoubleKonstant 5 
+Both GainAbility ChargeEveryX TimeKonstant 50
+GainAbility RegenerationX DoubleKonstant 10
+Ability: ArmorX DoubleKonstant 1
+End
+
+CUBE: Blood_Reactor 50 10 10
+RARITY 3
+TYPE Mana
+Ability: Every2Seconds 
+If IsFriendToCaster CubeInDirectionFromCube North Caster
+If IsFriendToCaster CubeInDirectionFromCube South Caster
+If IsFriendToCaster CubeInDirectionFromCube East Caster
+If IsFriendToCaster CubeInDirectionFromCube West Caster
+Both GenerateXMana DoubleKonstant 10
+Both TargetCube CubeInDirectionFromCube North Caster TakeXDamage DoubleKonstant 1
+Both TargetCube CubeInDirectionFromCube South Caster TakeXDamage DoubleKonstant 1
+Both TargetCube CubeInDirectionFromCube East Caster TakeXDamage DoubleKonstant 1
+TargetCube CubeInDirectionFromCube West Caster TakeXDamage DoubleKonstant 1
+Ability: FlavourText Convert your allies and friends to raw mana in only 1 easy step End
+End
+
+CUBE: Weaken 90 0 0
+RARITY 3
+TYPE Attacker
+Ability: Spell
+Ability: AfterThisIsCreated EveryCubeWhich IsEnemyToCaster Test Both TakeXDamage DoubleKonstant 1 ChangeMaxHp DoubleKonstant -1
+End
+
+CUBE: King_Of_Arkrist 100 4 4
+RARITY 3
+TYPE AbilityAdder
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If NOT CubeHasTriggerWithName Victim LifeSteal 
+Both GainAbility LifeSteal 
+If IsLarger HpOfCube Target DoubleKonstant 1 TakeXDamage DoubleKonstant 1
+Ability: LifeSteal
+Ability: LifeSteal
+Ability: EveryXMeeleY TimeKonstant 70 DoubleKonstant 1
+Ability: FlavourText He came to seek salvation but only he knows for who End
+End
+
+CUBE: Jar_Of_Vengeful_Souls 100 5 5
+RARITY 3
+TYPE AbilityAdder
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If NOT CubeHasTriggerWithName Victim VengeanceX GainAbility VengeanceX DoubleKonstant 2
+Ability: DebilitatingRegret
+Ability: PoisonX DoubleKonstant 1
+Ability: OnDeathSummonCube CubeKonstant Angry_Unleashed_Souls
+Ability: FlavourText Getting them in there was hard, getting them out will be much easier End
+End
+
+CUBE: Eldrich_Portal 100 5 5
+RARITY 3
+TYPE Factory
+Ability: AfterThisIsCreated TeleportToPosition 
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionOfCube Target
+Ability: Every10Seconds TargetCube ARandomCubeFromLibraryWhich CubeHasTriggerWithName Test EldrichX 
+Randomly Randomly
+SummonCubeOnPosition Target PositionInDirectionFromPosition South PositionOfCube Caster
+SummonCubeOnPosition Target PositionInDirectionFromPosition North PositionOfCube Caster
+Randomly
+SummonCubeOnPosition Target PositionInDirectionFromPosition West PositionOfCube Caster
+SummonCubeOnPosition Target PositionInDirectionFromPosition East PositionOfCube Caster
+Ability: Flying
+Ability: AlwaysNeutral
+Ability: EldrichX DoubleKonstant 1
+Ability: LifeDebt DoubleKonstant 10
+Ability: FlavourText The sky ripped open and those who saw through it saw a bleak purple ish wasteland of bizarr creatures turning in uniscen to this new path End
+End
+
+CUBE: Chaos_Portal 100 13 13
+RARITY 3
+TYPE Factory
+Ability: AfterThisIsCreated TeleportToPosition 
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection
+PositionOfCube Target
+Ability: Every10Seconds TargetCube ARandomCubeFromLibraryWhich NOT IsToken Test
+Randomly Randomly
+SummonCubeOnPosition Target PositionInDirectionFromPosition South PositionOfCube Caster
+SummonCubeOnPosition Target PositionInDirectionFromPosition North PositionOfCube Caster
+Randomly
+SummonCubeOnPosition Target PositionInDirectionFromPosition West PositionOfCube Caster
+SummonCubeOnPosition Target PositionInDirectionFromPosition East PositionOfCube Caster
+Ability: Flying
+Ability: AlwaysNeutral
+Ability: FlavourText This is clearly a good idear End
+End
+
+CUBE: Steam_Generator 50 2 2
+RARITY 3
+TYPE Mana
+Ability: Every2Seconds TargetCube CubeInDirectionFromCube Backwards Caster If IsFriendToCaster Target 
+If IsEmptyAbove
+Both TakeXDamage DoubleKonstant 1
+Both GenerateXMana DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Steam PositionInDirectionFromPosition North PositionOfCube Caster 
+End
+
+CUBE: Effiecent_Construction_Center 50 3 3
+RARITY 3
+TYPE Mana
+Ability: AfterACubeIsCreated If IsSameCube Culprit CoreOfThis If IsLarger ManaCostOfCube Victim DoubleKonstant 0 Both 
+GenerateXMana DoubleKonstant 1
+TargetCube Victim ChangeManaCost DoubleKonstant -1
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If CubeHasNameOfCube Target CubeKonstant Effiecent_Construction_Center Die
+End
+
+CUBE: Slime_Zilla 100 1 1
+RARITY 3
+TYPE Attacker
+Ability: GrowthX DoubleKonstant 7
+Ability: RegenerationX DoubleKonstant 3
+Ability: EveryXMeeleY TimeKonstant 50 Division HpOfCube Caster DoubleKonstant 10
+Ability: OnDeathSummonCube CubeKonstant Large_Warrior_Slime
+Ability: EverySecond If IsLarger HpOfCube Caster DoubleKonstant 20 MoveInDirection EnemyDirection
+Ability: FlavourText The times of slime rule are long over and never lasted long, but they do keep trying End
+End
+
+CUBE: Discount_Deal 10 0 0
+RARITY 3
+TYPE Special
+Ability: Spell
+Ability: AfterThisIsCreated SummonCubeOnPosition ARandomCubeFromLibraryWhich NOT IsToken Test PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: FlavourText The most mad of mages accepted deals from devils End
+End
+
+CUBE: First_Law 80 5 5
+RARITY 3
+TYPE Special
+Ability: AfterACubeTakesDamage If NOT IsSameCube Culprit Victim TargetCube Culprit Silent TakeXDamage DoubleKonstant 1
+Ability: FlavourText You shall not hurt another End
+End
+
+CUBE: Second_Law 80 5 5
+RARITY 3
+TYPE Special
+Ability: AfterACubeDies TargetCube Culprit Silent TakeXDamage DoubleKonstant 5
+Ability: FlavourText You shall not kill End
+End
+
+CUBE: Third_Law 80 5 5
+RARITY 3
+TYPE Special
+Ability: AfterACubeIsCreated If NOT IsSameCube Culprit CoreOfFaction FactionOfCube Victim TargetCube Culprit Silent TakeXDamage DoubleKonstant 1
+Ability: FlavourText Your creations shall not themselves create  End
+End
+
+CUBE: Rain_Cloud 20 20 20
+RARITY 3
+TYPE Neutral
+Ability: Flying
+Ability: RandomMovementX TimeKonstant 60
+Ability: EverySecond Both TakeXDamage DoubleKonstant 1 SummonCubeOnPosition CubeKonstant Water PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: ChargeEveryX TimeKonstant 120
+End
+
+CUBE: Lightning_Cloud 50 10 10
+RARITY 3
+TYPE Neutral
+TYPE Attacker
+Ability: Flying
+Ability: RandomMovementX TimeKonstant 60
+Ability: Every2Seconds Both TakeXDamage DoubleKonstant 1 SummonCubeOnPosition CubeKonstant Downward_Lightning PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: ChargeEveryX TimeKonstant 120
+End
+
+CUBE: Sand_Storm 26 20 20
+RARITY 3
+TYPE Neutral
+Ability: Flying
+Ability: RandomMovementX TimeKonstant 40
+Ability: EverySecond Both TakeXDamage DoubleKonstant 1 SummonCubeOnPosition CubeKonstant Sand PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: ChargeEveryX TimeKonstant 120
+End
+
+CUBE: Poison_Shield 13 3 4
+RARITY 3
+TYPE Attacker
+Ability: EverySecond EveryCubeWhich IsInShieldArea If IsEnemyToCaster Target GainAbility PoisonX DoubleKonstant 20
+End
+
+CUBE: Enchanter 70 4 4
+RARITY 3
+TYPE Factory
+Ability: Every20Seconds SummonCubeOnPosition ARandomCubeFromLibraryWhich CubeHasTriggerWithName Test Enchantment PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: Flying
+End
+
+CUBE: Growth_Shield 50 5 5
+RARITY 3
+TYPE Factory
+Ability: Every10Seconds EveryCubeWhich IsInShieldArea If IsFriendToCaster Target ChangeMaxHp DoubleKonstant 1
+End
+
+CUBE: Errosion_Container 20 2 2
+RARITY 3
+TYPE Attacker
+Ability: Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+Ability: OnDeathSummonCube CubeKonstant Broken_Errosion_Container
+End
+
+CUBE: Fiusion 100 0 0
+RARITY 4
+TYPE Special
+Ability: Spell
+Ability: AfterThisIsCreated SummonCubeOnPosition CombinationOf2Cubes CubeInDirectionFromCube East Caster CubeInDirectionFromCube West Caster PositionInDirectionFromPosition North PositionOfCube Caster
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube East Caster Die
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube West Caster Die
+Ability: FlavourText My greatest regret is showing this to the world -Kublath End
+End
+
+CUBE: Hearts_Of_Sanctuary 100 6 6
+RARITY 3
+TYPE Healer
+Ability: Every20Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
+Ability: BeforeACubeHeals If IsSameCube Culprit Caster TargetCube Victim GainAbility HealabelX DoubleKonstant 1
+Ability: ArmorX DoubleKonstant 1
+Ability: FlavourText The hearts protect the city and the city protects the hearts End
+End
+
+CUBE: Growth_Container 80 6 6
+RARITY 3
+TYPE AbilityAdder
+Ability: Every20Seconds TargetCube ARandomCubeWhich AND IsFriendToCaster Test NOT CubeHasTriggerWithName Test GrowthX GainAbility GrowthX DoubleKonstant 3
+Ability: OnDeathSummonCube CubeKonstant Overgrowth
+End
+
+CUBE: Regeneration_Container 50 6 6
+RARITY 3
+TYPE AbilityAdder
+Ability: Every20Seconds TargetCube ARandomCubeWhich AND IsFriendToCaster Test NOT CubeHasTriggerWithName Test RegenerationX GainAbility RegenerationX DoubleKonstant 3
+Ability: BeforeThisDies EveryCubeWhich AND IsFriendToCaster Test CubeHasTriggerWithName Test RegenerationX TakeXDamage Subtraction HpOfCube Target DoubleKonstant 1
+End
+
+CUBE: Anger_Container 80 6 6
+RARITY 3
+TYPE AbilityAdder
+Ability: Every20Seconds TargetCube ARandomCubeWhich AND IsFriendToCaster Test NOT CubeHasTriggerWithName Test EveryXMeeleY GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+Ability: AfterThisDies EveryCubeWhich NOT CubeHasTriggerWithName Test EveryXMeeleY GainAbility EveryXMeeleY TimeKonstant 60 DoubleKonstant 2
+Ability: FlavourText Concentrated anger is usually extracted from 10 wild Bears, but new developments showed the maw to be a much better source End
+End
+
+CUBE: TNT 5 2 2
+RARITY 3
+TYPE Attacker
+Ability: BeforeThisDies EveryCubeWhich IsTouchingTarget Both TakeXDamage DoubleKonstant 3 EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 2
+End
+
+CUBE: Leg_Adder 7 4 4
+RARITY 3
+TYPE AbilityAdder
+Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target ChargeEveryX GainAbility ChargeEveryX TimeKonstant 60
+Ability: FlavourText Insanity Inc does not take responsibility for lost household objects End
+End
+
+CUBE: Phasing_Adjunctor 14 5 5
+RARITY 3
+TYPE AbilityAdder
+Ability: Every10Ticks TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasTriggerWithName Target Phasing GainAbility Phasing
+Ability: FlavourText Insanity Inc does not take responsibility for any close friends accidentaly phasing out of the universe End
+End
+
+CUBE: POWERINFLUX 200 0 0
+RARITY 3
+TYPE AbilityAdder
+TYPE Special
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis GainAbility EverySecond GenerateXMana DoubleKonstant 1
+Ability: FlavourText Too slow again End
+End
+
+CUBE: Mindcontrol_Missile 50 3 3
+RARITY 3
+TYPE Attacker
+TYPE Special
+Ability: ChargeEveryX TimeKonstant 40
+Ability: Flying
+Ability: EveryTick If IsCubeInfront TargetCube CubeInDirectionFromCube EnemyDirection Caster If NOT IsFriendToCaster Target Both Both Both
+GainAbility DieAfterX TimeKonstant 14400
+SetFaction FactionOfCube Caster
+TeleportToPosition PositionInDirectionFromPosition Backwards PositionOfCube Caster
+TargetCube Caster Die
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 1200
+End
+
+CUBE: Errode 20 0 0
+RARITY 4
+TYPE Attacker
+Ability: Spell
+Ability: UpToXEffiecencyY DoubleKonstant 3 DoubleKonstant 1
+Ability: AfterThisIsCreated Until IsLarger DoubleKonstant 1 ManaOfFaction FactionOfThis 
+Both TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+GenerateXMana DoubleKonstant -1
+Nothing
+End
+
+CUBE: Road_of_Random_Summons 50 0 0
+RARITY 4
+TYPE Special
+Ability: Spell
+Ability: UpToXEffiecencyY DoubleKonstant 1 DoubleKonstant 1
+Ability: AfterThisIsCreated SummonCubeOnPosition ARandomCubeFromLibraryWhich NOT IsToken Test PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: FlavourText This cant fail End
+End
+
+CUBE: Shadow_Ascension 80 6 6
+RARITY 3
+TYPE AbilityAdder
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasTriggerWithName Test Shadow
+GainAbility Shadow
+End
+
+CUBE: Oblivion_Shard 30 3 3
+RARITY 1
+TYPE Attacker
+Ability: EveryMinute EveryCubeWhich TRUE TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Dissasembler 60 10 10
+RARITY 3
+TYPE Special
+Ability: Every30Seconds TargetCube CubeInDirectionFromCube North Caster 
+If IsFriendToCaster Target 
+Both AddCubeToHandOfThis Target
+Both AddCubeToHandOfThis Target
+Both AddCubeToHandOfThis Target
+Die 
+End
+
+

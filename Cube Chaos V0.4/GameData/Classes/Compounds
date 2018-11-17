@@ -1,0 +1,5 @@
+
+COMPOUND: TRIGGER
+Dragon_Egg
+EveryXMinutes DoubleKonstant 5 1Shot Both AddCubeToHandOfThis GenericCube Die
+After 5 Minutes this dies and a CODE 1 will be added to your hand End

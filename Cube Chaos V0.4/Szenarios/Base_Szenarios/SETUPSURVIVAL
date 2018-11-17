@@ -1,0 +1,48 @@
+MAP: 42 42
+
+CUBE: 1 PROFILECORE
+CUBE: 2 Dirt
+
+DATARECT: 2 0  1 38  41 4
+
+DATA: 1 4 30 1
+DATA: 2 38 30 2
+
+CORE: 1 4 30
+CORE: 2 42 30
+
+STARTINGMANA: 1 100
+
+RANDOMBLUEPRINTS: 
+Division DoubleKonstant 20 Difficulty 
+2
+Difficulty
+
+HALFPLACEMENT: True
+
+AI: True
+
+WORLDABILITY: EveryTick If NOT CubeExists CoreOfFaction DoubleKonstant 1 Loose
+
+WORLDABILITY: EveryMinute EveryXTimes DoubleKonstant 30 Win
+
+WORLDABILITY: EveryMinute EveryXTimes DoubleKonstant 5 XCharges DoubleKonstant 1 GainAbility
+EveryMinute EveryXTimes DoubleKonstant 5 GainAbility
+EverySecond FactionXGainsYMana DoubleKonstant 2 Difficulty
+
+End
+
+OPTIONS:
+
+VICTORY_SZENARIO: Szenarios/Base_Szenarios/SETUPSURVIVAL
+LOSS_SZENARIO: Szenarios/Base_Szenarios/SETUPSURVIVAL
+
+UNLOCK_ALL_CUBES
+
+CUBE_SELECTION: True
+CLASS_SELECTION: True
+
+BUFF_REWARD: True
+RANDOM_CUBE_REWARD: 1
+
+End

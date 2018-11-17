@@ -1,0 +1,222 @@
+ALL TOKENS for other Cubes are saved here
+
+CUBE: Basic_Laser_Projectile 2 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeInDirectionFromCube EnemyDirection Caster TakeXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Basic_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Death_Laser_Projectile 40 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeInDirectionFromCube EnemyDirection Caster Die
+SummonCubeOnPosition CubeKonstant Death_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Diagonal_Down_Laser 4 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition South PositionOfCube Caster TakeXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Diagonal_Down_Laser PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition South PositionOfCube Caster
+End
+
+CUBE: Diagonal_Up_Laser 4 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition North PositionOfCube Caster TakeXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Diagonal_Up_Laser PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition North PositionOfCube Caster
+End
+
+CUBE: Duality_Laser_Projectile 1 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeInDirectionFromCube EnemyDirection Caster Both
+If NOT IsFriendToCaster Target TakeXDamage DoubleKonstant 1
+If NOT IsEnemyToCaster Target HealXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Duality_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Healing_Laser_Projectile 1 0 0
+TOKEN
+Ability: DieAfterX DoubleKonstant 0
+Ability: AfterThisIsCreated Both TargetCube CubeInDirectionFromCube EnemyDirection Caster
+HealXDamage DoubleKonstant 1
+SummonCubeOnPosition CubeKonstant Healing_Laser_Projectile PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+End
+
+CUBE: Fallout 3 10 10
+TOKEN
+Ability: Flying
+Ability: RandomMovementX TimeKonstant 60
+Ability: EveryXAcidicY TimeKonstant 60 DoubleKonstant 1
+Ability: DieAfterX TimeKonstant 30000
+Ability: Neutral
+End
+
+CUBE: Flesh_Ball 3 1 1
+TOKEN
+Ability: EverySecond ChangeManaCost DoubleKonstant 1
+End
+
+CUBE: Slime_Droppod 10 4 4
+TOKEN
+Ability: Flying
+Ability: ChargeEveryX TimeKonstant 60
+Ability: Projectile
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: DieAfterX TimeKonstant 1200
+Ability: OnDeathSummonCube CubeKonstant Medium_Warrior_Slime
+End
+
+CUBE: Downward_Lightning 10 3 3
+TOKEN
+Ability: EveryTick EveryXTimes DoubleKonstant 2 MoveInDirection North
+Ability: EveryTick If NOT IsPositionEmpty PositionInDirectionFromPosition South PositionOfCube Caster Both
+Die
+TargetCube CubeInDirectionFromCube South Caster TakeXDamage DoubleKonstant 10
+End
+
+CUBE: Overgrowth 100 5 5
+TOKEN
+Ability: GrowthX DoubleKonstant 10
+Ability: AlwaysNeutral
+Ability: Every10Seconds 
+Randomly SummonCubeOnPosition CubeKonstant Overgrowth PositionInDirectionFromPosition North PositionOfCube Caster
+Randomly SummonCubeOnPosition CubeKonstant Overgrowth PositionInDirectionFromPosition East PositionOfCube Caster
+SummonCubeOnPosition CubeKonstant Overgrowth PositionInDirectionFromPosition West PositionOfCube Caster
+Ability: RegenerationX HpOfCube Caster
+Ability: EveryXAcidicY TimeKonstant 120 Division HpOfCube Caster DoubleKonstant 10
+End
+
+CUBE: Tortured_Healing_Spirit 60 3 3
+TOKEN
+Ability: EveryTick HealXDamage DoubleKonstant 1
+Ability: Neutral
+Ability: Flying
+Ability: EverySecond MoveInDirection North
+Ability: EverySecond If NOT IsEmptyAbove TakeXDamage DoubleKonstant 6
+End
+
+CUBE: Brown_Ant 3 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 1
+Ability: DieAfterX TimeKonstant 3600
+End
+
+CUBE: Green_Ant 6 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 1
+Ability: PoisonousX DoubleKonstant 2
+Ability: DieAfterX TimeKonstant 3600
+End
+
+CUBE: Pink_Ant 6 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 1
+Ability: EldrichX DoubleKonstant 2
+End
+
+CUBE: Yellow_Ant 4 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 3
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 1
+Ability: DieAfterX TimeKonstant 600
+End
+
+CUBE: Red_Ant 6 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 1
+Ability: ExplodesX DoubleKonstant 1
+Ability: DieAfterX TimeKonstant 1200
+End
+
+CUBE: Rainbow_Ant 6 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 30
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 1
+Ability: RandomBuff
+Ability: DieAfterX TimeKonstant 3600
+End
+
+CUBE: Broken_Errosion_Container 20 2 2
+TOKEN
+Ability: AlwaysNeutral
+Ability: EverySecond TargetCube ARandomCubeWhich TRUE TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Rapid_Bullet 1 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 5
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 1
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 200
+End
+
+CUBE: Angry_Unleashed_Souls 0 10 10
+TOKEN
+Ability: RetaliateX DoubleKonstant 10
+Ability: AlwaysNeutral
+Ability: Every10Ticks TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+Ability: VengeanceX DoubleKonstant 100
+Ability: Flying
+Ability: EverySecond MoveInDirection North
+Ability: EverySecond If NOT IsEmptyAbove TakeXDamage DoubleKonstant 6
+End
+
+CUBE: Mana_Berry 2 5 5
+TOKEN
+Ability: RegenerationX DoubleKonstant 10
+Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 30 FactionOfThis
+Ability: AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -30 FactionOfThis
+Ability: AfterThisDies GenerateXMana DoubleKonstant 5
+End
+
+CUBE: Kamikazi_Robot 0 3 3
+TOKEN
+Ability: ChargeEveryX TimeKonstant 10
+Ability: AfterThisDies EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 2
+Ability: Projectile
+Ability: WorthXMore DoubleKonstant 3
+Ability: DieAfterX TimeKonstant 300
+End
+
+
+
+CUBE: Scrap_Bullet 3 2 2
+TOKEN
+Ability: ChargeEveryX TimeKonstant 10
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 2
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 300
+Ability: EverySecond Randomly MoveInDirection North MoveInDirection South
+End
+
+CUBE: Pulling_Projectile 3 1 1
+TOKEN
+Ability: ChargeEveryX TimeKonstant 20
+Ability: Flying
+Ability: DieAfterX TimeKonstant 600
+Ability: EveryTick If NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+Both TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
+MoveInDirection Backwards
+TargetCube Caster Die
+End
+
+CUBE: Phasing_Bullet 5 2 2
+TOKEN
+Ability: ChargeEveryX TimeKonstant 8
+Ability: Flying
+Ability: ProjectileDamageX DoubleKonstant 3
+Ability: Projectile
+Ability: DieAfterX TimeKonstant 300
+Ability: Phasing
+End
+
+
