@@ -33,7 +33,7 @@ Ability: RegenerationX DoubleKonstant 60
 Ability: EverySecond TargetCube CubeInDirectionFromCube North Caster GenerateXMana DoubleKonstant 1
 End
 
-CUBE: Dirt 5 10 10
+CUBE: Earth 5 10 10
 TOKEN
 End
 

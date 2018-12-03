@@ -396,7 +396,7 @@ Weak: This deals CODE 1 less damage End
 COMPOUND: TRIGGER
 HealabelX
 BeforeThisHeals NegateX Multiplikation DoubleKonstant -1 GenericDouble
-Healabel: This heals for CODE 1 more when it heals End
+Healabel: This heals for CODE 1 more when it gets healed End
 
 COMPOUND: TRIGGER
 StrengthX
@@ -427,6 +427,11 @@ COMPOUND: TRIGGER
 Crippling
 BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target ChangeMaxHp Division EventAmount DoubleKonstant -1
 Crippling: Before this deals Damage the Victim also looses that much Maximum health End
+
+COMPOUND: TRIGGER
+DevouringX
+AfterACubeDies If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 1
+DevouringX: After this kills a Cube, this gains CODE 1 Extra Hp End
 
 COMPOUND: TRIGGER
 ExplodesX

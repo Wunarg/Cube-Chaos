@@ -219,4 +219,9 @@ Ability: DieAfterX TimeKonstant 300
 Ability: Phasing
 End
 
+CUBE: Growing_Worm_Piece 2 4 4
+TOKEN
+Ability: RetaliateX DoubleKonstant 1
+End
+
 

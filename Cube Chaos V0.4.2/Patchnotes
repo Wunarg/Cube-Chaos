@@ -1,0 +1,1012 @@
+Patchnotes
+V.0.4.2
+CHANGES
+-small stone was renamed to rough grave, and now looks better
+-reworked some parts of the tutorial
+-rogue dwarf now deals damage to all surrounding
+-renamed dirt to earth
+-increased size of victory and defeat
+BALANCE
+-Salted_Earth now grants acidic
+-Plant_Warrior and Blue_Moss rarity increased
+ADDED
+-Better effects for cube deaths
+-RandomBuff List got expanded, a lot
+-DevouringX Compound
+-Earth_To_Dust Buff
+-Mana_Gamble Buff
+-Fractalize_Core_Expansion Cube
+-Growing Worm Cube and Token
+FIXED
+-Cube Select Screen Deck Mouse Over only partially working
+-Added cubes always taking the first empty slot even if
+--there is already a slot for it
+-Healing_Dirt -> Hallowed_Earth
+-Healabel Description
+-Cube Positioning was a bit off
+-engineer-dwarf now doesnt insta gib its stone
+-wording on some stuff
+
+
+V.0.4.1
+CHANGES
+-If you have less cubes than you could have in a deck 
+--then they are automaticly selected
+-If you have no class or race selected it will select
+--the first ones
+-moved the hotbar to the right side of the screen
+BALANCE
+-Isanra now aktivates after 5 minutes
+ADDED
+FIXED
+-Pause Screen, start Screen sizes
+
+
+V.0.4
+CHANGES
+-How Rarity weighting works
+-Updated RANDOMBLUEPRINTS to use double code
+-You no longer start with excavate
+-You no longer start with a random collection of cubes
+-Instead now class/race grants cubes
+-/Enemys have been severely nerfed to accompany this
+-no more chronomancer
+-Triggers without owners are now automaticly removed
+-You can now pause with space too
+BALANCE
+-Dragon Eggs trigger after 5 minutes
+-Small laser bolt now costs 50 and is rarity 2
+-regenerator is now slower (every 30s instead of 20)
+-moved the cores back 2 spaces
+-cores now generate random cubes every 4 minutes
+-Warriors Heart now kills the core instead of just loosing the game
+-Core_Return now costs 5
+-Tiny_Castle makes castle knights instead
+-Mana_Thorned_Wall has 40 hp instead of 50
+-Generalised Stabeliser is now rarity 2
+-WaterPortal Now Creates Water every 3 seconds
+ADDED
+-Placability Overlay(o)
+-Rogue Class and all its stuff
+-Controls info to options screen
+-After A cube heals trigger
+-RemoveTrigger Action
+-SetPositionPlacability Action
+-Altar_Of_Reverance for Priest starter
+-Tiny_Bomb Token
+-buffs may now do an action when picked up
+-Road_of_Random_Summons Cube
+-Shadow_Ascension Cube
+-Oblivion_Shard Cube
+-Dissasembler Cube
+-Tiny_Oblivion_Shard Buff
+-Flower_Of_Hope Buff
+-Help_of_Kublath Buff
+-Hardening_Scales Buff
+FIXED
+-architects office now has a big A
+-chaos spelling in some places
+-deadly killing cubes befor damage was dealt
+-buff reward screen text is now bigger
+-changed cube select screen end run to quit
+-Pain_Goo infinite
+-Core Sprite not showing
+-Some of the menu chinanigans
+-Options menu options
+-Improved wording of some buffs
+-Particles no longer influenced by game speed
+-Importing all useless junk
+
+V.0.3.29
+CHANGES
+-ManaThornedWall heals slower
+-Isanra no longer has no hp
+-BloodToMana is now a spell
+-Dragon Eggs now have their own compound
+-Fixed explosive dragon also made it explode for more damage on death
+-Swaped name to Cube Chaos
+-Updated Base Engine to 0.9.7
+-Images are now loaded from spritesheets, this HEAVILY improves starting loading times
+-The FleshSmithes creation looks better
+-WizardApprentice slowly gets better at copying spells
+-Warriors heart was renamed to warriors heart and now has 50 health
+-Bullets created by bullet engineers last longer
+ADDED
+-Cronomancer Class (base, and combinations(still needs buffs)
+-Season_Dragon (for that class)
+-Dragon_Box Cube
+-Core_Reinforcement Cube
+-Caos Race Buff
+-More flavor text
+FIXED
+-Overflow damage
+-Some Wording
+-Combo Buffs now have a dash in them
+-Fixing all Double giving evaluations if an input is a null
+-Pyromancer shadow no longer gives dark return on explosion, 
+--since it also does damage already
+--This also stops the infinite explosion
+-Reworked WizardNoRace to give strength instead of dealing damage with the core
+-MindControl Missile aktualy controls minds now
+-Fixed Pain_Goo SelfTinkering
+-Menu Problems with going back from menues
+
+V.0.3.28
+CHANGES
+-First Law only deals 1 Damage
+-Decreases the chance for rarer cubes for the ai
+-Bullet Engineer now takes into account the manacost 
+--of the copied cube
+ADDED
+-Every second Trigger + TriggerQ
+-Moved many things to full seconds
+-TimeKonstant Double
+-AddTicks Double Compound
+-EveryXSeconds
+-EveryXMinutes
+-Caos_Portal Cube
+-IsSmallerNumber Compound
+FIXED
+-Fixed ALL THE TIME STUFF NOT CONVERTING TO SECONDS
+-used the time konstant EVERYWHERE it is needed
+-Mouseover a cube
+--doesnt show amount of uses twice
+--now has a slight border on each side
+--is slightly smaller
+
+V.0.3.27
+CHANGES
+-The whole Cube Mouseover thingy
+-Renamed the brids
+-Nerfed Clock Of Innevitable Decay to be slower
+-The Laws Sprite to look better
+-Architects_Office no longer poisons you when it dies
+-MouseOver triggers slower
+ADDED
+-Shift Toggeling
+-AddCubeToHandOfThis Compound
+-Using arrow keys for time and blueprint selection controlls
+FIXED
+-Red_Gold Sprite was missing
+-Effiecency Text
+-Replaced much with addCubeToHandOfThis
+-Test Cube now writes nothing
+
+V.0.3.26
+CHANGES
+-Armor and similar can now also negate increased damage
+-Renamed HealthOfCube to HpOfCube
+-Renamed ThisCubesCore to CoreOfThis
+-Renamed Weakening to Crippling
+-You can now hold 20 different cubes
+-Liquid_Slime has less regeneration
+-Effiecent_Missile Cube now only does 2 damage 
+-Core_Regeneration now add Regeneration 3
+-Spare_Armor_Plate Buff now gives 10 extra hp
+ADDED
+-Aging_Replication Cube
+-Blood_To_Mana Cube
+-Strength_Potion Cube
+-Hearts_Of_Sanctuary Cube
+-First, Second, Third Law Cube
+-Regeneration_Container Cube 
+-Slime_Geyser Cube
+-Giant_Eagel Cube
+-Sky_Shield_Congealer Cube
+-Pain_Goo Cube
+-Mana_Leach Cube
+-Kidnaper Cube
+-Ghostly_Blast Cube
+-Everyone_CHARGE! Cube
+-Red_Gold Cube
+-Spare_Strength_Potion Buff
+-Strength_Training Buff
+-Blessing_Of_Caos Buff
+-GenerateXMana Compound
+-WeakX Compound
+-StrengthX Compound
+-WeakeningX Compound
+-BeforThisHeals Compound
+-HealabelX Compound
+-AfterACubeTakesDamage Trigger
+-AfterThisDealsDamage Compound
+-AfterThisTakesDamage Compound
+-Loaded Options Subcategory
+-HealingTrigger Q is now Before instead of after
+-Healing can now be negated and increased
+-You can now mouseover on the win loss screen
+FIXED
+-Isanra-Dom_of_a_Kingdom Fixed
+-Missing Cube Error in IsEnemyToCaster
+-Damaged_Veterans Buff Text
+-Kublath now doesnt give effiecency to cubes with less than 6 mancost
+-Bush is now in the wall category
+-Compounded all FactionOfThis and all GenerateXMana
+-PyromaniacCaos Buff Description (looked like WizardCaos)
+-Cube Overlay
+ Numbers now increase with the cubes size
+-Healing no longer triggers damage (yeah seriously)
+
+V.0.3.25
+CHANGES
+-Yellow ants die after only 10 Seconds instead of 20
+-Tutorial 1 has you start with 1 knight
+-Tutorial 2 starts you with 2 Magic Missiles
+-Errode costs 20 Mana and is Rarity 4
+ADDED
+-Better Looking Options Menu
+-Particels on or off options
+-Updated Engine to 0.9.5
+-replaced XCharges with XShots
+-1Shot Compound
+-Action Compounds Code
+-Healing Triggers
+-Deadly Compound
+-Cursed_Hermit Cube
+-Summoning_Pedestal Cube
+-Ikt the fleshsmith Cube
+-Israna Doom of a Kingdom Cube
+FIXED
+-When A Szenario is now loaded the old one automaticly erased
+-The Big World Screen, completly
+-Class SelectScreen header now adapts to different screen sizes better
+-SetFaction Action has cleared write
+-The World always generates large enough to not cause errors on bigger screens
+
+V.0.3.24
+CHANGES
+-Jar gives vengeance 2 instead of 3
+-Changed some AlwaysNeutral to Neutral
+-BuffedLiquid Slime a lot
+-Magic_Missile costs 4 Mana now
+-Reworked the look of the class select screen
+-Reworked the look of the cube select screen
+-You dont take mana overflow damage if you have infinite mana aktive
+-ExplodesX and VengeanceX now happens before the cube dies
+--This includes the nuke and tnt
+ADDED
+-Back Button to CubeSelectScreen
+-Random Button to CubeSelectScreen
+-Nothing Code Action
+-BeforeACubeDies Code Action
+-BeforeThisDies Compound Trigger
+-Flesh_Ball Token
+-Claim Cube
+-Errode Cube
+-Grab Cube
+-Mana_Trader Cube
+FIXED
+-Cubes not getting the backgroundcolours from the world
+-Replaced most "whens" with better better synonims like befor or after
+-BorderCubes could get abiltiys
+-Cleaned the TriggerQ Code up into its own class
+--This makes it easier to add more triggerQs
+-Added Creation TriggerQ size to debug
+V.0.3.23
+CHANGES
+-CameraPos always starts in the top left corner
+-moved eldrich compound to extra mechanics
+-Most Szenario Options now have _ in them
+-Options Menu Colour is now brighter
+-You dont always start with excavate in your library
+-Excavate is now a Token
+-EveryCubeWhich Actions now check every cube before doing the action for each of em
+-Renamed decay after x to die after x to avoid confiusion
+-Effiecent Construction center now cant refund more mana than the cubes cost
+--This fixed an infinite mana combo
+-Thorny_Shield_Ampliefier now stacks the retaliate indefinitly
+-Ai and Player Cube placement now resets the infinite combo stopper
+-Cubes with manacost 0 or lower can now be played even if you have negative mana
+ADDED
+-FULLSCREEN Default
+-AddCubeToPlayerLibrary Action
+-RarityOfCube Double
+-Subtraction, Addition Double
+-Absolute Amound Double
+-Y and X of Position Double
+-Szenario Start and Win Actions
+-Szenario UnlockAllCubes Option
+-Szenario StartingLibraryCube Option
+FIXED
+-A realy weird bug where cubekonstant was stealing actions(NO FUCKING CLUE)
+-Szenario Attributes are correctly cleared when winning or loosing a szenario
+-EndlessBattle loads EndlessBattle Szenario
+-Priest Buff description reads better
+-Caos Buff description reads better
+-AlwaysNeutral ability reads better
+-CubeHasTriggerWithName now shows the trigger its checking for correctly
+
+V.0.3.22
+CHANGES
+-Dirt isnt flying anymore, (Im still not sure what is best)
+-Szenario Loading WOOOOO IT FINALLY WORKS
+-Warrior Heart now just looses you the game, allowing you to give cubes to other peoepl
+-GainXMana Is now FactionXGainsManaY
+-INSANE SPEED Option
+-Infinite Mana works better
+-Cards in hand now are copies of cube
+-Players dont start with mana if not defined so
+-The world cube can gain abilitys
+ADDED
+-Time is now shown in game
+-Time can now be easily manipulated
+-INSANE SPEED TIME OPTION
+-Options in the Pause Menu
+-SetupSurvival Szenario
+-Compound Phasing from phasing bullet
+-Phasing_Adjunctor Cube
+-Renamed the Gravity Culprit to be the WorldCube to be used by other World interactions
+-Loose and Win Action
+-CubeExists Code BOOLEAN
+-CLASSSELECTSCREEN: Szenario Option
+-WORLDABILITY: Szenario Option
+-This now also controlls victory and loss, allowing for alternate win loss conditions
+FIXED
+-Komma not displaying correctly
+-Moved a lot of szenario stuff away from the world
+-This also fixed caos not increasing mana costs
+-BorderCubes cannot be converted
+-BorderCubes are immune to die
+-BorderCubes cant get triggers
+-BorderCubes cant be healed
+-Die Action doesnt just cause -1000 hp and instead causes them to die in the "DEATH" phase of the tick
+-Updated the Szenarios for the new loader
+
+V.0.3.21
+CHANGES
+-You and the AI can now plce cubes up into exactly half the map
+-Difficulty is not displayed if difficulty is 0
+-reworked szenario loading, this makes adding multiple maps easier, 
+--and also makes it easier in general
+-Starting the game is now the same as loadingthe endlessbattle + classes szenario
+-Dirt has Flying(removed the useless related buff)
+ADDED
+-Tutorial 1 and 2 and 3 szenarios
+-Victory and Defeat Screens
+-Difficulty DOUBLE Code
+-Unmovabel Compound
+-Mana_Node Cube Token
+-Difficulty_Core Cube Token
+-Useless_Core Cube Token
+-Randomless_Core Cube Token
+-Gravity_Canceler Cube
+-A lot more szenario options
+-AI yes or no for szenarios
+-CardSelection yes or no for szenarios
+-Szenario chaining(aka kinda campaigns)
+FIXED
+-Removed the question mark 
+when you close the game
+-Magic_Overload Buff Spelling Error
+-Give a more specific error if you make a scenarion without a core for player 1 or 2
+-Tool Gift ERROR WOOOPS
+-the switching of X and Y for the size of szenarios
+-this also fixes the weird camera starting position
+
+V.0.3.20
+CHANGES
+-Holy_Water damages itself silently to prevent INSANE LIFESTEAL COMBO
+-Dragon eggs grow up in half the time (10 minutes)
+-moved the small rock sprite to the correct area
+-Caos now gets more random cubes
+-Explosion_Time add explodes 1 now and also explodes
+-The_King now also deals 1 damage to any cube you place which can take it
+-Blood_Reactor is now under MANA
+-Vengeful_Spirit is now under WAll
+-THE MAW attacks slower
+-Poison_Containers are rarity 4 now, GOOD RIDANCE
+-Poison_Containers also now costs 50 mana
+-Made Chain_Fire functional
+-King_Of_Arkist attacks slower
+-Architects_Office is now rarity 2 and gives 2 hp
+ADDED
+-SZENARIO LOADING AND SZENARIOS IN GENERAL
+-Exampel Szenario
+-Kublath-Master_Of_Effiecency Cube
+-Haunted_Graveyard Cube
+-Easy_Wall Cube
+-Generalised_Stabalieser Cube
+-Reinforcements_Of_Awaka Cube
+-Effiecent_Missile Cube
+-Eldrich_Ant_Hill Cube
+-Pink_Ant Token Cube
+-UpToXEffiecencyY Trigger Compound
+-CubeHasLimitedUSes BOOLEAN Code
+-TOOL_Gift Token Cube for Szenario creation
+FIXED
+-Eldrich Ant + Hill was the wrong colour
+-added the missing image for angry unleashed souls
+-leg adder adding charge indefinintly
+-anger container doing the same
+-the compounds are removed now
+-Lifedebt now says that it doesnt just always loose 10
+-Scrap Bullet aktualy has a sprite now( woops)
+-Fiusion-anator can only combine allys
+
+V.0.3.19
+CHANGES
+-Balance now renamed to changes
+-Spells and Enchantments all have 0 hp but dont kill themself anymore
+-This allows spells and enchantments to be combined for interesting effect
+-Mana_Crystals Regenerate Hp and generate some mana for their owner?
+-Stone is now a token
+-Healing_Spirits move up faster
+ADDED
+-Core now changes sprite with class and race
+-CoreSprite is shown in class and card select screen
+-ALLL THE SPRITES Sprites
+-Buffs now have a package
+-Lore for now txt document
+-Change_Sprite Action Code
+-FlavourText Trigger Code
+-VengeanceX Compound
+-Veangefull_Spirit Cube
+-Jar_Of_Vengefull_Souls Cube
+-Angry_Unleashed_Souls Token Cube
+-Stone_Mine Cube
+-Magic_Missile_Mage Cube
+-Blood_Reactor Cube
+-Mana_Berry_Bush Cube + Mana_Berry Token
+-Mind_Control Cube
+-The_Maw Cube
+-Brick_Wall Cube
+-Mana_Thorned_Wall Cube
+-The_Any_Cannon Cube
+-Death_Ball Cube
+-Caos_Gun Cube
+-King_Of_Arkrist Cube
+-Caos Buff
+-Poison_Ant_Hill Cube
+-Speed_Ant_Hill
+-Caos
+-Explosive
+-Green_Ant Token
+-Yellow
+-Rainbow
+-Red
+-Eventual_Rescue Buff
+FIXED
+-Class+Race Buff descriptions are now confined and wont overrun the screen
+-Put the more neutral cubes into the Extra mechanics catagory
+-Mother Leach has a more interesting picture
+-shooter TYPE instead of only factory
+-fixed some buff tests
+-Amount of uses in hand are now shown
+-fixed sidebar mouseover not completly working, again GRRRRR
+
+
+V.0.3.18
+BALANCE
+-Excavate has no hp
+-Congealed_Shield has Retaliate 1
+-Random_Elemental_Power now gives rocks instead of providing 1/4 armor
+-Elementals no longer give random cubes
+-Reworked Elemental class race combo buffs
+-Knights cost 15 Mana
+ADDED
+-Thornyfier Cube
+-NEW CRYSTAL RACE
+-NEW PYROMANIAC CLASS
+-NEW CAOS RACE
+-Pyromaniac Buffs
+-Explosive Dragon Cube Chain
+-new Event Constructor
+-SecretBoth Code
+-XDelay Code
+-SummonParticlesWithColourOnPosition Code
+-PositionOfYourCursor Position Code
+-EveryCubeInHandOfFactionWhich Sender Code
+-TargetIsSurroundedByFriends BOOLEAN Compound
+-RandomBuff TRIGGER Compound
+-FactionOfThis DOUBLE Compound
+FIXED
+-Loading Info now also shows the classes and the races 
+-Loading Infor also shows the probable amount of class race combos
+-Class/Race Select Screen now allows for more races and classes
+-Cubes without a murderer now consider themself as the cause of their death
+
+
+V.0.3.17
+BALANCE
+-Healing Container now contains an healing spirit
+-Healing Container now explodes for 5 Damage
+-Missiles do 7 Damage
+-Water now has Retaliate1 and is also worth 1 more
+ADDED
+-CubeHasMeeleAttack Compound Boolean
+-Damage Container Cube
+-Growth Container Cube
+-Overgrowth Token Cube
+-Gravity_Puller Cube
+-Tortured_Healing_Spirit Toke Cube
+-Eldrich_Wanderer Cube
+-Eldrich_Portal Cube
+-Mana_Drained_Golem Cube
+-Evaporate Cube
+-Fiusion-anator Cube
+-DOUBLERandom Code
+FIXED
+-Fixed Add Ability desinking CodeStorage and Ability Texts
+-ProjectileDamageX now has an X at the end
+-Sacrifical Altar
+-Descriptions on RewardScreens
+-Mouseover Text now ends sooner when going to far to the right
+-Mouseover is now always above the numbers on the sidebar
+-Possible fixed the DOUBLE output thingy
+-improved loading time slightly(not noticabel by humans but will help mods)
+-slightly improved steam generator sprite
+-NO MORE REFUND IF EMPTY BELOW(infinite combo potential)
+V.0.3.16
+BALANCE
+-Vortex only takes 10 hp
+-9 startingCards instead of 8
+ADDED
+-OOOOOO
+-TEXT FOR COMPOUNDS !!!!!!
+-OOOOOO
+-BOOLEAN True Generic Code
+-GenericDirection Generic Code
+-DOUBLE Compound Code
+-CUBE Compound Code
+-POSITION Compound Code
+-1/2 Double compound
+-ThisCubesCore compound
+-ARandomEnemy compound
+-ARandomFriend compound
+-ARandomDamagedFriend compound
+-ARandomNonCoreEnemy compound
+-ARandomCube compound
+-False compound
+-Water_Portal Cube
+-Sand_Portal Cube
+-Architects_Office Cube
+-NoRace Race
+-NoClass Class
+-Also the no combos
+FIXED
+-Explodes is now ExplodesX
+-ARandomCubeWhich CUBE sending back copys
+-Moved aRandomCubeWhich from sender to Cube
+-ARandomCubeFromHandOfFactionWhich Found and fixed (apparently I had already done that one)
+-ActionGeneric is now finally GenericAction
+-NEutrals giving cards to their own hand causing NULL
+-Updated to 0.9.4 How to 2D Engine
+V.0.3.15
+BALANCE
+-Dragons hatch after 20 Minutes instead of 30
+-Universal_Damage_Ampliefier is rarity 
+-Solid_Air Decays slower
+-Tnt_Maker costs 20 instead of 30
+ADDED
+-RewardScreen Shows Where you got each Buff from
+-Pause Screen doesnt react instantly
+-Mercenary_Caller Cube
+-Healing_Hat Cube
+-Liquid Healing Cube
+-Congealed_Shield Cube is now attainabel
+-Healing_Laser Cube + Token
+-Doubled_Placement_Amplifier Cube
+-Patchup Cube
+-Shadow_Seedling Cube
+-RefundIfEmptyBelow Compound
+-Every10Minutes Compound
+-MaxManaOfFaction Compound
+-EveryXAcidicY Compound
+-EveryXTicks Compound
+-EveryXSummonCubeAbove Compound
+-EveryXSummonCubeInfront Compound
+-BETTER RARITY SELECTION AND CUBE GETTING
+-Ai gets less rare cars
+-Flying_Dirt Buff
+-Salted_Dirt Buff
+-Healing_Dirt Buff
+-Death_Touch Buff
+-Charm_Of_The_Pacifist Buff
+-Altruism_Medal Buff
+-Call_Of_The_Apocalypse Buff
+-Emergency_Healing Buff
+-Chest_Of_Caos Buff
+-Buried_Scrap Buff
+-Poisoned_Cores Buff
+-Traitor Buff
+-Mana_Overflow_Dampener Buff
+-Mana_Overflow_Healing Buff
+-Adapting_Armor Buff
+-Stone_Fortifications Race Buff
+-Hardening_Shadow Race Buff
+-Fluid_Cubes Race Buff
+-Faster_Growing Race Buff
+FIXED
+-Better Reding Announcment
+-Now you not only get class Buffs (Whhoops)
+-Fraction is now Faction (A Fraction is 1/2)
+-Simplified a lot of everyXtimes stuff
+-CubeHasName is now CubeHasNameOfCube
+-Descriptions Not longer have a space in them
+-WarriorPlantBuffs no longer count suicides and friendly kills
+V.0.3.14
+BALANCE
+-Tinkering Costs more
+-Diagonal Laser deals half damage (1)
+-Magic Dragon only deals 10 damage
+-Obsidian costs more
+-Dwarf Enginer's stone only has 10 hp
+-BuffRewards are more random
+-Totals Readout only shows total totals
+ADDED
+-Pause Menu
+-Random Class+Race Button
+-You can only place your cubes on your side
+-Engineer combo abilitys
+-Engineer class buffs
+-Warping Compound (deacreases max hp for each damage dealt)
+-DebilitatingRegret
+-Eldrich Compound
+-Engineer Dragon chain
+-Iron Cube
+-Eldrich Arms Cube
+-Eldrich Eye Cube
+-Eldrich Flesh Cube
+-Poisonous Cube
+-Diagonal_Down_Laser Cube Token
+-Small_Laser_Bolt Cube
+-Ananoran Cube
+-Duality_Laser Cube and its projectile
+FIXED
+-CubeKonstant now says when it reads a non existant cube
+-Window will not be resizabel for now
+-Death no longer sets Max Hp and Hp to 0
+-Class Select screen is much better
+
+V.0.3.13
+BALANCE
+-Warrior moves half as fast
+-Wizard Dwarf now makes stones store mana instead of having them
+-Excavates only deals 10 damage
+-Birds Cost 5 more
+-Worthy_Sacrifice no longer rewards suicide
+-Regenerating_Dirt now also gives extra hp
+-Plant-Priest only gains max hp every 30 seconds
+ADDED
+-Mana Crystals spawn in the dirt
+-Mana_Crystal Cube Token
+-Scafholding Cube
+-All Buffs have a description
+-Engeneer half done
+
+FIXED
+
+V.0.3.12
+BALANCE
+-Flame_Thrower is worse
+-Buffed shadow warrior combo buff
+-Warrior Core Return is now infinite but also costs 10 mana
+-Elementals dont produce water but instead put it into your hand
+
+-ADDED
+-HaveMoreThanXMana Compound Boolean
+-Seperated all classes stuff to the classes file
+-Anger Dragon Cube chain
+-Worthy_Sacrifice Priest Buff
+-Spare_Swords Warrior Buff
+-Carrying Warrior Buff
+-Healing_Return Warrior Buff
+-Hardening_Combat Warrior Buff
+-Hardy_Heart Warrior Buff
+-Magic Dragon Cube chain
+-Aprentice Buff (with Cube)
+-Magic_Overload Buff
+-Mana_Shielding Buff
+-Mana_Flower Buff
+-Magical_Flight Buff
+-Mana_Storing_Experience Buff
+
+-Clock_Of_Innevitabel_Decay Buff
+-Band_Of_Elemental_Power Buff
+-Bucket_Of_Infinite_Water Buff
+-Regenerating_Ground Buff
+-Dig_In Buff
+
+-Plant Race and Combos Buffs
+
+-FIXED?
+-Compounds only write the first one
+-Made some time tick compounds
+-Infinite mana option now works
+-Infinite Mana Wizard on refunding spells
+
+V.0.3.11
+-BALANCE
+-Poisonous cant poison friendly cubes
+-Mana Cheat is now in the options
+
+-ADDED
+-Basic_Laser Cube
+-Basic_Laser_Projectile Token
+-Chain_Laser Cube
+-Death_Laser Cube
+-Death_Laser_Projectile
+-Fire_Wave Cube
+-Down_Laser Cube
+-Diagonal_Down_Laser Cube Token
+-Slime_Zilla Cube
+-Mana_Storage_Dimension Cube
+-Core_Return Token
+-Push Cube Token
+-Heart Token
+
+-A RandomCubeInHAndwhich CUBE 
+
+-Tiny_Mana_Storage_Dimension Buff
+-Quicker_Healing Buff
+
+-Class/Race Selection
+-Dwarve Race
+-Shadow Race
+-Elemental Class
+-Warrior Class
+-Wizard Class
+-Class is shown in Card Select Screen
+
+
+-FIXED
+-PArticels Move Faster
+-Ai placement is better
+-The Ai only gets 12 random blue-prints
+
+
+V.0.3.10
+-BALANCE
+-Plant_Warrior Grows slower
+-bonfire is no loner infinitly survivabel
+-Nuclear_Power_Plant now requires an empty space above to generate mana
+-Moss doesnt die as quickly
+
+-ADDED
+-Backwards Direction Compound
+-IsEmptyAbove Boolean Compound
+
+-Slime_Droppod_Launcher Cube
+-Slime_Droppod Token
+-Phase_Gun Cube
+-Phasing_Bullet Token
+-Triple_Gun Cube
+-Slime_Farm Buff
+-Flame_Thrower Cube
+-Mindcontrol_Missile Cube
+-Lightning_Cloud Cube
+-Downward_Lightning Token
+-The_Vortex Cube
+-Mother_Leach Cube
+-Mana_Shielded_Warrior Cube
+-Effiecent_Construction_Center Cube
+-Spear_Slicer Cube
+-Steam_Generator Cube
+-Spare_Armor_Plate Buff
+
+-FIXED
+-Steam Sprite
+-Colour of buyable things on the sidebar
+-fixed transport belts transporting enemys
+-borders cant be cloned
+
+V.0.3.9
+-HOTFIX
+-EVIL REWARD BUG
+-Sidebar Buyable Colour
+
+
+V0.3.8
+
+-ADDED
+-OptionsInMenues now have Mouseover
+-Options Menu In general
+-Menus are better
+-ChangeManaCost Action
+-WorthXMore Compound
+-Solar_Panel Cube
+-Tiny_Castle Cube
+-Universal_Damage_Amplifier Cube
+-Creations_Reward Buff
+
+-Fixed
+-Free Tokens now have more ManaCost once placed so they cant be replicated
+-Difficulty now starts at 0 not -1
+-IsSameCube now atleast checks for position
+
+V0.3.7
+-BALANCE
+-Shield_Congealer costs 7 mana from 10
+-Rapid_Gun costs 5 mana more (80)
+-Rapid_Gun is now rarity 2
+
+-ADDED
+-Type Filter
+-Types for All The Cubes
+-Main Menu
+-Mouseover for the sidebar
+-SideBar now shows when you can buy stuff
+-XCharges Sender Code
+-Ice Cube Token
+-Discount Deal Cube
+-Lava_Storm Cube
+-Pufferfish Cube
+-Thorny_Shield_Ampliefier Cube
+-Teleporter_Tunnel Cube
+-Long_Range_Shield_Congealer Cube
+-Poisonous Power
+-Corrupted_Spike_Shield Power
+-Holy_Dragon_Egg Power (Quest)
+-Battle_Hardened Power
+
+-FIXED
+-Health Colour is now better
+-m ManaCube OVerlay is also better
+-EmergencyStop threw a null when there was no Cube
+
+V0.3.6
+-BALANCE
+-BrownAnts Die After a long Time
+-Obsidian knights cost more
+-Buffes Spikes Damage
+-Teleporter_Pad has 4 max hp now
+-You always start with excavate in the library
+-Lava is now 3 times as slow
+
+-ADDED
+-ARandomCubeFromLibraryWhich CUBE
+-SwapWithPosition Action
+-EveryMinute Compound
+-Every20Seconds Compound
+-LiquidX Compound
+-DiagonalFalling Compound
+-RandomMovementX Compound
+-Shows the Cube in big on mouseover
+-2D Engine auf 0.9 geupdated
+-Improved Particle Colours
+-Better Background Colour
+-Data for the Amount of Cubes and stuff
+-Fiusion Spell
+-Altar_Of_Destruction Cube
+-Liquid_Damage Cube
+-Healing_Pillar Cube
+-Ingenuity_Brain Cube
+-Anger_Infiuser Cube
+-Rain_Cloud Cube
+-Water Token Cube
+-Steam Token Cube
+-Enchanter Cube
+
+-FIXED
+-Abilitys are now shown in correct order
+-Fraction instead of Faction
+-Repaired TxtLoading
+-Combining now works
+-Congealed Shield now is in the Token list
+-Blue_Moss Cube now spawns more of Blue moss
+-Dwarven_Face Ranemed to Lava_Gargoyl
+-Fyling Cubes can now move themself
+
+V0.3.5
+-Buffed Poison Shield
+-Solid_Air decays after 5 sec instead of 3
+-Core_Healer Cube
+-Rapid_Gun Cube
+-Spikes Cube
+-Obsidian_Knight Cube+
+
+-Blue_Moss Cube
+-More Buffs
+-Buffs for any class
+-Difficulty only makes the enemy generate more mana
+-Silent für Creation and Damage
+-Reward Screen
+
+V0.3.4
+-Engine auf Version 0.8 geupdated
+-Advanced Loading Systems
+-Excavate Cube
+-Replicator Cube
+-Healing_Container Cube
+-TinyHealingContainer Buff
+-IsDamaged Boolean Compound
+-Added Multiplikation Double
+-Added Is larger Double
+-Mana Symbol and Better Health Display
+-Advanced Image Loading System
+-Only get 1 Cube for winning or loosing a round
+-Camera Movement with wasd
+-No more dirt flying
+-10 can now be selected without crashing the game
+
+V0.3.3
+-Fallout doesnt damage fallout and doesnt regenerate
+-Changed Growth Name to Natures Strength
+-Made Lifesteal less OP
+-Powerinflux cost to 200
+-FIXED THE FLYING BUG
+-Made Cube Creation Methods better for me
+-The CardSelectScreen now shows empty slots for where you cubes belong
+-Added A nice Rectangle Cursor to see where you are pointing
+
+-Added Basic Buffs
+-4 Buffs
+-SelfHealing Priest Buff
+-Priest Area Heal Ability
+
+-Solid_Shadow Cube
+-Shadow_Witch Cube
+-Armored_Bird Cube
+-TNT_Maker Cube
+-Fireball Cube
+-Tree_Of_Life Cube
+-Weaken Cube
+-Shock_Wave Cube
+-Living_Bomb Cube
+
+-Made CubeKonstant Read a Cube from Library each time
+-MaxHealthOfCube Double
+-ManaOfFaction Double
+-IsToken Boolean
+-AfterACubeIsCreated Trigger
+-AfterThisIsCreated Trigger
+-AfterAnotherFriendlyCubeIsCreated
+
+V0.3.2
+-Regeneration and Poison Rebalancing
+--Now every Minute
+-Made Lava Better
+-Lava now Attacks EVEREYTHING (except Lava)
+-Now 8 Blueprints
+-Enchantments now return their cost if they fail to enchant
+
+-Poison Container Cube
+-Regeneration Enchantment Cube
+-Pushing Shield Cube
+-Plant_Warrior
+-Lightning_Transport_Belt
+-Warrior Slime Cubes (small,medium,big)
+
+-Generic Cube
+-OnDeathSummonCube Trigger
+-ChangeMaxHp Action
+-ManaCostOfCube DOUBLE
+-CubeHasName BOOLEAN
+-Added Spaces to all Names
+
+-Speed Up Particles
+-Add Ability now also makes Particles
+-Particles now move away from their caster
+-HealthOverlay now has a different effect for max hp and 1 hp
+-Fixed Many Cubes Showing Bug
+-Man Overload now also creates Particles
+-Possibly Fixed the Weird ComboCounter Bug
+
+V0.3.1
+-CubeHasTrigger Boolean added
+-AddCube Action added
+-SetCoreOfFaction Action added
+
+-Fixed LegAdder and Explodyfier adding forever
+-Fixed Ai Creating Outside of Bounds
+
+-FirePinger Cube
+-FireGenerator Cube
+-Bonfire Cube
+-HealingShield Cube
+-Golemize Cube
+-Nuke Cube
+-LiquidSlime Cube
+-Lava Cube
+
+-Added Particles for Teleportation
+-Made Particles spread a lot less
+-Increases Size of Name on Mouseovers
+-MouseOver now shows the Manacost
+-CUBE POWERINFLUX ManaCost +50 to 150
+-Fixed Fallout DownwardMovement
+-Fixed Particles not speeding up with t
+
+V0.3
+-First Public Testing Version
+

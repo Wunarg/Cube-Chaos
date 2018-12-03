@@ -13,7 +13,7 @@ COMPOUND: TRIGGER
 RandomElementalPower
 AfterThisIsCreated 1Shot Randomly
 Randomly
-GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Small_Rock
+GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Rough_Gravel
 GainAbility Every10Seconds AddCubeToHandOfThis CubeKonstant Fire_Ping
 Randomly
 GainAbility Every5Seconds AddCubeToHandOfThis CubeKonstant Water
@@ -41,18 +41,34 @@ RemoveTriggerWithName RandomBuff
 Randomly
  Randomly
   Randomly
-   GainAbility RegenerationX DoubleKonstant 10
-   GainAbility GrowthX DoubleKonstant 5
+   Randomly
+    GainAbility RegenerationX DoubleKonstant 10
+    GainAbility GrowthX DoubleKonstant 5
+   Randomly
+    GainAbility EveryXMeeleY TimeKonstant 180 DoubleKonstant 1
+    GainAbility Shadow
   Randomly
-   GainAbility EveryXMeeleY TimeKonstant 180 DoubleKonstant 1
-   GainAbility Shadow
+   Randomly
+    GainAbility LifeSteal
+    GainAbility PoisonousX DoubleKonstant 5
+   Randomly
+    GainAbility RetaliateX DoubleKonstant 1
+    GainAbility Crippling
  Randomly
   Randomly
-   GainAbility LifeSteal
-   GainAbility PoisonousX DoubleKonstant 5
+   Randomly
+    GainAbility StrengthX DoubleKonstant 1
+    GainAbility WeakeningX DoubleKonstant 1
+   Randomly
+    Both ChangeMaxHp DoubleKonstant 20 Silent HealXDamage DoubleKonstant 20
+    GainAbility HealabelX DoubleKonstant 1
   Randomly
-   GainAbility RetaliateX DoubleKonstant 1
-   GainAbility Crippling
+   Randomly
+    GainAbility Every10Seconds GenerateXMana DoubleKonstant 1
+    GainAbility Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+   Randomly
+    GainAbility Every10Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
+    GainAbility DevouringX DoubleKonstant 2
 After the first Second this exist this gains a random Positive Ability End
 
 COMPOUND: TRIGGER

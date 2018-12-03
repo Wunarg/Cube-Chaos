@@ -152,7 +152,7 @@ End
 BUFF: Engineer-Dwarf
 BelongsTo: CLASSRACE
 Description: All Stone starts tinkered, but only has 10 hp End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both GainAbility Tinkered Silent Both TakeXDamage DoubleKonstant 20 ChangeMaxHp DoubleKonstant -20
+Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both GainAbility Tinkered Silent Both TakeXDamage DoubleKonstant 10 ChangeMaxHp DoubleKonstant -10
 End
 
 BUFF: Pyromaniac-Dwarf
@@ -163,9 +163,9 @@ End
 
 BUFF: Rogue-Dwarf
 BelongsTo: CLASSRACE
-Description: All stone slowly deals damage to enemys below it End
+Description: All stone slowly deals damage to non stone around it End
 Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim 
-GainAbility Every3Seconds TargetCube CubeInDirectionFromCube South Caster If IsEnemyToCaster Target TakeXDamage DoubleKonstant 1
+GainAbility EveryXAcidicY TimeKonstant 120 DoubleKonstant 2
 End
 
 BUFF: NoClass-Dwarf
@@ -208,7 +208,7 @@ End
 
 BUFF: Rogue-Shadow
 BelongsTo: CLASSRACE
-Description: Solid Shadows start with +1 Strength(+1 damage) End
+Description: Solid Shadows start with +1 Strength End
 Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim 
 GainAbility StrengthX DoubleKonstant 1
 End

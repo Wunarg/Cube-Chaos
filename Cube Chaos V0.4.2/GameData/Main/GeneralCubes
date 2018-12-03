@@ -720,8 +720,8 @@ End
 CUBE: Isanra-Doom_of_a_Kingdom 70 1 1
 RARITY 4
 TYPE AbilityAdder
-Ability: AfterACubeIsCreated If NOT IsSameCube Victim Caster TargetCube Victim GainAbility DieAfterX TimeKonstant 36000
-Ability: FlavourText No more enemys will be created near the dwarven kingdom-Isanra End
+Ability: AfterACubeIsCreated If NOT IsSameCube Victim Caster TargetCube Victim GainAbility DieAfterX TimeKonstant 18000
+Ability: FlavourText No more enemys will be created near the dwarven kingdom-Idsanra End
 End
 
 CUBE: Healing_Shield 20 3 3
@@ -1440,4 +1440,19 @@ Both AddCubeToHandOfThis Target
 Die 
 End
 
+CUBE: Fractalize_Core_Expansion 40 0 0
+RARITY 4
+TYPE AbilityAdder
+Ability: Spell
+Ability: AfterThisIsCreated TargetCube CoreOfThis ChangeMaxHp Division MaxHpOfCube CoreOfThis DoubleKonstant 10
+Ability: AfterThisIsCreated ChangeMaxManaOfFaction Division MaxManaOfFaction FactionOfThis DoubleKonstant 10 FactionOfThis 
+End
+
+CUBE: Growing_Worm 70 6 6
+RARITY 1
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 300
+Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 5
+Ability: AfterThisMoves If IsSameCube Culprit Caster SummonCubeOnPosition CubeKonstant Growing_Worm_Piece OriginalPosition
+End
 

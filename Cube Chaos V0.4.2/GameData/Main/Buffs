@@ -6,99 +6,99 @@ End
 
 BUFF: Spare_Strength_Potion
 BelongsTo: Everyone
-Description: The first cube you place gains 1 Strength End
+Description: The first cube you place gains 1 strength End
 Ability: AfterAnotherFriendlyCubeIsCreated 1Shot TargetCube Victim GainAbility StrengthX DoubleKonstant 1
 End
 
 BUFF: Strength_Training
 BelongsTo: Everyone
-Description: Your Core starts with 1 Strength End
+Description: Your core starts with 1 strength End
 Ability: StrengthX DoubleKonstant 1
 End
 
 BUFF: Blessing_Of_Caos
 BelongsTo: Everyone
-Description: Your Core gets a random Buff every 5 Minutes End
+Description: Your core gets a random buff every 5 minutes End
 Ability: EveryXMinutes DoubleKonstant 5 GainAbility RandomBuff
 End
 
 BUFF: Tiny_Mana_Battery
 BelongsTo: Everyone
-Description: +5 starting Mana, +10 Max Mana End
-Ability: AfterThisIsCreated Both GenerateXMana DoubleKonstant 5 ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis
+Description: +10 starting Mana, +10 Max Mana End
+Ability: AfterThisIsCreated Both GenerateXMana DoubleKonstant 10 ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis
 End
 
 BUFF: Karate_Training
 BelongsTo: Everyone
-Description: your core has a light meele attack End
+Description: Your core has a light meele attack End
 Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 1
 End
 
 BUFF: Regeneration_Blessing
 BelongsTo: Everyone
-Description: your core regenerates hp slowly End 
+Description: Your core regenerates hp slowly End 
 Ability: RegenerationX DoubleKonstant 4
 End
 
 BUFF: Orb_of_Fire
 BelongsTo: Everyone
-Description: add a fire ping to your hand every 10 seconds End
+Description: Add a free fire ping missile to your hand every 10 seconds End
 Ability: Every10Seconds AddCubeToHandOfThis CubeKonstant Fire_Ping
 End
 
 BUFF: Poisonous
 BelongsTo: Everyone
-Description: Before you deal damage the target becomes poisoned End
+Description: Just before your core deals damage it also poisons the enemy End
 Ability: PoisonousX DoubleKonstant 5
 End
 
 BUFF: Corrupted_Spike_Shield
 BelongsTo: Everyone
-Description: Before you take damage deal 1 back, you loose 1 hp every minute End
+Description: Before your core takes damage it deals 1 back, but your core also loose 1 hp every minute End
 Ability: RetaliateX DoubleKonstant 1
 Ability: PoisonX DoubleKonstant 1
 End
 
 BUFF: Eye_of_Cutharn
 BelongsTo: Everyone
-Description: Every 20 Seconds deal 1 damage to a random enemy End
+Description: Every 20 Seconds your core deals 1 damage to a random enemy End
 Ability: Every20Seconds TargetCube ARandomCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
 End
 
 BUFF: Mana_Crystal_Armor
 BelongsTo: Everyone
-Description: Before you take more than 2 Damage gain 1 Mana End
+Description: Before your core takes 3 Damage or more, you gain 1 Mana End
 Ability: BeforeThisTakesDamage If IsLarger EventAmount DoubleKonstant 2 GenerateXMana DoubleKonstant 1
 End
 
 BUFF: Battle_Hardened
 BelongsTo: Everyone
-Description: Start with 15 more hp End
+Description: Your Core starts with 15 more hp End
 Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 15 HealXDamage DoubleKonstant 15
 End
 
 BUFF: Slime_Farm
 BelongsTo: Everyone
-Description: Summon a Medium_Slime_Warrior above you every minute End
+Description: Your Core summons a Medium_Slime_Warrior itself every minute End
 Ability: EveryMinute SummonCubeOnPosition CubeKonstant Medium_Warrior_Slime PositionInDirectionFromPosition North PositionOfCube Caster
 End
 
 BUFF: Vampires_Sacrifice
 BelongsTo: Everyone
-Description: You have lifesteal, but you loose 1 hp every second End
+Description: Your core has lifesteal, but it also loose 1 hp every second End
 Ability: LifeSteal
 Ability: EverySecond Silent TakeXDamage DoubleKonstant 1
 End
 
 BUFF: Uranium_Crystal
 BelongsTo: Everyone
-Description: EverySecond, deal 1 damage to anything touching you End
+Description: EverySecond your core deals 1 damage to anything touching it End
 Ability: EverySecond EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 1
 End
 
 BUFF: Creations_Reward
 BelongsTo: Everyone
-Description: After you place a cube you gain 1 extra hp End
+Description: After you place a cube your Core gains 1 extra hp End
 Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
 End
 
@@ -116,39 +116,53 @@ End
 
 BUFF: Band_Of_Elemental_Power
 BelongsTo: Everyone
-Description: You have a random Elemental Power End
+Description: Every Round you gain 1 of 4 elemental cubes every once in a while End
 Ability: RandomElementalPower
 End
 
 BUFF: Bucket_Of_Infinite_Water
 BelongsTo: Everyone
-Description: Every 3 seconds summon water above you End
+Description: Every 3 seconds you summon water above your core End
 Ability: Every3Seconds SummonCubeOnPosition CubeKonstant Water PositionInDirectionFromPosition North PositionOfCube Caster
 End
 
-BUFF: Regenerating_Dirt
+BUFF: Regenerating_Earth
 BelongsTo: Everyone
-Description: All Dirt regenerates hp slow ish and has more hp End
-Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt Both GainAbility RegenerationX DoubleKonstant 12
+Description: All Earth regenerates hp slow ish and has more hp End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth Both GainAbility RegenerationX DoubleKonstant 12
 Both ChangeMaxHp DoubleKonstant 5
 Silent HealXDamage DoubleKonstant 5
 End
 
-BUFF: Salted_Dirt
+BUFF: Salted_Earth
 BelongsTo: Everyone
-Description: Every 10 Seconds Dirt does 1 damage to any cube above it End
-Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Dirt TakeXDamage DoubleKonstant 1 
+Description: Every 10 Seconds Earth does 1 damage to all touching cubes which aren't Earth above it End
+Ability: EveryXAcidicY DoubleKonstant 600 DoubleKonstant 1
 End
 
-BUFF: Healing_Dirt
+BUFF: Hallowed_Earth
 BelongsTo: Everyone
-Description: Every 10 Seconds Dirt heals 1 hp to any non dirt above it End
-Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Dirt HealXDamage DoubleKonstant 1 
+Description: Every 10 Seconds Earth heals 1 hp to any non Earth above it End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Earth HealXDamage DoubleKonstant 1 
+End
+
+BUFF: Buried_Scrap
+BelongsTo: Everyone
+Description: After Earth gets destroyed it spawns a random Cube, the Cube is neutral End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth GainAbility 
+OnDeathSummonCube ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+BUFF: Earth_To_Dust
+BelongsTo: Everyone
+Description: All Earth randomly takes damage and dies over time End
+Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth GainAbility
+Every30Seconds Randomly TakeXDamage DoubleKonstant 1 Nothing 
 End
 
 BUFF: Death_Touch
 BelongsTo: Everyone 
-Description: Every 20 Seconds you deal 10 Damage in Melee End
+Description: Every 20 Seconds your Core deals 10 Damage in Melee End
 Ability: EveryXMeeleY TimeKonstant 1200 DoubleKonstant 10
 End
 
@@ -167,7 +181,7 @@ End
 
 BUFF: Call_Of_The_Apocalypse
 BelongsTo: Everyone
-Description: After 10 Minutes every Cube takes 10 Damage End
+Description: Every 10 Minutes Your Core deals 10 damage to all Cubes ,including itself End
 Ability: Every10Minutes EveryCubeWhich IsSameCube Caster Caster TakeXDamage DoubleKonstant 10
 End
 
@@ -181,13 +195,6 @@ BUFF: Chest_Of_Caos
 BelongsTo: Everyone
 Description: Every 10 minutes add a random Cube to your hand End
 Ability: Every10Minutes AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
-End
-
-BUFF: Buried_Scrap
-BelongsTo: Everyone
-Description: After dirt gets destroyed it spawns a random Cube, the Cube is neutral End
-Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility 
-OnDeathSummonCube ARandomCubeFromLibraryWhich NOT IsToken Test
 End
 
 BUFF: Poisoned_Cores
@@ -205,19 +212,19 @@ End
 
 BUFF: Mana_Overflow_Dampener
 BelongsTo: Everyone
-Description: Ignore Every 2nd Damage your Core is dealt while Overflowing End
+Description: Ignore Every 2nd Damage your Core is dealt while at maximum Mana End
 Ability: BeforeThisTakesDamage If IsOverflowing NegateX EventAmount
 End
 
 BUFF: Mana_Overflow_Healing
 BelongsTo: Everyone
-Description: While Overflowing Your Core Heals 1 Damage To Another Random Damaged Friendly Cubes every Second End
+Description: While at maximum mana Your Core Heals 1 Damage To Another Random Damaged Friendly Cubes every Second End
 Ability: EverySecond If IsOverflowing TargetCube ARandomCubeWhich AND IsDamaged AND IsFriendToCaster Test NOT IsSameCube Caster Test HealXDamage DoubleKonstant 1
 End
 
 BUFF: Adapting_Armor
 BelongsTo: Everyone
-Description: Every 3 Times you take Damage also gain 1 MaxHp End
+Description: Every 3 Times your Core takes Damage also gain 1 MaxHp End
 Ability: BeforeThisTakesDamage EveryXTimes DoubleKonstant 3 ChangeMaxHp DoubleKonstant 1
 End
 
@@ -242,7 +249,7 @@ End
 
 BUFF: Flower_Of_Hope
 BelongsTo: Everyone
-Description: Whenevery your core heals you heal 1 more, also heals 1 every minute End
+Description: Whenever your core heals you heal 1 more, it also heals 1 hp every minute End
 Ability: HealabelX DoubleKonstant 1
 Ability: RegenerationX DoubleKonstant 1
 End
@@ -252,3 +259,33 @@ BelongsTo: Everyone
 Description: your core gains max hp over time based on his max hp End 
 Ability: GrowthX Division HpOfCube Caster DoubleKonstant 25
 End
+
+BUFF: Mana_Gamble
+BelongsTo: Everyone
+Description: Every 10 Seconds randomly either gain 2 Mana or loose 1 Mana End
+Ability: Every10Seconds Randomly GenerateXMana DoubleKonstant 2 GenerateXMana DoubleKonstant -1
+End
+
+BUFF: Chaotic_Help
+BelongsTo: Everyone
+Description: At the start of the game add 3 random cubes to your hand End
+Ability: AfterThisIsCreated Both Both AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test 
+AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+End
+
+BUFF: Discounted_Help
+BelongsTo: Everyone
+Description: At the start of the game add a random cube to your hand which only costs half as much mana End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromLibraryWhich NOT IsToken Test Both 
+ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2
+AddCubeToHandOfThis Target
+End
+
+
+
+
+
+
+
+
