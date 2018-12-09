@@ -1,4 +1,38 @@
 Patchnotes
+
+V.0.4.2
+CHANGES
+-Dwarfs stone buffs now apply to stone in your hand
+-reworked plants ability to grant to random friendly cube
+--instead of touching a random friendly cube
+BALANCE
+-Dwarven_Warrior now have slightly less hp and are slower
+-Nerfed Poisonours kit Cube 
+-excavate can now deal damage to enemys, got nerfed though
+-Nerfed Chain_Laser Cube again
+-Spiker wall has more hp but less damage
+-Crystal Crush has less hp but also costs less
+-Enemy Core now generates less mana
+-Enemy Ai now has more consistantly difficult cubes
+-All cubes now have an ai power
+ADDED
+-CopyOfCube CUBE Code
+-Copy Cube
+-Gain Random Buff Action Compound
+-1 Buff for each class (except priest)
+FIXED
+-Transform changing the faction only after it was placed
+-removed devouringX since im stupid
+-temporarely wrote a custom devouring for the random
+-Death effects not flipping when the cube isnt faction 1
+-Colour Mixing
+-Buff Descriptions
+-Cube Ability wording
+-Poisonous_Air Buff didnt apply to all cubes
+
+
+
+
 V.0.4.2
 CHANGES
 -small stone was renamed to rough grave, and now looks better

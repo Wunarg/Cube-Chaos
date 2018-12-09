@@ -13,11 +13,14 @@ CORE: 1 2 37
 CORE: 2 60 37
 
 STARTINGMANA: 1 50
+STARTINGMANA: 2 50
 
-RANDOMBLUEPRINTS: 
-Division DoubleKonstant 40 Difficulty 
+AIBALANCEDRANDOMBLUEPRINTS: 
 2
-Difficulty
+DoubleKonstant 6
+Division DoubleKonstant 40 Difficulty 
+Multiplikation DoubleKonstant 3 Difficulty
+Addition Difficulty DoubleKonstant -2
 
 HALFPLACEMENT: True
 

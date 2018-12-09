@@ -88,10 +88,10 @@ End
 
 BUFF: Plant
 BelongsTo: RACE
-Description: Your Core grows and Regenerates, any friendly cube which gets killed by an enemy gives all touching friendly cubes extra hp End
+Description: Your Core grows and Regenerates,whenever an friendly cube is killed by an enemy a random friendly cube gains 2 extra hp End
 Ability: RegenerationX DoubleKonstant 4
 Ability: GrowthX DoubleKonstant 4
-Ability: AfterACubeDies TargetCube Victim If IsFriendToCaster Victim If IsEnemyToCaster Culprit EveryCubeWhich AND IsFriendToCaster Test IsTouchingTarget 
+Ability: AfterACubeDies If IsFriendToCaster Victim If IsEnemyToCaster Culprit TargetCube ARandomCubeWhich IsFriendToCaster Test
 Both ChangeMaxHp DoubleKonstant 2
 HealXDamage DoubleKonstant 2
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Plant_Warrior
@@ -133,45 +133,54 @@ End
 
 BUFF: Priest-Dwarf
 BelongsTo: CLASSRACE
-Description: All Stone you place regenerates Hp over Time End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility RegenerationX DoubleKonstant 10
+Description: Your Stone regenerates health over time End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+GainAbility RegenerationX DoubleKonstant 10
 End
 
 BUFF: Warrior-Dwarf
 BelongsTo: CLASSRACE
-Description: All Stone you place has a meele Attack End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 3
+Description: Your Stone has a meele attack End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+GainAbility EveryXMeeleY TimeKonstant 120 DoubleKonstant 3
 End
 
 BUFF: Wizard-Dwarf
 BelongsTo: CLASSRACE
-Description: All Stone you place store mana for you End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis GainAbility AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -10 FactionOfThis
+Description: Your Stone you place stores mana for you End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+Both GainAbility AfterACubeIsCreated If IsSameCube Caster Victim ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis
+GainAbility AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -10 FactionOfThis
 End
 
 BUFF: Engineer-Dwarf
 BelongsTo: CLASSRACE
-Description: All Stone starts tinkered, but only has 10 hp End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both GainAbility Tinkered Silent Both TakeXDamage DoubleKonstant 10 ChangeMaxHp DoubleKonstant -10
+Description: Your Stone starts tinkered, but only has 10 hp End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+Both GainAbility Tinkered
+Both ChangeMaxHp DoubleKonstant -10
+Silent TakeXDamage DoubleKonstant 10
 End
 
 BUFF: Pyromaniac-Dwarf
 BelongsTo: CLASSRACE
-Description: All Stone Explodes for 4 additional damage after it dies End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis GainAbility ExplodesX DoubleKonstant 4
+Description: Your Stone Explodes for 4 additional damage after it dies End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+GainAbility ExplodesX DoubleKonstant 4
 End
 
 BUFF: Rogue-Dwarf
 BelongsTo: CLASSRACE
-Description: All stone slowly deals damage to non stone around it End
-Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim 
+Description: Your stone slowly deals damage to non stone around it End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
 GainAbility EveryXAcidicY TimeKonstant 120 DoubleKonstant 2
 End
 
 BUFF: NoClass-Dwarf
 BelongsTo: CLASSRACE
 Description: All Stone has 20 more hp End
-Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim Both Silent ChangeMaxHp DoubleKonstant 20 HealXDamage DoubleKonstant 20
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+Both ChangeMaxHp DoubleKonstant 20 Silent HealXDamage DoubleKonstant 20
 End
 
 BUFF: Priest-Shadow
@@ -273,8 +282,8 @@ End
 
 BUFF: Warrior-Plant
 BelongsTo: CLASSRACE
-Description: After a friendly Cube dies all other touching cubes gain a meele attack End
-Ability: AfterACubeDies TargetCube Victim If AND IsFriendToCaster Victim NOT IsFriendToCaster Culprit EveryCubeWhich AND IsFriendToCaster Test IsTouchingTarget 
+Description: After a friendly cube is killed by an Enemy a random friendly cube gains a slow meele attack End
+Ability: AfterACubeDies If AND IsFriendToCaster Victim NOT IsFriendToCaster Culprit  TargetCube ARandomCubeWhich IsFriendToCaster Test
 GainAbility EveryXMeeleY TimeKonstant 200 DoubleKonstant 2
 End
 
@@ -518,6 +527,12 @@ Description: The first 2 Cubes you place gains a huge meele attack End
 Ability: AfterAnotherFriendlyCubeIsCreated XShots DoubleKonstant 2 TargetCube Victim GainAbility EveryXMeeleY TimeKonstant 60 DoubleKonstant 5
 End
 
+BUFF: Culling_Order
+BelongsTo: Warrior
+Description: When an enemy cube is killed by one of yours with meele gain 1 mana End
+Ability: AfterACubeDies If IsEnemyToCaster Victim If IsFriendToCaster Culprit GenerateXMana DoubleKonstant 1
+End
+
 BUFF: Anger_Dragon_Egg
 BelongsTo: Warrior
 Description: You start with an Anger_Dragon_Egg in your hand End
@@ -589,11 +604,23 @@ Description: When you have more than 40 Mana gain Max Mana slowly End
 Ability: Every10Seconds If HaveMoreThanXMana DoubleKonstant 40 ChangeMaxManaOfFaction DoubleKonstant 1 FactionOfThis
 End
 
+BUFF: Desperate_Mana
+BelongsTo: Wizard
+Description: Every Minute gain 10 mana but loose 2 max mana End
+Ability: EveryMinute Both GenerateXMana DoubleKonstant 10 ChangeMaxManaOfFaction DoubleKonstant -2 FactionOfThis
+End
+
 
 BUFF: Iron_Dragon_Egg
 BelongsTo: Engineer
 Description: You start with an Iron_Dragon_Egg in your hand End
 Ability: EverySecond 1Shot AddCubeToHandOfThis CubeKonstant Iron_Dragon_Egg
+End
+
+BUFF: Copy_Mirror
+BelongsTo: Engineer
+Description: Every 10 Minutes add a copy spell to your hand which copys a cube End
+Ability: Every10Minutes AddCubeToHandOfThis CubeKonstant Copy
 End
 
 BUFF: Hand_Gun
@@ -651,9 +678,9 @@ Description: You take 1 less damage from friendly Cubes End
 Ability: BeforeThisTakesDamage If IsFriendToCaster Culprit NegateX DoubleKonstant 1
 End
 
-BUFF: Explosive_Dirt
+BUFF: Explosive_Earth
 BelongsTo: Pyromaniac
-Description: Dirt Explodes for 5 End
+Description: Earth Cubes Explode for 5 Damage when they die End
 Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Dirt GainAbility ExplodesX DoubleKonstant 5
 End
 
@@ -668,6 +695,12 @@ BUFF: Chain_Reaction
 BelongsTo: Pyromaniac
 Description: After a friendly Cube dies, if it costs more than 5 mana a random enemy takes 1 damage End
 Ability: AfterACubeDies If IsFriendToCaster Victim If IsLarger ManaCostOfCube Victim DoubleKonstant 2 TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Spreading_Explosion
+BelongsTo: Pyromaniac
+Description: When a cube dies its neighbour gains 1 explosives End
+Ability: AfterACubeDies TargetCube Victim EveryCubeWhich IsTouchingTarget GainAbility ExplodesX DoubleKonstant 1
 End
 
 BUFF: Last_Betrayl
@@ -685,8 +718,14 @@ End
 
 BUFF: Scouted_Lands
 BelongsTo: Rogue
-Description: Entering Into Enemy Lands End
+Description: At the start of the game add 2 incursions to your hand End
 Ability: AfterThisIsCreated Both AddCubeToHandOfThis CubeKonstant Incursion AddCubeToHandOfThis CubeKonstant Incursion
+End
+
+BUFF: Head_Hunt
+BelongsTo: Rogue
+Description: When an enemy which costs 50 or more mana dies you gain 5 Mana End
+Ability: AfterACubeDies If IsEnemyToCaster Victim If IsLarger ManaCostOfCube Victim DoubleKonstant 49 GenerateXMana DoubleKonstant 50
 End
 
 BUFF: Spare_Poison_Bottle
@@ -720,7 +759,7 @@ End
 BUFF: Poisonous_Air
 BelongsTo: Rogue
 Description: Whenever Any yes any cube is created it gets poisonous 1 End
-Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility PoisonousX DoubleKonstant 1
+Ability: AfterACubeIsCreated TargetCube Victim GainAbility PoisonousX DoubleKonstant 1
 End
 
 BUFF: Stone_Fortifications

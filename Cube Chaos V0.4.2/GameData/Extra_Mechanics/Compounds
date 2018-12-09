@@ -34,10 +34,8 @@ Phasing
 Every5Ticks If IsFriendToCaster CubeInDirectionFromCube EnemyDirection Caster TeleportToPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
 Phasing: If there is a single friendly cube infront of this teleport behind it End
 
-COMPOUND: TRIGGER
-RandomBuff
-EverySecond 1Shot Both
-RemoveTriggerWithName RandomBuff
+COMPOUND: ACTION
+GainRandomBuff
 Randomly
  Randomly
   Randomly
@@ -68,7 +66,14 @@ Randomly
     GainAbility Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
    Randomly
     GainAbility Every10Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
-    GainAbility DevouringX DoubleKonstant 2
+    GainAbility AfterACubeDies If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 2 HealXDamage DoubleKonstant 2
+Gains a random positive ability End
+
+COMPOUND: TRIGGER
+RandomBuff
+EverySecond 1Shot Both
+RemoveTriggerWithName RandomBuff
+GainRandomBuff
 After the first Second this exist this gains a random Positive Ability End
 
 COMPOUND: TRIGGER
@@ -78,3 +83,4 @@ Both GainAbility LifeSteal
 Both GainAbility DebilitatingRegret
 GainAbility PoisonousX GenericDouble
 Eldrich: When this is created it gains: Poisonous CODE 1 , Lifesteal, Debilitating Regret and Weakening End
+

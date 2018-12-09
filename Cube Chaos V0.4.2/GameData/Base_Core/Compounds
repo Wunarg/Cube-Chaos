@@ -12,8 +12,7 @@ The Faction of this End
 
 COMPOUND: DOUBLE
 AddTicks
-GenericDouble
-CODE 1 Ticks End
+GenericDouble End
 
 COMPOUND: ACTION
 1Shot
@@ -427,11 +426,6 @@ COMPOUND: TRIGGER
 Crippling
 BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target ChangeMaxHp Division EventAmount DoubleKonstant -1
 Crippling: Before this deals Damage the Victim also looses that much Maximum health End
-
-COMPOUND: TRIGGER
-DevouringX
-AfterACubeDies If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 1
-DevouringX: After this kills a Cube, this gains CODE 1 Extra Hp End
 
 COMPOUND: TRIGGER
 ExplodesX

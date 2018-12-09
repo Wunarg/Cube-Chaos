@@ -1,32 +1,27 @@
 ALL TOKENS for other Cubes are saved here
 
 CUBE: Core 1000 50 50
-RARITY 0
 Ability: EverySecond GenerateXMana DoubleKonstant 1
 Ability: EveryXMinutes DoubleKonstant 4 AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
 TOKEN
 End
 
 CUBE: Difficulty_Core 1000 50 50
-RARITY 0
-Ability: EverySecond GenerateXMana Difficulty
+Ability: EverySecond GenerateXMana Division Difficulty DoubleKonstant 2
 Ability: EveryXMinutes DoubleKonstant 4 AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
 TOKEN
 End
 
 CUBE: Randomless_Core 1000 50 50
-RARITY 0
 Ability: EverySecond GenerateXMana DoubleKonstant 1
 TOKEN
 End
 
 CUBE: Useless_Core 1000 50 50
-RARITY 0
 TOKEN
 End
 
 CUBE: Mana_Node 1000 50 50
-RARITY 0
 TOKEN
 Ability: Unmovabel
 Ability: RegenerationX DoubleKonstant 60
@@ -44,11 +39,11 @@ Ability: RegenerationX DoubleKonstant 20
 Ability: EveryMinute GenerateXMana DoubleKonstant 1
 End
 
-CUBE: Excavate 5 0 0
+CUBE: Excavate 10 0 0
 TOKEN
 TYPE Special
 Ability: Spell
-Ability: Excavates
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster Target TakeXDamage DoubleKonstant 5
 End
 
 CUBE: TOOL_Gift 100 0 0

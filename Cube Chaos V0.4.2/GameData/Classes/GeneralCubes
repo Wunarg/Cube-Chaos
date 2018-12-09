@@ -1,20 +1,20 @@
 
 
 CUBE: Dragon_Box 100 7 7
-RARITY 4
+RARITY 4 10
 TYPE Factory
 Ability: EveryXSummonCubeAbove TimeKonstant 6000  ARandomCubeFromLibraryWhich CubeHasTriggerWithName Test Dragon_Egg
 End
 
-CUBE: Dwarven_Warrior 20 8 8
-RARITY 1
+CUBE: Dwarven_Warrior 20 7 7
+RARITY 1 20
 TYPE Attacker
-Ability: ChargeEveryX TimeKonstant 120
+Ability: ChargeEveryX TimeKonstant 180
 Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 4
 End
 
 CUBE: Healing_Container 40 3 3
-RARITY 2
+RARITY 2 5
 TYPE Healer
 Ability: Every10Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
 Ability: OnDeathSummonCube CubeKonstant Tortured_Healing_Spirit
@@ -22,26 +22,26 @@ Ability: ExplodesX DoubleKonstant 5
 End
 
 CUBE: Altar_Of_Reverance 100 3 3
-RARITY 4
+RARITY 4 5
 TYPE Attacker
 Ability: AfterACubeHeals If IsFriendToCaster Culprit EveryXTimes DoubleKonstant 10 TargetCube ARandomEnemy TakeXDamage DoubleKonstant 5
 Ability: ArmorX DoubleKonstant 1
 End
 
 CUBE: Strength_Potion 50 0 0
-RARITY 2
+RARITY 2 -50
 TYPE AbilityAdder
 Ability: Enchantment StrengthX DoubleKonstant 2
 End
 
 CUBE: Tiny_Castle 100 10 10
-RARITY 1
+RARITY 1 50
 TYPE Factory
 Ability: EveryXSummonCubeAbove TimeKonstant 1200 CubeKonstant Castle_Knight
 End
 
 CUBE: Decay_Bolt 30 3 3
-RARITY 1
+RARITY 1 -20
 TYPE Attacker
 Ability: ChargeEveryX TimeKonstant 10
 Ability: Flying
@@ -52,32 +52,32 @@ Ability: DieAfterX TimeKonstant 400
 End
 
 CUBE: Turn_To_Shadow 20 0 0
-RARITY 2
+RARITY 2 0
 TYPE AbilityAdder
 Ability: Enchantment Shadow
 End
 
 CUBE: Obsidian 50 20 20
-RARITY 2
+RARITY 2 -10
 TYPE Wall
 Ability: ArmorX DoubleKonstant 1
 End
 
 CUBE: Shock_Wave 50 0 0
-RARITY 2
+RARITY 2 70
 TYPE Attacker
 Ability: Spell
 Ability: AfterThisIsCreated EveryCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
 End
 
 CUBE: Basic_Gun 20 2 2
-RARITY 1
+RARITY 1 10
 TYPE Shooter
 Ability: EveryXSummonCubeInfront TimeKonstant 240 CubeKonstant Bullet
 End
 
 CUBE: Evaporate 12 0 0
-RARITY 3
+RARITY 3 -10
 TYPE Attacker
 Ability: Spell
 Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster TakeXDamage DoubleKonstant 10
@@ -87,7 +87,7 @@ SummonCubeOnPosition CubeKonstant Steam PositionInDirectionFromPosition West Pos
 End
 
 CUBE: Sand_Portal 40 5 5
-RARITY 2
+RARITY 2 -10
 TYPE Neutral
 Ability: Flying
 Ability: RegenerationX DoubleKonstant 1
@@ -95,21 +95,21 @@ Ability: Every2Seconds SummonCubeOnPosition CubeKonstant Sand PositionInDirectio
 End
 
 CUBE: Mana_Battery 20 2 2
-RARITY 1
+RARITY 1 -10
 TYPE Mana
 Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 40 FactionOfThis
 Ability: AfterThisDies ChangeMaxManaOfFaction DoubleKonstant -40 FactionOfThis
 End
 
 CUBE: Lightning_Transport_Belt 7 3 3
-RARITY 1
+RARITY 1 -5
 TYPE Movement
 Ability: Every10Ticks Both TargetCube CubeInDirectionFromCube North Caster If IsFriendToCaster Target MoveInDirection EnemyDirection
 TargetCube CubeOfPosition PositionInDirectionFromPosition North PositionInDirectionFromPosition Backwards PositionOfCube Caster If IsFriendToCaster Target MoveInDirection EnemyDirection
 End
 
 CUBE: Plant_Warrior 30 7 7
-RARITY 2
+RARITY 2 40
 TYPE Attacker
 Ability: ChargeEveryX TimeKonstant 100
 Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 3
@@ -118,7 +118,7 @@ Ability: RegenerationX DoubleKonstant 5
 End
 
 CUBE: Thorn_Hedge 20 4 4
-RARITY 2
+RARITY 2 -5
 TYPE Wall
 TYPE Factory
 Ability: EveryXSummonCubeAbove TimeKonstant 600 CubeKonstant Thorn_Leaves 
@@ -126,7 +126,7 @@ Ability: RegenerationX DoubleKonstant 3
 End
 
 CUBE: Blue_Moss 40 3 3
-RARITY 3
+RARITY 3 5
 TYPE Mana
 Ability: Every30Seconds Both SummonCubeOnPosition CubeKonstant Blue_Moss PositionInDirectionFromPosition West PositionOfCube Caster
 SummonCubeOnPosition CubeKonstant Blue_Moss PositionInDirectionFromPosition East PositionOfCube Caster
@@ -136,7 +136,7 @@ Ability: RegenerationX DoubleKonstant 4
 End
 
 CUBE: Explosion_Time 70 0 0
-RARITY 4
+RARITY 4 20
 TYPE AbilityAdder
 Ability: Spell
 Ability: ExplodesX DoubleKonstant 1
@@ -144,39 +144,39 @@ Ability: AfterThisIsCreated EveryCubeWhich TRUE GainAbility ExplodesX DoubleKons
 End
 
 CUBE: Tiny_Bomb 10 3 3
-RARITY 3
+RARITY 3 -30
 Ability: ExplodesX DoubleKonstant 3
 Ability: DieAfterX TimeKonstant 60
 End
 
 CUBE: Mindcontrol 100 0 0
-RARITY 4
+RARITY 4 -100
 TYPE Special
 Ability: Spell
 Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster SetFaction FactionOfThis
 End
 
 CUBE: Mana_Cube 100 5 5
-RARITY 2
+RARITY 2 20
 TYPE Mana
 Ability: Every5Seconds GenerateXMana DoubleKonstant 2
 End
 
 CUBE: Replicator 50 6 6
-RARITY 2
+RARITY 2 -10
 TYPE Factory
 TYPE Special
 Ability: EverySecond TargetCube CubeInDirectionFromCube Backwards Caster EveryXTimes AddTicks Multiplikation DoubleKonstant 5 ManaCostOfCube Target SummonCubeOnPosition Target PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
 End
 
-CUBE: Spiker_Wall  20 6 6
-RARITY 1
+CUBE: Spiker_Wall  20 12 12
+RARITY 1 10
 TYPE Wall
-Ability: EveryXMeeleY TimeKonstant 15 DoubleKonstant 3
+Ability: EveryXMeeleY TimeKonstant 40 DoubleKonstant 3
 End
 
 CUBE: Call_Warrior 40 0 0
-RARITY 2
+RARITY 2 20
 TYPE Attacker
 Ability: Spell
 Ability: AfterThisIsCreated SummonCubeOnPosition ARandomCubeFromLibraryWhich AND AND NOT IsToken Test CubeHasTriggerWithName Test EveryXMeeleY CubeHasTriggerWithName Test ChargeEveryX
@@ -184,42 +184,43 @@ PositionInDirectionFromPosition South PositionOfThis
 End
 
 CUBE: Chaotic_Chest 10 4 4
-RARITY 3
+RARITY 3 10
 TYPE Factory
 Ability: EveryMinute AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
 End
 
 CUBE: Transform 30 0 0
-RARITY 4
+RARITY 4 -30
 TYPE Special
 Ability: Spell
-Ability: AfterThisIsCreated Both SummonCubeOnPosition ARandomCubeFromLibraryWhich NOT IsToken Test PositionInDirectionFromPosition North PositionOfThis
-TargetCube CubeInDirectionFromCube North Caster Both SetFaction FactionOfCube CubeInDirectionFromCube South Caster
-GainAbility DieAfterX TimeKonstant 6000
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromLibraryWhich NOT IsToken Test
+Both SetFaction FactionOfCube CubeInDirectionFromCube South Caster
+Both GainAbility DieAfterX TimeKonstant 6000
+SummonCubeOnPosition Target PositionInDirectionFromPosition North PositionOfThis
 Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster Die
 End
 
 CUBE: Chaotic_Essence 40 20 20
-RARITY 2
+RARITY 2 200
 TYPE Wall
 Ability: EveryMinute GainAbility RandomBuff
 End
 
 CUBE: Crystal_Wall 20 20 20
-RARITY 1
+RARITY 1 -5
 TYPE Wall
 Ability: Every10Seconds EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test HealXDamage DoubleKonstant 1
 Ability: GrowthX DoubleKonstant 3
 End
 
 CUBE: Pain_Mirror 100 3 3
-RARITY 3
+RARITY 3 20
 TYPE Attacker
 Ability: AfterThisTakesDamage EveryCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
 End
 
-CUBE: Crystal_Crush 12 5 5
-RARITY 3
+CUBE: Crystal_Crush 7 1 1
+RARITY 3 -60
 TYPE Attacker
 Ability: EverySecond TargetCube CubeInDirectionFromCube South Caster TakeXDamage HpOfCube Caster
 Ability: ExplodesX DoubleKonstant 2
@@ -227,14 +228,14 @@ Ability: DieAfterX TimeKonstant 3600
 End
 
 CUBE: Time_Bomb 10 2 2
-RARITY 3
+RARITY 3 -50
 TYPE Attacker
 Ability: DieAfterX TimeKonstant 360
 Ability: BeforeThisDies EveryCubeWhich IsTouchingTarget Both TakeXDamage DoubleKonstant 3 EveryCubeWhich IsTouchingTarget TakeXDamage DoubleKonstant 2
 End
 
 CUBE: Posionours_Kit 100 5 5
-RARITY 3
+RARITY 3 40
 TYPE AbilityAdder
-Ability: BeforeACubeTakesDamage TargetCube Victim If IsEnemyToCaster Victim GainAbility PoisonX DoubleKonstant 5
+Ability: BeforeACubeTakesDamage TargetCube Victim If IsEnemyToCaster Victim GainAbility PoisonX DoubleKonstant 3
 End

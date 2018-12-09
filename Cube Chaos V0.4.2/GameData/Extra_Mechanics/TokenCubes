@@ -75,7 +75,6 @@ End
 CUBE: Stone 10 20 20
 TYPE Wall
 TOKEN
-RARITY 1
 End
 
 CUBE: Congealed_Shield 0 1 1
@@ -93,3 +92,10 @@ Ability: ProjectileDamageX DoubleKonstant 2
 Ability: Projectile
 Ability: DieAfterX TimeKonstant 300
 End
+
+CUBE: Copy 0 0 0
+TOKEN
+Ability: AfterThisIsCreated SummonCubeOnPosition CubeInDirectionFromCube South Caster PositionInDirectionFromPosition North PositionOfThis
+End
+
+
