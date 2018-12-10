@@ -9,6 +9,7 @@ End
 CUBE: Difficulty_Core 1000 50 50
 Ability: EverySecond GenerateXMana Division Difficulty DoubleKonstant 2
 Ability: EveryXMinutes DoubleKonstant 4 AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+Ability: AfterThisDies ChangeGameDifficulty DoubleKonstant 1
 TOKEN
 End
 
@@ -43,7 +44,7 @@ CUBE: Excavate 10 0 0
 TOKEN
 TYPE Special
 Ability: Spell
-Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster Target TakeXDamage DoubleKonstant 5
+Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster TakeXDamage DoubleKonstant 5
 End
 
 CUBE: TOOL_Gift 100 0 0

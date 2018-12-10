@@ -69,8 +69,8 @@ End
 BUFF: Shadow
 BelongsTo: RACE
 Ability: Shadow
-Description: Your Core has shadow, all touching enemys take damage, and sold shadows only deal half damage to the core End
-Ability: BeforeThisTakesDamage If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow EveryXTimes DoubleKonstant 2 NegateX DoubleKonstant 10
+Description: Create spreading shadows to convert everything End
+Ability: BeforeThisTakesDamage If CubeHasNameOfCube Culprit CubeKonstant Solid_Shadow EveryXTimes DoubleKonstant 2 NegateX DoubleKonstant 10
 Ability: EverySecond EveryCubeWhich IsTouchingTarget If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Decay_Bolt
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Turn_To_Shadow
@@ -764,9 +764,23 @@ End
 
 BUFF: Stone_Fortifications
 BelongsTo: Dwarf
-Description: Cubes below Stone are healed for 1 per 10 Seconds End
-Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Stone TargetCube Victim GainAbility
-Every10Seconds TargetCube CubeInDirectionFromCube South Caster HealXDamage DoubleKonstant 1
+Description: Cubes below your Stone are healed for 1 per 10 Seconds End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+GainAbility Every10Seconds TargetCube CubeInDirectionFromCube South Caster HealXDamage DoubleKonstant 1
+End
+
+BUFF: Stone_Mines
+BelongsTo: Dwarf
+Description: Your stone cost 1/4 less End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+ChangeManaCost Division ManaCostOfCube Target DoubleKonstant 4
+End
+
+BUFF: Hardening_Stone
+BelongsTo: Dwarf
+Description: Every Minute stone in your hand gains 1 extra hp permanently End
+Ability: EveryMinute TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis CubeHasNameOfCube Test CubeKonstant Stone
+Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 21
 End
 
 BUFF: Hardening_Shadow
@@ -775,10 +789,36 @@ Description: Solid_Shadows grow to more hp End
 Ability: AfterACubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow TargetCube Victim GainAbility GrowthX DoubleKonstant 3
 End
 
+BUFF: Shadow_Recycling
+BelongsTo: Shadow
+Description: When Solid_Shadows die you gain 1 Mana End
+Ability: AfterACubeDies If CubeHasNameOfCube Victim CubeKonstant Solid_Shadow GenerateXMana DoubleKonstant 1
+End
+
+BUFF: Shadow_Hive
+BelongsTo: Shadow
+Description: Every 5 Minutes a random solid shadow cube dies and turns into a shadow hive End
+Ability: EveryXMinutes DoubleKonstant 5 TargetCube ARandomCubeWhich CubeHasNameOfCube Test CubeKonstant Solid_Shadow Both
+GainAbility OnDeathSummonCube CubeKonstant Solid_Shadow_Hive
+Die
+End
+
 BUFF: Fluid_Cubes
 BelongsTo: Elemental
 Description: All Cubes you Place are considered to be a liquid (random back and forth Movement, letting other blocks fall in) End
 Ability: AfterACubeIsCreated If IsSameCube Culprit Caster TargetCube Victim GainAbility LiquidX TimeKonstant 30
+End
+
+BUFF: Elemental_Resistance
+BelongsTo: Elemental
+Description: All created cubes with Neutral gain 1 extra hp End
+Ability: AfterACubeIsCreated TargetCube Victim If CubeHasTriggerWithName Target Neutral Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 1
+End
+
+BUFF: Natural_Unity
+BelongsTo: Elemental
+Description: Your Core Takes 1 less damage from neutral cubes End
+Ability: BeforeThisTakesDamage If CubeHasTriggerWithName Culprit Neutral NegateX DoubleKonstant 1
 End
 
 BUFF: Faster_Growing
@@ -787,14 +827,59 @@ Description: Grow for 3 extra hp every Minute End
 Ability: GrowthX DoubleKonstant 3
 End
 
+BUFF: Plant_Reclamation
+BelongsTo: Plant
+Description: After a friendly cube dies if it costed more than 10 Mana gain 1 Mana back End
+Ability: AfterACubeDies TargetCube Victim If IsFriendToCaster Target If IsLarger ManaCostOfCube Target DoubleKonstant 10 GenerateXMana DoubleKonstant 1
+End
+
+BUFF: Soil_Adaptation
+BelongsTo: Plant
+Description: EveryMinute Every friendly cube on earth gains 1 extra hp End
+Ability: EveryMinute EveryCubeWhich AND IsFriendToCaster Test CubeHasNameOfCube CubeKonstant Earth CubeInDirectionFromCube South Test Both
+ChangeMaxHp DoubleKonstant 1
+Silent HealXDamage DoubleKonstant 1
+End
+
 BUFF: Growing_Together
 BelongsTo: Crystal
 Description: Cube created surrounded by friends gain a moderate health regeneration End
 Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim If TargetIsSurroundedByFriends GainAbility RegenerationX DoubleKonstant 10
 End
 
+BUFF: Crystal_Magnet
+BelongsTo: Crystal
+Description: After a friendly cube dies if it had more than 4 max hp your core gains 1 extra hp End
+Ability: AfterACubeDies If AND IsFriendToCaster Victim IsLarger MaxHpOfCube Victim DoubleKonstant 4 Both
+ChangeMaxHp DoubleKonstant 1
+Silent HealXDamage DoubleKonstant 1
+End
+
+BUFF: Holding_Together
+BelongsTo: Crystal
+Description: AfterYouPlace a cube it gains an additional 1 extra hp for every ally next to it, but then loose 1 End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim Both EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
+Both ChangeMaxHp DoubleKonstant 1
+HealXDamage DoubleKonstant 1
+Both ChangeMaxHp DoubleKonstant -1
+Silent TakeXDamage DoubleKonstant 1
+End
+
 BUFF: Chaotic_Boosts
 BelongsTo: Chaos
 Description: All yes ALL cubes get a random buff upon creation End
 Ability: AfterACubeIsCreated TargetCube Victim GainAbility RandomBuff
+End
+
+BUFF: Ultimate_Confiusion
+BelongsTo: Chaos
+Description: All created Cubes which cost less or exactly 200 Mana change to a random faction every minute, You have been warned End
+Ability: AfterACubeIsCreated  If IsLarger ManaCostOfCube Target DoubleKonstant 200
+TargetCube Victim GainAbility Every30Seconds Randomly SetFaction DoubleKonstant 1 SetFaction DoubleKonstant 2
+End
+
+BUFF: Eyes_Of_Chaos
+BelongsTo: Everyone
+Description: Every Second your core deals 1 damage to a random cube End
+Ability: EverySecond TargetCube ARandomCubeWhich TRUE TakeXDamage DoubleKonstant 1
 End

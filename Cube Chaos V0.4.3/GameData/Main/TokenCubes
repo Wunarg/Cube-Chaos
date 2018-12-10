@@ -186,8 +186,6 @@ Ability: WorthXMore DoubleKonstant 3
 Ability: DieAfterX TimeKonstant 300
 End
 
-
-
 CUBE: Scrap_Bullet 3 2 2
 TOKEN
 Ability: ChargeEveryX TimeKonstant 10
@@ -202,7 +200,7 @@ CUBE: Pulling_Projectile 3 1 1
 TOKEN
 Ability: ChargeEveryX TimeKonstant 20
 Ability: Flying
-Ability: DieAfterX TimeKonstant 600
+Ability: DieAfterX TimeKonstant 3600
 Ability: EveryTick If NOT IsPositionEmpty PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
 Both TargetCube CubeOfPosition PositionInDirectionFromPosition EnemyDirection PositionInDirectionFromPosition EnemyDirection PositionOfCube Caster
 MoveInDirection Backwards

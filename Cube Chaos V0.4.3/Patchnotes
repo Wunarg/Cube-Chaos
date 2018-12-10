@@ -1,5 +1,23 @@
 Patchnotes
 
+V.0.4.3
+CHANGES
+BALANCE
+-A bunch of ai difficulty values
+-Pulling Projectile now lasts MUCH longer
+-The difficulty Core now increases 
+--the difficulty by 1 when it dies
+ADDED
+-ChangeDifficulty Action
+-More race buffs
+-Eye_of_Assasins Buff
+FIXED
+-BOOLEAN cube has name of cube can now accept 2 nulls
+-shadow classes not taking 1/2 damage from shadows
+-wording stuff
+-Excavate not working at all (my bad)
+
+
 V.0.4.2
 CHANGES
 -Dwarfs stone buffs now apply to stone in your hand

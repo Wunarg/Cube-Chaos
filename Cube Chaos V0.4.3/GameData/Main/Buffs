@@ -65,6 +65,12 @@ Description: Every 20 Seconds your core deals 1 damage to a random enemy End
 Ability: Every20Seconds TargetCube ARandomCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
 End
 
+BUFF: Eye_of_Assasins
+BelongsTo: Everyone
+Description: Every 2 Minutes your core kills a random enemy which isnt their core End
+Ability: EveryXMinutes DoubleKonstant 2 TargetCube ARandomNotCoreEnemy Die
+End
+
 BUFF: Mana_Crystal_Armor
 BelongsTo: Everyone
 Description: Before your core takes 3 Damage or more, you gain 1 Mana End

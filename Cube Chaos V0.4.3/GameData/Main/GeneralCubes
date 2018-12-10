@@ -178,7 +178,7 @@ Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 3
 End
 
 CUBE: Ananoran 53 0 0
-RARITY 1 30
+RARITY 1 20
 TYPE Attacker
 Ability: ChargeEveryX TimeKonstant 60
 Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 4
@@ -529,7 +529,7 @@ Ability: FlavourText The ants fell back in a victorious moment, but soon the def
 End
 
 CUBE: The_Any_Cannon 30 4 4
-RARITY 2 5
+RARITY 2 0
 TYPE AbilityAdder
 TYPE Shooter
 Ability: Every2Seconds TargetCube CubeInDirectionFromCube Backwards Caster If IsFriendToCaster Target Both
@@ -549,7 +549,7 @@ Ability: FlavourText Ants infected by chaos held their allegiance to the ant hiv
 End
 
 CUBE: Eldrich_Wanderer 47 10 10
-RARITY 2 10
+RARITY 2 -20
 TYPE Attacker
 Ability: ChargeEveryX TimeKonstant 150
 Ability: EverySecond Randomly MoveInDirection EnemyDirection MoveInDirection Backwards
@@ -922,7 +922,7 @@ Ability: RegenerationX DoubleKonstant 10
 End
 
 CUBE: Eldrich_Ant_Hill 30 4 4
-RARITY 4 0
+RARITY 4 -10
 TYPE Factory
 Ability: EldrichX DoubleKonstant 5
 Ability: EveryXSummonCubeAbove TimeKonstant 720 CubeKonstant Pink_Ant 
