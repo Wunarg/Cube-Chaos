@@ -415,7 +415,7 @@ Poisonous: Before this deals Damage it applys a Poison to the Victim, which deal
 COMPOUND: TRIGGER
 WeakeningX
 BeforeACubeTakesDamage If IsSameCube Culprit Caster TargetCube Victim If NOT IsFriendToCaster Target GainAbility WeakX GenericDouble
-Poisonous: Before this deals Damage it applys Weak to the Victim, which reduces its damage by CODE 1 End 
+Weakening: Before this deals Damage it applys Weak to the Victim, which reduces its damage by CODE 1 End 
 
 COMPOUND: TRIGGER
 Deadly

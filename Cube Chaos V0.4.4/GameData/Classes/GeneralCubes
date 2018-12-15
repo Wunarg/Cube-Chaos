@@ -183,10 +183,13 @@ Ability: AfterThisIsCreated SummonCubeOnPosition ARandomCubeFromLibraryWhich AND
 PositionInDirectionFromPosition South PositionOfThis
 End
 
-CUBE: Chaotic_Chest 10 4 4
+CUBE: Chaotic_Chest 30 4 4
 RARITY 3 10
 TYPE Factory
-Ability: EveryMinute AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+Ability: EveryXMinutes DoubleKonstant 2
+ TargetCube ARandomCubeFromLibraryWhich NOT IsToken Test Both 
+ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2
+AddCubeToHandOfThis Target
 End
 
 CUBE: Transform 30 0 0
@@ -200,7 +203,7 @@ SummonCubeOnPosition Target PositionInDirectionFromPosition North PositionOfThis
 Ability: AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster Die
 End
 
-CUBE: Chaotic_Essence 40 20 20
+CUBE: Chaotic_Essence 60 20 20
 RARITY 2 200
 TYPE Wall
 Ability: EveryMinute GainAbility RandomBuff

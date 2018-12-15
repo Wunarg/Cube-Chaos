@@ -65,7 +65,7 @@ Description: Every 20 Seconds your core deals 1 damage to a random enemy End
 Ability: Every20Seconds TargetCube ARandomCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1
 End
 
-BUFF: Eye_of_Assasins
+BUFF: Eye_of_Assassins
 BelongsTo: Everyone
 Description: Every 2 Minutes your core kills a random enemy which isnt their core End
 Ability: EveryXMinutes DoubleKonstant 2 TargetCube ARandomNotCoreEnemy Die
@@ -240,7 +240,7 @@ Description: Every 10 Minutes your core heals to full Hp End
 Ability: Every10Minutes HealXDamage MaxHpOfCube Caster
 End
 
-BUFF: Help_of_Kublath
+BUFF: Kublaths_Help
 BelongsTo: Everyone
 Description: A random cube in your hand costs 1 less each time you play it down to 10 End
 Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis AND NOT CubeHasLimitedUses Test IsLarger ManaCostOfCube Test DoubleKonstant 10
@@ -288,10 +288,34 @@ ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2
 AddCubeToHandOfThis Target
 End
 
+BUFF: Crippling_Curse
+BelongsTo: Everyone
+Description: Every 2 times an enemy core takes damage an enemy core looses 1 max hp End
+Ability: AfterACubeTakesDamage If AND IsEnemyToCaster Victim IsSameCube Victim CoreOfFaction FactionOfCube Victim TargetCube Victim
+EveryXTimes DoubleKonstant 2 ChangeMaxHp DoubleKonstant -1
+End
 
+BUFF: Steam_Vents
+BelongsTo: Everyone
+Description: Whenever your core takes damage summon steam above it End
+Ability: AfterThisTakesDamage SummonCubeOnPosition CubeKonstant Steam PositionInDirectionFromPosition North PositionOfCube Caster
+End
 
+BUFF: Descemated_Creations
+BelongsTo: Everyone
+Description: Every 10th enemy cube placed by its core takes 10 damage by your core End
+Ability: AfterACubeIsCreated If AND IsEnemyToCaster Victim IsSameCube Culprit CoreOfFaction FactionOfCube Victim
+EveryXTimes DoubleKonstant 10 TargetCube Victim TakeXDamage DoubleKonstant 10
+End
 
+BUFF: Staff_Of_Shields
+BelongsTo: Everyone
+Description: Every 30 Seconds add a free congealed shield cube to your hand End
+Ability: Every30Seconds AddCubeToHandOfFaction CubeKonstant Congealed_Shield FactionOfCube Caster
+End
 
-
-
-
+BUFF: Architects_Help
+BelongsTo: Everyone
+Description: At the start of the game add 1 extra health to a cube in your hand End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End

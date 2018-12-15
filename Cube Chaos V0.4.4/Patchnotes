@@ -1,5 +1,38 @@
 Patchnotes
 
+V.0.4.4
+CHANGES
+-Reworked how chaos race worked
+-Reworked how chaotic_chest worked
+-NoClass-Crystal bonus changed
+BALANCE
+-lowered Rapid-Bullet live time 
+-Engineer Elemental Condensing Cloud buffed
+-Shadow hive a ton
+-Rough_Gravel is now neutral
+-chaotic_essence now costs 60 mana
+-random buff healing now aktivates less often
+ADDED
+-Eternal_Walls Cube
+-Laser_Tank Cube
+-Vortex_Eye Cube
+-Power_Pedestal Cube
+-Escape key now also opens the pause menu
+-Ai Power overlay
+-Permanent_markings Buff
+-Steam_Vents Buff
+-Descemated_Creations Buff
+-Staff_Of_Shields Buff
+FIXED
+-Architects office no longer buffs limited uses cubes
+-Weakening text
+-eye of the assassins has 5 s now
+-tinkered abilit now removes duplicates when combining
+-Eyes_Of_Chaos now aktually belongs to chaos
+-shadow_ascension now has shadow
+-Class, Race description
+-updated keybinding menu to show more of the keys
+
 V.0.4.3
 CHANGES
 BALANCE

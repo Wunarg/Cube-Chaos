@@ -155,7 +155,7 @@ Ability: ChargeEveryX TimeKonstant 5
 Ability: Flying
 Ability: ProjectileDamageX DoubleKonstant 1
 Ability: Projectile
-Ability: DieAfterX TimeKonstant 200
+Ability: DieAfterX TimeKonstant 150
 End
 
 CUBE: Angry_Unleashed_Souls 0 10 10

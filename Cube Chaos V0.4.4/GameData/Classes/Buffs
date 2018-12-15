@@ -1,7 +1,7 @@
 
 BUFF: Priest
 BelongsTo: CLASS
-Description: Healing and Smiting End
+Description: Healing and Smiting. Obtain free healing spells End
 Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Area_Heal
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Healing_Container
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Altar_Of_Reverance
@@ -9,7 +9,7 @@ End
 
 BUFF: Warrior
 BelongsTo: CLASS
-Description: Your Core can Meele and charges towards the enemy, but you can teleport the core back End
+Description: You and your minions charge at the enemy. Your core can meele and you obtain a spell which teleports your core back  End
 Ability: EveryXMeeleY TimeKonstant 70 DoubleKonstant 3
 Ability: ChargeEveryX TimeKonstant 120
 Ability: AfterThisIsCreated SummonCubeOnPosition CubeKonstant Warriors_Heart PositionInDirectionFromPosition ReverseDirection EnemyDirection PositionOfCube Caster
@@ -20,7 +20,7 @@ End
 
 BUFF: Wizard
 BelongsTo: CLASS
-Description: All spells or other decaying cubes refund 1/3 of their mana End
+Description: Casting Spells and saving Mana for the killing blow. Spells and decaying things refund 1/3 of their cost End
 Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster If OR CubeHasTriggerWithName Victim DieAfterX CubeHasTriggerWithName Victim Spell Both GenerateXMana Division ManaCostOfCube Victim DoubleKonstant 3
 TargetCube Victim ChangeManaCost Division ManaCostOfCube Victim DoubleKonstant -3
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Mana_Battery
@@ -29,7 +29,7 @@ End
 
 BUFF: Engineer
 BelongsTo: CLASS
-Description: Tinker with cubes to give them extra hp, 2 tinkered cubes will fiuse, if there is space between them End
+Description: Combine cubes for the ultimate creation. Tinker a cube and if there is space between 2 tinkered cubes they will combine End
 Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Tinkering
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Basic_Gun
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Lightning_Transport_Belt
@@ -37,7 +37,7 @@ End
 
 BUFF: Pyromaniac
 BelongsTo: CLASS
-Description: Every Cube you or your Cubes create explodes for 1 damage after it dies End
+Description: Explode your own stuff. Every friendly cube explodes for 1 damage to all touching cubes End
 Ability: AfterAnotherFriendlyCubeIsCreated TargetCube Victim GainAbility ExplodesX DoubleKonstant 1
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Tiny_Bomb
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Explosion_Time
@@ -45,7 +45,7 @@ End
 
 BUFF: Rogue
 BelongsTo: CLASS
-Description: Entering Into Enemy Lands End
+Description: Entering Into Enemy Lands. Obtain incursion which allow you to place cubes on the enemys side End
 Ability: EveryXSeconds TimeKonstant 40 AddCubeToHandOfThis CubeKonstant Incursion
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Time_Bomb
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Posionours_Kit
@@ -69,7 +69,7 @@ End
 BUFF: Shadow
 BelongsTo: RACE
 Ability: Shadow
-Description: Create spreading shadows to convert everything End
+Description: Create spreading shadows to convert everything. Your core takes half damage from it and deals damage to touching enemys End
 Ability: BeforeThisTakesDamage If CubeHasNameOfCube Culprit CubeKonstant Solid_Shadow EveryXTimes DoubleKonstant 2 NegateX DoubleKonstant 10
 Ability: EverySecond EveryCubeWhich IsTouchingTarget If IsEnemyToCaster Target TakeXDamage DoubleKonstant 2
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Decay_Bolt
@@ -79,7 +79,7 @@ End
 
 BUFF: Elemental
 BelongsTo: RACE
-Description: Your Core has a random Elemental Power, which gives you free cubes End
+Description: Summon cubes neutral to you and take advantage of them. You obtain one of 4 free cubes to aid you End
 Ability: RandomElementalPower
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Evaporate
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Lava
@@ -88,7 +88,7 @@ End
 
 BUFF: Plant
 BelongsTo: RACE
-Description: Your Core grows and Regenerates,whenever an friendly cube is killed by an enemy a random friendly cube gains 2 extra hp End
+Description: Ever growing. Your core grows and heals, and whenever a friendly cube is killed another one gains 2 extra hp End
 Ability: RegenerationX DoubleKonstant 4
 Ability: GrowthX DoubleKonstant 4
 Ability: AfterACubeDies If IsFriendToCaster Victim If IsEnemyToCaster Culprit TargetCube ARandomCubeWhich IsFriendToCaster Test
@@ -101,7 +101,7 @@ End
 
 BUFF: Crystal
 BelongsTo: RACE
-Description: After you place a Cube it gets 1 extra hp for every friend touching it End
+Description: Holding Out Together. After you place a Cube it gets 1 extra hp for every friend touching it End
 Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
 Both ChangeMaxHp DoubleKonstant 1
 HealXDamage DoubleKonstant 1
@@ -112,12 +112,10 @@ End
 
 BUFF: Chaos
 BelongsTo: RACE
-Description: Make do with the most random of cubes End
-Ability: EverySecond GenerateXMana DoubleKonstant 1
-Ability: AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfThis TRUE ChangeManaCost ManaCostOfCube Target
-Ability: AfterThisIsCreated GenerateXMana DoubleKonstant 50
-Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 100 FactionOfThis
-Ability: EveryXMinutes DoubleKonstant 2 AddCubeToHandOfThis ARandomCubeFromLibraryWhich NOT IsToken Test
+Description: Make do with the most chaotic of things. Add random free cubes to your hand, also more random cubes End
+Ability: EveryMinute TargetCube ARandomCubeFromLibraryWhich NOT IsToken Test Both ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -1
+Both GainAbility WorthXMore DoubleKonstant 20
+AddCubeToHandOfThis Target
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Chaotic_Chest
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Transform
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Chaotic_Essence
@@ -252,7 +250,7 @@ End
 BUFF: Engineer-Elemental
 BelongsTo: CLASSRACE
 Description: Get free floating cloud every 20 Seconds End
-Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Air_Cloud
+Ability: Every20Seconds AddCubeToHandOfThis CubeKonstant Condensing_Cloud
 End
 
 BUFF: Pyromaniac-Elemental
@@ -367,10 +365,10 @@ End
 
 BUFF: NoClass-Crystal
 BelongsTo: CLASSRACE
-Description: Cubes you place surrounded by friendly cubes gain 16 extra hp End
-Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim If TargetIsSurroundedByFriends
-Both ChangeMaxHp DoubleKonstant 16
-HealXDamage DoubleKonstant 16
+Description: Cubes you place have 1 extra hp for every friendly cube next to them End
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit Caster TargetCube Victim EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Test TargetCube Victim
+Both ChangeMaxHp DoubleKonstant 1
+HealXDamage DoubleKonstant 1
 End
 
 BUFF: Priest-Chaos

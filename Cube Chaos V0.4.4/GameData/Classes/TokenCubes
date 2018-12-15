@@ -87,10 +87,11 @@ Ability: Projectile
 Ability: DieAfterX TimeKonstant 600
 End
 
-CUBE: Air_Cloud 0 1 1
+CUBE: Condensing_Cloud 0 1 1
 TOKEN
 Ability: Flying
 Ability: Neutral
+Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
 End
 
 CUBE: Chain_Fire 0 2 2
@@ -292,6 +293,5 @@ Ability: Shadow
 Ability: GrowthX DoubleKonstant 10
 Ability: LifeSteal
 Ability: ArmorX DoubleKonstant 1
-Ability: EveryXAcidicY TimeKonstant 60 DoubleKonstant 2
-Ability: ChargeEveryX DoubleKonstant 120
+Ability: Every10Seconds TargetCube ARandomCubeWhich NOT CubeHasNameOfCube CubeKonstant Solid_Shadow Test TakeXDamage DoubleKonstant 1
 End

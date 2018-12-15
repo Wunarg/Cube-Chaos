@@ -607,7 +607,7 @@ End
 CUBE: Architects_Office 100 5 5
 RARITY 2 10
 TYPE AbilityAdder
-Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis TRUE Silent Both ChangeMaxHp DoubleKonstant 2 HealXDamage DoubleKonstant 2
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 2 HealXDamage DoubleKonstant 2
 End
 
 CUBE: Rapid_Gun 80 3 3
@@ -1421,6 +1421,7 @@ RARITY 3 0
 TYPE AbilityAdder
 Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasTriggerWithName Test Shadow
 GainAbility Shadow
+Ability: Shadow
 End
 
 CUBE: Oblivion_Shard 30 3 3
@@ -1455,4 +1456,41 @@ Ability: ChargeEveryX TimeKonstant 300
 Ability: EveryXMeeleY TimeKonstant 60 DoubleKonstant 5
 Ability: AfterThisMoves If IsSameCube Culprit Caster SummonCubeOnPosition CubeKonstant Growing_Worm_Piece OriginalPosition
 End
+
+CUBE: Eternal_Walls 100 200 200
+RARITY 2 -50
+TYPE Wall
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfCube Caster 
+CubeHasNameOfCube Test CubeKonstant Eternal_Walls Both
+ChangeMaxHp DoubleKonstant 5
+Silent HealXDamage DoubleKonstant 5
+End
+
+CUBE: Laser_Tank 40 5 5
+RARITY 1 40
+TYPE Attacker
+Ability: ChargeEveryX TimeKonstant 120
+Ability: EveryXMeeleY TimeKonstant 180 DoubleKonstant 3
+Ability: EveryXSummonCubeInfront TimeKonstant 300 CubeKonstant Basic_Laser_Projectile
+End
+
+CUBE: Vortex_Eye 40 0 0
+RARITY 3 -40
+TYPE AbilityAdder
+Ability: Enchantment Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Power_Pedestal 70 5 5
+RARITY 2 -70
+TYPE Mana
+Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfFaction FactionOfThis TargetCube CubeInDirectionFromCube North Caster
+GainAbility StrengthX DoubleKonstant 1
+End
+
+CUBE: Mana_Splintering 300 0 0
+RARITY 4 0
+TYPE Mana
+Ability: AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfCube Caster TRUE ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2 
+End
+
 

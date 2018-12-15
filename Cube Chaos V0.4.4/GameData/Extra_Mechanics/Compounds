@@ -24,6 +24,7 @@ COMPOUND: TRIGGER
 Tinkered
 EveryTick TargetCube CubeOfPosition PositionInDirectionFromPosition East PositionInDirectionFromPosition East PositionOfCube Caster If CubeHasTriggerWithName Target Tinkered
 If IsPositionEmpty PositionInDirectionFromPosition East PositionOfCube Caster
+Both RemoveTriggerWithName Tinkered
 Both SummonCubeOnPosition CombinationOf2Cubes Caster Target PositionInDirectionFromPosition East PositionOfCube Caster
 Both Die
 TargetCube Caster Die
@@ -65,7 +66,7 @@ Randomly
     GainAbility Every10Seconds GenerateXMana DoubleKonstant 1
     GainAbility Every10Seconds TargetCube ARandomEnemy TakeXDamage DoubleKonstant 1
    Randomly
-    GainAbility Every10Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
+    GainAbility Every20Seconds TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
     GainAbility AfterACubeDies If IsSameCube Culprit Caster Both ChangeMaxHp DoubleKonstant 2 HealXDamage DoubleKonstant 2
 Gains a random positive ability End
 
