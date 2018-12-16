@@ -1,5 +1,25 @@
 Patchnotes
 
+V.0.4.5
+CHANGES
+-Ai Power Overlay is now L
+-GrowthX now wont trigger healing
+BALANCE
+-Condensing_Cloud is no longer neutral
+-Pain_Mirror now has 2 hp
+-Growing_Worm_Piece now dies after a time
+ADDED
+-Particles to gaining Mana
+-CubeSelect selected Filter is now highlighted
+-Eternal_Guardian Cube
+-CantBeNeutral Compound
+-1 Buff for each race
+-Architectural_Ingenuity Buff
+FIXED
+-Particles beeing too big
+-Poison / Fire Wave neutral lag
+-Eyes_Of_Chaos Buff wasn't 
+
 V.0.4.4
 CHANGES
 -Reworked how chaos race worked
@@ -26,8 +46,8 @@ ADDED
 FIXED
 -Architects office no longer buffs limited uses cubes
 -Weakening text
--eye of the assassins has 5 s now
--tinkered abilit now removes duplicates when combining
+-eye of the assassins has 5 s es now
+-tinkered ability now removes duplicates when combining
 -Eyes_Of_Chaos now aktually belongs to chaos
 -shadow_ascension now has shadow
 -Class, Race description

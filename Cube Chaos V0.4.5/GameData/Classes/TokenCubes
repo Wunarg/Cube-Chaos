@@ -90,7 +90,6 @@ End
 CUBE: Condensing_Cloud 0 1 1
 TOKEN
 Ability: Flying
-Ability: Neutral
 Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
 End
 

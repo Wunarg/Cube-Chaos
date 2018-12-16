@@ -219,6 +219,7 @@ End
 
 CUBE: Growing_Worm_Piece 2 4 4
 TOKEN
+Ability: DieAfterX DoubleKonstant 7200
 Ability: RetaliateX DoubleKonstant 1
 End
 

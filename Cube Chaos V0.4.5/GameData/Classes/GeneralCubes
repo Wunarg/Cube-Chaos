@@ -216,7 +216,7 @@ Ability: Every10Seconds EveryCubeWhich AND IsTouchingTarget IsFriendToCaster Tes
 Ability: GrowthX DoubleKonstant 3
 End
 
-CUBE: Pain_Mirror 100 3 3
+CUBE: Pain_Mirror 100 2 2
 RARITY 3 20
 TYPE Attacker
 Ability: AfterThisTakesDamage EveryCubeWhich IsEnemyToCaster Test TakeXDamage DoubleKonstant 1

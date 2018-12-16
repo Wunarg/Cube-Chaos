@@ -319,3 +319,9 @@ BelongsTo: Everyone
 Description: At the start of the game add 1 extra health to a cube in your hand End
 Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
 End
+
+BUFF: Architectural_Ingenuity
+BelongsTo: Everyone
+Description: Every 5 minutes a random permanent cube in your hand gets 1 extra hp End
+Ability: EveryXMinutes DoubleKonstant 5 TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End

@@ -590,7 +590,7 @@ End
 CUBE: Summoning_Pedestal 50 5 5
 RARITY 2 -40
 TYPE Mana
-Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfFaction FactionOfThis TargetCube CubeInDirectionFromCube North Caster
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube CubeInDirectionFromCube North Caster If AND IsSameCube Victim Target IsSameCube Culprit CoreOfFaction FactionOfThis 
 Both GenerateXMana Division ManaCostOfCube Target DoubleKonstant 5
 ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -5
 End
@@ -703,6 +703,7 @@ Ability: ProjectileDamageX DoubleKonstant 2
 Ability: DieAfterX TimeKonstant 3600
 Ability: EverySecond Both SummonCubeOnPosition CubeKonstant Fire_Wave PositionInDirectionFromPosition North PositionOfCube Caster
 SummonCubeOnPosition CubeKonstant Fire_Wave PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: CantBeNeutral
 End
 
 CUBE: Poison_Wave 60 1 1
@@ -715,6 +716,7 @@ Ability: ChargeEveryX TimeKonstant 60
 Ability: DieAfterX TimeKonstant 7200
 Ability: Every2Seconds Both SummonCubeOnPosition CubeKonstant Poison_Wave PositionInDirectionFromPosition North PositionOfCube Caster
 SummonCubeOnPosition CubeKonstant Poison_Wave PositionInDirectionFromPosition South PositionOfCube Caster
+Ability: CantBeNeutral
 End
 
 CUBE: Isanra-Doom_of_a_Kingdom 70 1 1
@@ -1483,14 +1485,24 @@ End
 CUBE: Power_Pedestal 70 5 5
 RARITY 2 -70
 TYPE Mana
-Ability: AfterAnotherFriendlyCubeIsCreated If IsSameCube Culprit CoreOfFaction FactionOfThis TargetCube CubeInDirectionFromCube North Caster
-GainAbility StrengthX DoubleKonstant 1
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube CubeInDirectionFromCube North Caster If AND IsSameCube Victim Target IsSameCube Culprit CoreOfFaction FactionOfThis GainAbility StrengthX DoubleKonstant 1
 End
 
 CUBE: Mana_Splintering 300 0 0
 RARITY 4 0
 TYPE Mana
 Ability: AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfCube Caster TRUE ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2 
+End
+
+CUBE: Eternal_Guardian 100 50 50
+RARITY 2 10
+TYPE Attacker
+Ability: AfterThisTakesDamage GainAbility ChargeEveryX TimeKonstant 600
+Ability: EveryXMeeleY TimeKonstant 120 DoubleKonstant 2
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfCube Caster 
+CubeHasNameOfCube Test CubeKonstant Eternal_Guardian Both
+ChangeMaxHp DoubleKonstant 5
+Silent HealXDamage DoubleKonstant 5
 End
 
 

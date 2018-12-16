@@ -85,3 +85,12 @@ Both GainAbility DebilitatingRegret
 GainAbility PoisonousX GenericDouble
 Eldrich: When this is created it gains: Poisonous CODE 1 , Lifesteal, Debilitating Regret and Weakening End
 
+COMPOUND: TRIGGER
+Excavates
+AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster If NOT IsEnemyToCaster Target TakeXDamage DoubleKonstant 10
+When this is created it deals 10 damage to any non enemy below it End
+
+COMPOUND: TRIGGER
+CantBeNeutral
+EveryTick If IsSmaller FactionOfThis DoubleKonstant 1 Randomly SetFaction DoubleKonstant 1 SetFaction DoubleKonstant 2
+When this is neutral it converts to a random faction End

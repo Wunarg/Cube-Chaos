@@ -379,7 +379,7 @@ Regeneration: This Heals CODE 1 Damage per Minute End
 
 COMPOUND: TRIGGER
 GrowthX
-EveryTick EveryXTimes Division DoubleKonstant 3600 GenericDouble Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+EveryTick EveryXTimes Division DoubleKonstant 3600 GenericDouble Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 1
 Growth: This gains CODE 1 extra health per minute End
 
 COMPOUND: TRIGGER
@@ -447,11 +447,6 @@ UpToXEffiecencyY
 AfterThisIsCreated EveryCubeInHandOfFactionWhich FactionOfCube Caster CubeHasNameOfCube Test Caster 
 If IsLarger ManaCostOfCube Target GenericDouble ChangeManaCost Division GenericDouble DoubleKonstant -1
 Effiecency: Every Time you place this cube, cubes of the same name in your hand cost CODE 2 less down to CODE 1 End
-
-COMPOUND: TRIGGER
-Excavates
-AfterThisIsCreated TargetCube CubeInDirectionFromCube South Caster If NOT IsEnemyToCaster Target TakeXDamage DoubleKonstant 10
-When this is created it deals 10 damage to any non enemy below it End
 
 COMPOUND: TRIGGER
 LifeDebt
