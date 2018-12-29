@@ -1,5 +1,39 @@
 Patchnotes
 
+V.0.4.6
+CHANGES
+-Buried Treasure rendamed to Burried_Earth_Treasures
+-Mana Cost overlay is now slightly better
+-Added a piece of stone in tutorial 2
+BALANCE
+-Blood_To_MAna now cant kill you
+-Oblivion_Shard now has much less ai power
+-Warrior class now moves slower but regenerates
+-Blue_Moss is now rarity 2
+-Tiny_Mana_Battery Buff now gives the max mana first
+-Magic_Missile_Mage ai power nerfed
+-Engineer-Chaos no longer doubles the cost of tinker
+ADDED
+-Retribution_Wall Cube
+-Slime_Vase Cube
+-Fire_Vase Cube
+-Mass_Healer Cube
+-Core_Grower Cube
+-Core_Retaliator Cube
+-Shield_Transposer Cube 
+-Wrath_Of_Lightning Cube
+-Emergency_Growth Buff
+-Green_Sword Buff
+-Pendant_Of_Restoration Buff
+-Titans_Boots Buff
+-Gray_Sword Buff
+-Blue_Sword Buff
+-Lashing_Out Buff
+-Emergency_Inspiration Buff
+FIXED
+-Name of the Window beeing Cube Caos
+
+
 V.0.4.5
 CHANGES
 -Ai Power Overlay is now L

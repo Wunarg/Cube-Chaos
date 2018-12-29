@@ -1,4 +1,4 @@
-General Cubes
+ General Cubes
 
 CUBE: Giant_Fly 10 3 3
 RARITY 1 -5
@@ -24,8 +24,8 @@ RARITY 1 -20
 TYPE Mana
 Ability: Spell
 Ability: AfterThisIsCreated TargetCube CoreOfThis Both 
-If IsLarger HpOfCube Target DoubleKonstant 48 Both TakeXDamage DoubleKonstant 49 GenerateXMana DoubleKonstant 25
-If IsLarger DoubleKonstant 48 HpOfCube Target GainAbility RegenerationX DoubleKonstant 1
+If IsLarger HpOfCube Target DoubleKonstant 49 Both TakeXDamage DoubleKonstant 49 GenerateXMana DoubleKonstant 25
+If IsLarger DoubleKonstant 49 HpOfCube Target GainAbility RegenerationX DoubleKonstant 1
 Ability: FlavourText The Mage tasked with researching turning your opponents blood to mana, went missing and was found later with all his memorys lost End
 End
 
@@ -364,7 +364,7 @@ Ability: FlavourText A last gift from the gods End
 End
 
 CUBE: Magic_Missile_Mage 20 4 4
-RARITY 1 10
+RARITY 1 5
 TYPE Shooter
 Ability: EveryXSummonCubeAbove TimeKonstant 300 CubeKonstant Magic_Missile
 End
@@ -1427,7 +1427,7 @@ Ability: Shadow
 End
 
 CUBE: Oblivion_Shard 30 3 3
-RARITY 1 10
+RARITY 1 -10
 TYPE Attacker
 Ability: EveryMinute EveryCubeWhich TRUE TakeXDamage DoubleKonstant 1
 End
@@ -1485,7 +1485,7 @@ End
 CUBE: Power_Pedestal 70 5 5
 RARITY 2 -70
 TYPE Mana
-Ability: AfterAnotherFriendlyCubeIsCreated TargetCube CubeInDirectionFromCube North Caster If AND IsSameCube Victim Target IsSameCube Culprit CoreOfFaction FactionOfThis GainAbility StrengthX DoubleKonstant 1
+Ability: AfterAnotherFriendlyCubeIsCreated TargetCube CubeInDirectionFromCube North Caster If AND IsSameCube Victim Target IsSameCube Culprit CoreOfThis GainAbility StrengthX DoubleKonstant 1
 End
 
 CUBE: Mana_Splintering 300 0 0
@@ -1505,4 +1505,59 @@ ChangeMaxHp DoubleKonstant 5
 Silent HealXDamage DoubleKonstant 5
 End
 
+CUBE: Slime_Vase 25 4 4
+RARITY 1 25
+TYPE Attacker
+Ability: OnDeathSummonCube CubeKonstant Large_Warrior_Slime
+End 
 
+CUBE: Fire_Vase 15 4 4
+RARITY 1 -10
+TYPE Wall
+Ability: OnDeathSummonCube CubeKonstant Fireball
+Ability: ExplodesX DoubleKonstant 1
+Ability: AfterThisDies AddCubeToHandOfFaction CubeKonstant Fire_Ping FactionOfThis
+End
+
+CUBE: Retribution_Wall 30 10 10
+RARITY 1 -20
+TYPE Wall
+Ability: RetaliateX DoubleKonstant 1
+Ability: AfterThisTakesDamage TargetCube ARandomDamagedFriend HealXDamage DoubleKonstant 1
+End
+
+CUBE: Mass_Healer 100 5 5
+RARITY 2 -40
+TYPE Healer
+Ability: Every10Seconds TargetCube ARandomDamagedFriend Both HealXDamage DoubleKonstant 2 
+EveryCubeWhich IsTouchingTarget HealXDamage DoubleKonstant 1
+Ability: AfterThisDies EveryCubeWhich TRUE HealXDamage DoubleKonstant 1
+End
+
+CUBE: Core_Grower 20 4 4
+RARITY 1 -5
+TYPE Healer
+Ability: EveryXSeconds DoubleKonstant 8 TargetCube CoreOfThis Both ChangeMaxHp DoubleKonstant 1 Silent HealXDamage DoubleKonstant 1
+End
+
+CUBE: Core_Retaliator 50 6 6
+RARITY 1 -10
+TYPE AbilityAdder
+Ability: AfterACubeTakesDamage If IsSameCube CoreOfThis Victim TargetCube Culprit TakeXDamage DoubleKonstant 1
+End
+
+CUBE: Shield_Transposer 30 5 5
+RARITY 1 -15
+TYPE Factory
+Ability: Every30Seconds AddCubeToHandOfFaction CubeKonstant Congealed_Shield FactionOfCube Caster
+End
+
+CUBE: Wrath_Of_Lightning 80 0 0
+RARITY 2 -70
+TYPE Attacker
+Ability: Spell
+Ability: UpToXEffiecencyY DoubleKonstant 10 DoubleKonstant 2
+Ability: AfterThisIsCreated Both SummonCubeOnPosition CubeKonstant Lightning_Cloud PositionInDirectionFromPosition South PositionOfCube Caster
+Both SummonCubeOnPosition CubeKonstant Lightning_Cloud PositionInDirectionFromPosition East PositionOfThis
+SummonCubeOnPosition CubeKonstant Lightning_Cloud PositionInDirectionFromPosition West PositionOfThis
+End

@@ -24,8 +24,8 @@ End
 
 BUFF: Tiny_Mana_Battery
 BelongsTo: Everyone
-Description: +10 starting Mana, +10 Max Mana End
-Ability: AfterThisIsCreated Both GenerateXMana DoubleKonstant 10 ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis
+Description: +10 Max Mana, +10 starting Mana End
+Ability: AfterThisIsCreated Both ChangeMaxManaOfFaction DoubleKonstant 10 FactionOfThis GenerateXMana DoubleKonstant 10
 End
 
 BUFF: Karate_Training
@@ -152,7 +152,7 @@ Description: Every 10 Seconds Earth heals 1 hp to any non Earth above it End
 Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth GainAbility Every10Seconds TargetCube CubeInDirectionFromCube North Caster If NOT CubeHasNameOfCube Target CubeKonstant Earth HealXDamage DoubleKonstant 1 
 End
 
-BUFF: Buried_Scrap
+BUFF: Burried_Earth_Treasures
 BelongsTo: Everyone
 Description: After Earth gets destroyed it spawns a random Cube, the Cube is neutral End
 Ability: AfterThisIsCreated EveryCubeWhich CubeHasNameOfCube Test CubeKonstant Earth GainAbility 
@@ -188,7 +188,7 @@ End
 BUFF: Call_Of_The_Apocalypse
 BelongsTo: Everyone
 Description: Every 10 Minutes Your Core deals 10 damage to all Cubes ,including itself End
-Ability: Every10Minutes EveryCubeWhich IsSameCube Caster Caster TakeXDamage DoubleKonstant 10
+Ability: Every10Minutes EveryCubeWhich TRUE TakeXDamage DoubleKonstant 10
 End
 
 BUFF: Emergency_Healing
@@ -288,6 +288,12 @@ ChangeManaCost Division ManaCostOfCube Target DoubleKonstant -2
 AddCubeToHandOfThis Target
 End
 
+BUFF: Architects_Help
+BelongsTo: Everyone
+Description: At the start of the game add 1 extra health to a cube in your hand End
+Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
+End
+
 BUFF: Crippling_Curse
 BelongsTo: Everyone
 Description: Every 2 times an enemy core takes damage an enemy core looses 1 max hp End
@@ -314,14 +320,80 @@ Description: Every 30 Seconds add a free congealed shield cube to your hand End
 Ability: Every30Seconds AddCubeToHandOfFaction CubeKonstant Congealed_Shield FactionOfCube Caster
 End
 
-BUFF: Architects_Help
-BelongsTo: Everyone
-Description: At the start of the game add 1 extra health to a cube in your hand End
-Ability: AfterThisIsCreated TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
-End
-
 BUFF: Architectural_Ingenuity
 BelongsTo: Everyone
 Description: Every 5 minutes a random permanent cube in your hand gets 1 extra hp End
 Ability: EveryXMinutes DoubleKonstant 5 TargetCube ARandomCubeFromHandOfFactionWhich FactionOfThis NOT CubeHasLimitedUses Test Silent Both ChangeMaxHp DoubleKonstant 1 HealXDamage DoubleKonstant 1
 End
+
+BUFF: Emergency_Growth
+BelongsTo: Everyone
+Description: Every 10 seconds if your core has less than 20% hp it gains 1 extra hp End
+Ability: Every10Seconds If IsSmaller HpOfCube Caster Division MaxHpOfCube Caster DoubleKonstant 5 Both
+ChangeMaxHp DoubleKonstant 1
+Silent HealXDamage DoubleKonstant 1
+End
+
+BUFF: Green_Sword
+BelongsTo: Everyone
+Description: Your core has a small meele attack and heals 2 hp every minute End
+Ability: EveryXMeeleY TimeKonstant 240 DoubleKonstant 1
+Ability: RegenerationX DoubleKonstant 2
+End
+
+BUFF: Pendant_Of_Restoration
+BelongsTo: Everyone
+Description: Every 2 minutes every friendly cube is healed for 1 damage End
+Ability: EveryXMinutes DoubleKonstant 2 EveryCubeWhich IsFriendToCaster Test HealXDamage DoubleKonstant 1
+End
+
+BUFF: Titans_Boots
+BelongsTo: Everyone
+Description: Your and all enemy cores try to move forward every minute End
+Ability: ChargeEveryX TimeKonstant 3600 
+Ability: AfterThisIsCreated EveryCubeWhich AND IsEnemyToCaster Test IsSameCube Test CoreOfFaction FactionOfCube Test GainAbility 
+ChargeEveryX TimeKonstant 3600 
+End
+
+BUFF: Gray_Sword
+BelongsTo: Everyone
+Description: Your core has a small meele attack and 5 extra hp End
+Ability: EveryXMeeleY TimeKonstant 360 DoubleKonstant 2
+Ability: AfterThisIsCreated Both ChangeMaxHp DoubleKonstant 5 HealXDamage DoubleKonstant 5
+End
+
+BUFF: Blue_Sword
+BelongsTo: Everyone
+Description: Your core has a small meele attack and 20 maximum mana End
+Ability: EveryXMeeleY TimeKonstant 240 DoubleKonstant 1
+Ability: AfterThisIsCreated ChangeMaxManaOfFaction DoubleKonstant 20 FactionOfThis
+End
+
+BUFF: Lashing_Out
+BelongsTo: Everyone
+Description: Every 2 times your core takes damage it deals 1 damage to the cube infront of it End
+Ability: AfterThisTakesDamage EveryXTimes DoubleKonstant 2 
+TargetCube CubeInDirectionFromCube EnemyDirection Caster TakeXDamage DoubleKonstant 1
+End
+
+BUFF: Emergency_Inspiration
+BelongsTo: Everyone
+Description: While your Core has less than 20% of its hp enemys take 1 more damage from everything End
+Ability: BeforeACubeTakesDamage If AND IsEnemyToCaster Victim IsSmaller HpOfCube Caster Division MaxHpOfCube Caster DoubleKonstant 5
+NegateX DoubleKonstant -1
+End 
+
+BUFF: Mana_Less_Blessing
+BelongsTo: Everyone
+Description: Every second if you have less than 1% mana your core heals 1 hp End
+Ability: EverySecond If IsSmaller ManaOfFaction FactionOfThis Division MaxManaOfFaction FactionOfThis DoubleKonstant 100
+HealXDamage DoubleKonstant 1
+End
+
+BUFF: Mana_Less_Crystal
+BelongsTo: Everyone
+Description: Every second if you have less than 1% mana you gain 1 maximum mana End
+Ability: EverySecond If IsSmaller ManaOfFaction FactionOfThis Division MaxManaOfFaction FactionOfThis DoubleKonstant 100
+ChangeMaxManaOfFaction FactionOfThis DoubleKonstant 1
+End
+

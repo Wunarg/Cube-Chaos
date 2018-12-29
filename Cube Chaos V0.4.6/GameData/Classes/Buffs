@@ -9,9 +9,10 @@ End
 
 BUFF: Warrior
 BelongsTo: CLASS
-Description: You and your minions charge at the enemy. Your core can meele and you obtain a spell which teleports your core back  End
+Description: You and your minions charge at the enemy. Your core can meele, regenerates and you obtain a spell which teleports your core back  End
 Ability: EveryXMeeleY TimeKonstant 70 DoubleKonstant 3
-Ability: ChargeEveryX TimeKonstant 120
+Ability: ChargeEveryX TimeKonstant 240
+Ability: RegenerationX DoubleKonstant 5
 Ability: AfterThisIsCreated SummonCubeOnPosition CubeKonstant Warriors_Heart PositionInDirectionFromPosition ReverseDirection EnemyDirection PositionOfCube Caster
 Ability: EverySecond AddCubeToHandOfThis CubeKonstant Core_Return
 ObtainAbility: AddCubeToPlayerLibrary CubeKonstant Strength_Potion
@@ -394,10 +395,9 @@ End
 
 BUFF: Engineer-Chaos
 BelongsTo: CLASSRACE
-Description: Cubes you tinker with gain a random buff, but tinkering costs twice as much too End
+Description: Cubes you tinker with gain a random buff End
 Ability: AfterAnotherFriendlyCubeIsCreated If CubeHasNameOfCube Victim CubeKonstant Tinkering 
-Both TargetCube CubeInDirectionFromCube South Victim GainAbility RandomBuff
-GenerateXMana DoubleKonstant -40
+TargetCube CubeInDirectionFromCube South Victim GainAbility RandomBuff
 End
 
 BUFF: Pyromaniac-Chaos

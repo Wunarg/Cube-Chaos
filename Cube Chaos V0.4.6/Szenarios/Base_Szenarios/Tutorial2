@@ -5,12 +5,12 @@ CUBE: 2 Tiny_Castle
 CUBE: 3 Earth
 CUBE: 4 Useless_Core
 CUBE: 5 Basic_Laser
+CUBE: 6 Stone
 
 DATA: 1 2 17 1
-
+DATA: 6 3 17 1
 
 DATA: 4 38 17 2
-
 DATA: 2 37 16 2
 DATA: 3 37 17 2
 DATA: 5 36 18 2

@@ -126,7 +126,7 @@ Ability: RegenerationX DoubleKonstant 3
 End
 
 CUBE: Blue_Moss 40 3 3
-RARITY 3 5
+RARITY 2 5
 TYPE Mana
 Ability: Every30Seconds Both SummonCubeOnPosition CubeKonstant Blue_Moss PositionInDirectionFromPosition West PositionOfCube Caster
 SummonCubeOnPosition CubeKonstant Blue_Moss PositionInDirectionFromPosition East PositionOfCube Caster
